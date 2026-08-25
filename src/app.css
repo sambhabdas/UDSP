@@ -1,0 +1,19 @@
+/* Page-level rules the .dc.html carries in its helmet. */
+html, body, #root { height: 100%; margin: 0; }
+
+a { color: var(--text-link); text-decoration: none; }
+a:hover { color: var(--primary-hover); text-decoration: underline; }
+
+textarea, input { font-family: var(--font-family); }
+textarea:focus, textarea:focus-visible,
+input:focus, input:focus-visible { outline: none !important; box-shadow: none !important; }
+
+/* Fields take the focus border on the wrapper, not a ring on the input. */
+[data-field] {
+  transition: border-color var(--duration-ultra-fast) var(--curve-linear),
+              background var(--duration-ultra-fast) var(--curve-linear);
+}
+[data-field]:focus-within {
+  border-color: var(--border-focus) !important;
+  background: var(--surface-card) !important;
+}

@@ -1,0 +1,31 @@
+/* Ultimate DSP — Fluent motion.
+   Duration follows distance: the further a thing travels, the longer it takes.
+   Colour changes are the exception: 50ms linear, always. */
+:root {
+  --duration-ultra-fast: 50ms;   /* colour, opacity on hover */
+  --duration-faster: 100ms;      /* small state flips */
+  --duration-fast: 150ms;        /* menus, tooltips, panel width */
+  --duration-normal: 200ms;      /* dialogs, toasts entering */
+  --duration-gentle: 250ms;      /* drawers */
+  --duration-slow: 300ms;
+  --duration-slower: 400ms;      /* full-screen transitions */
+
+  --curve-accelerate-max: cubic-bezier(.9, .1, 1, .2);   /* exits off-screen */
+  --curve-accelerate-mid: cubic-bezier(1, 0, 1, 1);
+  --curve-decelerate-max: cubic-bezier(.1, .9, .2, 1);   /* enters from off-screen */
+  --curve-decelerate-mid: cubic-bezier(0, 0, 0, 1);
+  --curve-easy-ease: cubic-bezier(.33, 0, .67, 1);       /* on-screen to on-screen */
+  --curve-linear: cubic-bezier(0, 0, 1, 1);              /* colour only */
+
+  --motion-hover: var(--duration-ultra-fast) var(--curve-linear);
+  --motion-enter: var(--duration-fast) var(--curve-decelerate-max);
+  --motion-exit: var(--duration-faster) var(--curve-accelerate-max);
+  --motion-move: var(--duration-fast) var(--curve-easy-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-ultra-fast: 1ms; --duration-faster: 1ms; --duration-fast: 1ms;
+    --duration-normal: 1ms; --duration-gentle: 1ms; --duration-slow: 1ms; --duration-slower: 1ms;
+  }
+}

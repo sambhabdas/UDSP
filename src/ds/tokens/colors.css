@@ -1,0 +1,106 @@
+/* Ultimate DSP — color ramps and semantic aliases. Light only.
+   Every color in the system is one of these steps. Never sample from a screenshot. */
+:root {
+  /* Blue — Primary. Interaction, links, the one brand color. */
+  --blue-50:  #EFF6FF;  /* selected row, soft button fill */
+  --blue-100: #DBEAFE;  /* badge fill, chip background */
+  --blue-200: #BFDBFE;  /* borders on tinted fills, count pills */
+  --blue-300: #93C5FD;  /* heavier borders, on-dark tints */
+  --blue-400: #60A5FA;  /* accent · focus ring, on-dark text */
+  --blue-500: #3B82F6;  /* dots, chart series — not text */
+  --blue-600: #2563EB;  /* primary · buttons, active nav */
+  --blue-700: #1D4ED8;  /* secondary · hover, link text */
+  --blue-800: #1E40AF;  /* pressed state on primary */
+  --blue-900: #1E3A8A;  /* title text on info tints */
+
+  /* Neutral. Every surface, border and non-status text. */
+  --neutral-50:  #FCFCFD; /* background · page canvas */
+  --neutral-100: #FAFAFA; /* group header rows, zebra */
+  --neutral-200: #E7E7E7; /* default 1px border — hairline */
+  --neutral-400: #94A3B8; /* placeholder, disabled label */
+  --neutral-500: #64748B; /* helper text, notes, timestamps */
+  --neutral-600: #475569; /* body text, secondary label */
+  --neutral-900: #111827; /* dark · headings, app rail */
+  --white: #ffffff;
+
+  /* Green — Success. Delivered, on time, confirmed, all in. */
+  --green-50:  #ECFDF5;
+  --green-100: #D1FAE5;
+  --green-200: #A7F3D0;
+  --green-300: #6EE7B7;
+  --green-500: #10B981;
+  --green-600: #059669;  /* fills and icons only — not text */
+  --green-700: #047857;
+  --green-800: #065F46;
+
+  /* Yellow — Highlight. Needs attention, pending, running late. */
+  --yellow-50:  #FFFBEB;
+  --yellow-100: #FEF3C7;
+  --yellow-200: #FDE68A;
+  --yellow-300: #FCD34D;
+  --yellow-500: #FBBF24;
+  --yellow-600: #D97706;  /* rules and fills only — not text */
+  --yellow-700: #B45309;
+  --yellow-800: #92400E;
+
+  /* Red — Danger. Missed, blocked, destructive actions. */
+  --red-50:  #FEF2F2;
+  --red-100: #FEE2E2;
+  --red-200: #FECACA;
+  --red-300: #FCA5A5;
+  --red-500: #EF4444;
+  --red-600: #DC2626;
+  --red-700: #B91C1C;
+  --red-800: #991B1B;
+
+  /* On-dark lifts. The rail sits on neutral-900, where neutral-400 reads too dark. */
+  --on-dark-icon:  #C9D1DB;
+  --on-dark-label: #BCC5D2;
+
+  /* --- Semantic aliases. Reach for these first. --- */
+  --surface-page:     var(--neutral-50);
+  --surface-card:     var(--white);
+  --surface-raised:   var(--white);
+  --surface-subtle:   var(--neutral-100);
+  --surface-selected: var(--neutral-200);
+  --surface-inverse:  var(--neutral-900);
+
+  --border-default: var(--neutral-200); /* structural hairline */
+  --border-subtle:  #F0F0F0;            /* in-card divider */
+  --border-strong:  var(--neutral-400);
+  --border-focus:   var(--blue-600);
+
+  --text-primary:   var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-helper:    var(--neutral-500);
+  --text-label:     #8A94A6;            /* uppercase eyebrow and card labels */
+  --text-disabled:  var(--neutral-400);
+  --text-inverse:   var(--white);
+  --text-link:      var(--blue-700);
+
+  --primary:         var(--blue-600);
+  --primary-hover:   var(--blue-700);
+  --primary-pressed: var(--blue-800);
+  --primary-soft:    var(--blue-50);
+  --accent:          var(--blue-400);
+
+  --success-accent: var(--green-500);
+  --success-fg:     var(--green-700);
+  --success-bg:     var(--green-100);
+  --success-border: var(--green-200);
+
+  --warning-accent: var(--yellow-500);
+  --warning-fg:     var(--yellow-700);
+  --warning-bg:     var(--yellow-100);
+  --warning-border: var(--yellow-200);
+
+  --danger-accent: var(--red-500);
+  --danger-fg:     var(--red-700);
+  --danger-bg:     var(--red-100);
+  --danger-border: var(--red-200);
+
+  --info-accent: var(--blue-500);
+  --info-fg:     var(--blue-700);
+  --info-bg:     var(--blue-100);
+  --info-border: var(--blue-200);
+}

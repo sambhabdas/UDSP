@@ -1,0 +1,42 @@
+/* Ultimate DSP — Fluent global size ramp, 4px base.
+   size20 / size60 / size100 are icon-inset exceptions; everything else is a multiple of 4. */
+:root {
+  --size-none: 0px;
+  --size-20:  2px;   /* icon inset */
+  --size-40:  4px;
+  --size-60:  6px;   /* icon inset */
+  --size-80:  8px;
+  --size-100: 10px;  /* icon inset */
+  --size-120: 12px;
+  --size-160: 16px;
+  --size-200: 20px;
+  --size-240: 24px;
+  --size-280: 28px;
+  --size-320: 32px;
+  --size-360: 36px;
+  --size-400: 40px;
+  --size-480: 48px;
+  --size-520: 52px;
+  --size-560: 56px;
+
+  /* Fixed assignments. These are decisions, not suggestions. */
+  --space-icon-label:   var(--size-80);   /* icon to its label */
+  --space-stacked:      var(--size-40);   /* stacked label and value */
+  --space-card-padding: var(--size-200);
+  --space-card-gap:     var(--size-160);
+  --space-toolbar-gap:  var(--size-80);
+  --space-section-gap:  var(--size-320);
+  --space-heading-gap:  var(--size-240);
+  --space-cell-y:       var(--size-120);
+  --space-cell-x:       var(--size-160);
+  --grid-gutter:        var(--size-160);
+
+  /* Fixed chrome. */
+  --rail-width: 48px;
+  --rail-tile-width: 40px;
+  --rail-tile-height: 36px;
+  --header-height: 48px;
+  --panel-width: 212px;
+  --row-height: 32px;
+  --control-height: 32px;
+}

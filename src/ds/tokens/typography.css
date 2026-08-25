@@ -1,0 +1,39 @@
+/* Ultimate DSP — Segoe UI on the Fluent web ramp.
+   Size and line-height are PAIRED. Never mix them freely.
+   Weights: Regular 400, Semibold 600, Bold 700. Nothing else. */
+:root {
+  --font-family: "Segoe UI", "Segoe UI Web (West European)", -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: Consolas, "Cascadia Mono", ui-monospace, "SF Mono", monospace;
+
+  --weight-regular: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Paired size / line-height. */
+  --caption-2-size: 10px;   --caption-2-lh: 14px;
+  --caption-1-size: 12px;   --caption-1-lh: 16px;
+  --body-1-size:    14px;   --body-1-lh:    20px;
+  --subtitle-2-size:16px;   --subtitle-2-lh:22px;
+  --subtitle-1-size:20px;   --subtitle-1-lh:26px;
+  --title-3-size:   24px;   --title-3-lh:   32px;
+  --title-2-size:   28px;   --title-2-lh:   36px;
+  --title-1-size:   32px;   --title-1-lh:   40px;
+  --large-title-size:40px;  --large-title-lh:52px;
+  --display-size:   68px;   --display-lh:   92px;
+}
+
+/* Ready-made classes for the ten web styles. Use the pair, never half of it. */
+.ds-caption-2 { font-size: var(--caption-2-size); line-height: var(--caption-2-lh); font-weight: var(--weight-regular); }
+.ds-caption-2-strong { font-size: var(--caption-2-size); line-height: var(--caption-2-lh); font-weight: var(--weight-semibold); }
+.ds-caption-1 { font-size: var(--caption-1-size); line-height: var(--caption-1-lh); font-weight: var(--weight-regular); }
+.ds-caption-1-strong { font-size: var(--caption-1-size); line-height: var(--caption-1-lh); font-weight: var(--weight-semibold); }
+.ds-caption-1-stronger { font-size: var(--caption-1-size); line-height: var(--caption-1-lh); font-weight: var(--weight-bold); }
+.ds-body-1 { font-size: var(--body-1-size); line-height: var(--body-1-lh); font-weight: var(--weight-regular); }
+.ds-body-1-strong { font-size: var(--body-1-size); line-height: var(--body-1-lh); font-weight: var(--weight-semibold); }
+.ds-body-1-stronger { font-size: var(--body-1-size); line-height: var(--body-1-lh); font-weight: var(--weight-bold); }
+.ds-subtitle-2 { font-size: var(--subtitle-2-size); line-height: var(--subtitle-2-lh); font-weight: var(--weight-semibold); }
+.ds-subtitle-1 { font-size: var(--subtitle-1-size); line-height: var(--subtitle-1-lh); font-weight: var(--weight-semibold); }
+.ds-title-3 { font-size: var(--title-3-size); line-height: var(--title-3-lh); font-weight: var(--weight-semibold); }
+.ds-title-2 { font-size: var(--title-2-size); line-height: var(--title-2-lh); font-weight: var(--weight-semibold); }
+.ds-title-1 { font-size: var(--title-1-size); line-height: var(--title-1-lh); font-weight: var(--weight-semibold); }
