@@ -17,3 +17,12 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
   border-color: var(--border-focus) !important;
   background: var(--surface-card) !important;
 }
+
+/* Company & Station · Branding.
+   The live preview sits beside the fields on a wide card and beneath them on a
+   narrow one. Its left divider and indent only mean anything side by side, so
+   they come off once the two columns wrap. */
+@media (max-width: 719px) {
+  [data-brand-fields] { padding-right: 0 !important; }
+  [data-brand-preview] { border-left: none !important; padding-left: 0 !important; }
+}

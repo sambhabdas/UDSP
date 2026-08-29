@@ -100,12 +100,12 @@ export const PORTALS = [
     name: 'Admin Portal',
     icon: 'RailAdmin',
     pages: [
-      { id: 'users', label: 'Users', icon: 'PgPerson' },
-      { id: 'roles', label: 'Roles & Permissions', icon: 'PgKey' },
-      { id: 'contacts', label: 'Contacts', icon: 'PgContactCard' },
-      { id: 'company-station', label: 'Company & Station', icon: 'PgBuilding' },
-      { id: 'connections', label: 'Connections', icon: 'PgLink' },
-      { id: 'billing', label: 'Billing & Subscription', icon: 'PgPayment' },
+      { id: 'users', label: 'Users', icon: 'PgPerson', built: true },
+      { id: 'roles', label: 'Roles & Permissions', icon: 'PgKey', built: true },
+      { id: 'contacts', label: 'Contacts', icon: 'PgContactCard', built: true },
+      { id: 'company-station', label: 'Company & Station', icon: 'PgBuilding', built: true },
+      { id: 'connections', label: 'Connections', icon: 'PgLink', built: true },
+      { id: 'billing', label: 'Billing & Subscription', icon: 'PgPayment', built: true },
     ],
   },
 ]
