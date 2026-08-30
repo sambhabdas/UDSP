@@ -18,6 +18,40 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
   background: var(--surface-card) !important;
 }
 
+/* Dialogs, drawers and filter panels.
+
+   A floating card is laid out in pixels — 880 for the fleet ledger, 672 for an
+   import, 360 for a filter drawer — because that is what the design files
+   specify at a comfortable width. None of those numbers know how wide the
+   window actually is, so the card has to be told: never wider or taller than
+   the window it opens in, less a 16px gutter on each side.
+
+   This replaced five different guesses at the same rule (92vw, 94vw, 100%,
+   calc(100vw - 96px), and nothing at all), which is why it is one declaration
+   on one attribute rather than a maxWidth in thirty-nine style objects. A card
+   already holding its own inner scroller keeps it; this only sets the ceiling.
+
+   Scrolling is the safety net: a card whose content cannot shrink to fit shows
+   it on a scrollbar rather than spilling its text across the page. */
+[data-dialog-card] {
+  max-width: calc(100vw - 32px) !important;
+  /* Height is deliberately NOT !important: several cards set a tighter 82–86vh
+     so the scrim still reads as a scrim behind them. Those keep their own cap;
+     this only catches the ones that never set one. */
+  max-height: calc(100vh - 32px);
+}
+
+/* Once a card has been capped below the width it was drawn at, its contents
+   have to go somewhere. Scrolling shows all of them; the `overflow: hidden`
+   most of these cards set for their rounded corners would just cut the
+   right-hand column off instead. `data-dialog-loose` opts out the four whose
+   own dropdowns are meant to escape the card — clipping those would be the
+   worse bug, and none of them is drawn wider than 720. */
+[data-dialog-card]:not([data-dialog-loose]) {
+  overflow-x: auto !important;
+  overflow-y: auto;
+}
+
 /* Company & Station · Branding.
    The live preview sits beside the fields on a wide card and beneath them on a
    narrow one. Its left divider and indent only mean anything side by side, so
@@ -25,4 +59,73 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
 @media (max-width: 719px) {
   [data-brand-fields] { padding-right: 0 !important; }
   [data-brand-preview] { border-left: none !important; padding-left: 0 !important; }
+}
+
+/* Rate Cards.
+   The page is eight columns wide and cannot fold, so it keeps its own 980px
+   scroller and gives the padding back instead — RateCards.dc.html's own rule,
+   at its own breakpoints. */
+@media (max-width: 1279px) {
+  [data-screen-label='Rate Cards'] { padding: var(--size-160) !important; }
+}
+@media (max-width: 1023px) {
+  [data-screen-label='Rate Cards'] { padding: var(--size-120) !important; }
+}
+
+/* The board pages — Dispatch and Compliance.
+   Their tables are wide and cannot fold, so they keep their own scrollers and
+   the page gives padding back instead: the design files' own rules, at their
+   own breakpoints. The Setup rails drop to one column where a fixed 340px
+   beside a panel no longer fits. */
+@media (max-width: 1279px) {
+  [data-rsp-page] { padding: var(--size-160) var(--size-160) var(--size-280) var(--size-160) !important; }
+}
+@media (max-width: 1023px) {
+  [data-rsp-page] { padding: var(--size-120) var(--size-120) var(--size-240) var(--size-120) !important; }
+  [data-rsp-bar] { flex-wrap: wrap !important; row-gap: var(--size-40) !important; padding: var(--size-60) var(--size-120) !important; }
+  [data-rsp-c2], [data-rsp-rail] { grid-template-columns: minmax(0, 1fr) !important; }
+  [data-rsp-wrap] { flex-wrap: wrap !important; row-gap: var(--size-60) !important; }
+  [data-rsp-scroll] { overflow-x: auto !important; }
+  [data-rsp-minw] { min-width: 960px; }
+  /* A bar item centred on the bar rather than between its neighbours rejoins
+     the flow once the bar wraps, or it would sit on top of what wrapped. */
+  [data-rsp-static] { position: static !important; transform: none !important; }
+  /* Fleet Dashboard's tables are laid out on a fixed 1120px canvas; below the
+     fold it gives that up and lets the grids reflow instead of scrolling. */
+  [data-rsp-minw0] { min-width: 0 !important; }
+  [data-rsp-kpi] { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important; }
+}
+
+/* The Fleet pages pad evenly — they have no sticky footer to clear, so they do
+   not take the extra bottom the board pages ask for. Vehicles carries the
+   attribute on its own root, hence the compound selector. */
+@media (max-width: 1279px) {
+  [data-screen-label='Fleet Dashboard'] [data-rsp-page],
+  [data-screen-label='Vehicles'][data-rsp-page],
+  [data-screen-label='Fleet Financials'][data-rsp-page] { padding: var(--size-160) !important; }
+}
+@media (max-width: 1023px) {
+  [data-screen-label='Fleet Dashboard'] [data-rsp-page],
+  [data-screen-label='Vehicles'][data-rsp-page],
+  [data-screen-label='Fleet Financials'][data-rsp-page] { padding: var(--size-120) !important; }
+}
+
+/* A search box hides its own magnifier once it has focus or any text, so the
+   caret starts at the left edge. The board pages' helmets carry this; Fleet
+   Dashboard's does not, so its boxes opt out with data-keep-icon. */
+[data-search]:not([data-keep-icon]):focus-within > span:first-child,
+[data-search]:not([data-keep-icon]):has(input:not(:placeholder-shown)) > span:first-child {
+  display: none !important;
+}
+[data-search]:focus-within { border-color: var(--primary) !important; }
+
+/* Associates narrows only its sides. Its two views start at different tops and
+   both keep the deep bottom that holds the last row clear of the toast, so the
+   page opts out of the shared data-rsp-page shorthand entirely and carries its
+   own attribute — the design file's helmet sets left and right and nothing else. */
+@media (max-width: 1279px) {
+  [data-rsp-assoc] { padding-left: var(--size-160) !important; padding-right: var(--size-160) !important; }
+}
+@media (max-width: 1023px) {
+  [data-rsp-assoc] { padding-left: var(--size-120) !important; padding-right: var(--size-120) !important; }
 }

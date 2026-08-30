@@ -1,13 +1,110 @@
 # Ultimate DSP — console
 
-React + Vite implementation of the Ultimate DSP dispatch console. Two screens
-are built so far: the **Inbox** portal and **Payroll Setup**, 1st of 5 on the
-Financial Management panel.
+Next.js + TypeScript implementation of the Ultimate DSP dispatch console.
+Eleven screens are built so far, across the Inbox, Surveys, Financial
+Management and Admin portals.
 
 ```bash
 npm install
 npm run dev
 ```
+
+| Script | What it does |
+| --- | --- |
+| `npm run dev` | Next dev server on :3000 |
+| `npm run build` | production build — every nav route is pre-rendered |
+| `npm start` | serve the production build |
+| `npm run typecheck` | `tsc --noEmit`, strict |
+| `npm run lint` | oxlint |
+
+## Configuration
+
+`.env` holds the deployment's branding and station identity — the values that a
+second station running this same build would change. Everything in it is
+`NEXT_PUBLIC_`, which means it is compiled into the client bundle in plain text:
+**no secret belongs in that file**, and there is no backend yet for one to talk
+to. `.env.example` is the same file, committed as documentation.
+
+## Responsive behaviour
+
+Every page is checked at 640, 700, 760, 768, 834, 1440 and 1920 — a window is
+not always a whole screen, so the tablet end is sampled below 768 as well. Two
+rules hold at all of them:
+
+- **The document never scrolls sideways.** Whatever a page needs, it fits.
+- **A wide table scrolls inside its own container, not the page.** Its header,
+  its rows and its totals share one scroller, so a column can never drift away
+  from the heading that names it.
+
+Most of this is done from `src/app.css` rather than per-page media queries: a
+page marks the element that has to adapt with a `data-rsp-*` attribute, and one
+stylesheet says what each attribute means at each width.
+
+| Attribute | At ≤1023 (unless noted) |
+| --- | --- |
+| `data-rsp-page` | the page's own padding steps down (also at ≤1279) |
+| `data-rsp-bar` · `data-rsp-wrap` | the row wraps instead of squeezing |
+| `data-rsp-c2` · `data-rsp-rail` | a two-column grid becomes one |
+| `data-rsp-kpi` | the KPI strip re-flows |
+| `data-rsp-scroll` + `data-rsp-minw` | the block scrolls sideways below a floor |
+| `data-rsp-static` | a centred bar item rejoins the flow once the bar wraps |
+| `data-rsp-minw0` | a flex child is allowed to shrink past its content |
+
+Overlays are governed separately, because a dialog is laid out in pixels — 880
+for the fleet ledger, 672 for an import, 360 for a filter drawer — and those
+numbers know nothing about the window. Every dialog, drawer and filter panel
+carries `data-dialog-card`, and one rule in `app.css` caps it at
+`calc(100vw - 32px)` and lets it scroll rather than clip. The four cards whose
+own dropdowns are meant to escape their box carry `data-dialog-loose` and keep
+visible overflow; each of those sits in a scrim that scrolls instead.
+
+Below 640 the shell's rail and header start to dominate the page, and no design
+file draws a phone layout, so that is where the checking stops.
+
+## Routing
+
+The URL is the nav model written down: `/finance/payroll-setup`, `/inbox`, and
+so on, so every page the rail can reach can also be linked, bookmarked and
+reloaded. All thirty are pre-rendered.
+
+Each built page has its own route segment under `app/`, four lines long, whose
+only job is to import one screen. Everything else — the real nav entries with
+no screen yet, and anything that is not a nav entry at all — falls through to
+`app/[...slug]/page.tsx`.
+
+The split is a bundling decision, not a stylistic one. One catch-all serving
+every screen means one module graph, and the measurement was blunt: Roles &
+Permissions, a read-only reference page, was shipping the Inbox, the payroll
+calendar, every chart and all eleven seed sets — 1,317 kB of JavaScript. Per
+route it is now 691–764 kB, most of that the React and Next runtime the pages
+share.
+
+`nav.ts` carries the `built` flag that says which of those pages exist, and
+`BUILT_COUNT` is derived from it — the not-built state quotes that number
+rather than one written down by hand.
+
+The shell lives in `src/app/layout.tsx`, so the rail, the panel and the header
+survive navigation and only the screen under them re-renders. It reads the
+current route from `usePathname()` rather than being handed it.
+
+Every screen is a client component: the product is one long interaction, and
+there is no data to fetch on the server. Two things follow from server
+rendering that a client-only build never had to think about, and both are
+handled rather than worked around — `useViewportWidth` uses
+`useSyncExternalStore` with a documented server snapshot, and the persisted
+chart order in Profitability is read from `localStorage` after mount, never
+during render. Either one read eagerly would disagree with the server's HTML.
+
+## Types
+
+State hooks export their shape rather than declaring it twice:
+
+```ts
+export type PayrollState = ReturnType<typeof usePayrollSetup>
+```
+
+The `{ s }` prop every section takes is typed against that, so a hook and the
+components reading it cannot drift.
 
 ## Sources of truth
 
@@ -27,60 +124,119 @@ Where the design file and this readme disagree, the design file wins.
 
 ```
 src/
+  config/
+    env.ts                 every deployment value, read once and in one place
   ds/                      the design system, consumed not re-invented
     styles.css             entry point — imports every token file
-    charts/ChartKit.jsx    axes, plot, legend, tooltip, bars, lines, gauge — shared
-    charts/chartTokens.js  the card shell and the line-path helper
+    format.ts              the number, money and percent formatters, all pinned
+                           to one locale so no two operators read a figure apart
+    hooks.ts               useToast · anchorTo/anchorAt/clampLeft · paginate —
+                           the behaviour every page had rewritten for itself
+    charts/ChartKit.tsx    axes, plot, legend, tooltip, bars, lines, gauge — shared
+    charts/chartTokens.ts  the card shell and the line-path helper
     tokens/*.css           colors · typography · spacing · radius · elevation · motion
-    type.js                the Fluent ramp as style objects (size and leading are paired)
-    useHover.js            the .dc.html `style-hover` attribute, as a hook
-    useViewportWidth.js    the three Inbox breakpoints
-    components/Chip.jsx    filter pill + status pill
+    type.ts                the Fluent ramp as style objects (size and leading are paired),
+                           plus the two documented composites and the mono face
+    focus.ts               the two focus rings and the keyboard-only hook
+    useHover.ts            the .dc.html `style-hover` attribute, as a hook
+    useViewportWidth.ts    the three Inbox breakpoints, SSR-safe
+    components/Chip.tsx    filter pill + status pill
+    components/Toast.tsx   the confirmation line, in the two sizes pages ask for
     icons/                 glyph tables and the <Icon> component
+  app/
+    layout.tsx             <html>, the stylesheets, and the shell around every page
+    inbox/page.tsx         one four-line segment per built screen, so each route
+    admin/roles/page.tsx     bundles only the screen it renders
+    …
+    [...slug]/page.tsx     the fallback: real nav entries with no screen yet
+    not-found.tsx          an address that matches no portal
   shell/
-    nav.js                 the rail's 9 entries in 4 groups + each portal's pages
-    AppShell.jsx           48px rail · portal flyout · 48px header
-    NotBuilt.jsx           honest stub for nav entries with no page yet
+    nav.ts                 the rail's 9 entries in 4 groups + each portal's pages,
+                           and the URL each one resolves to
+    AppShell.tsx           48px rail · collapsible pane-2 panel · 48px header,
+                           driven by the route
+    NotBuilt.tsx           honest stub for nav entries with no page yet
   features/inbox/
-    InboxPage.jsx          the three columns, the breakpoints, the dialer FAB
-    RecentsPanel.jsx       search · All/Unread/Missed · person rows
-    ActivityPanel.jsx      person header · channel chips · timeline · composer
-    Timeline.jsx           one renderer per activity kind
-    Composer.jsx           Text / Email / Note + the Call button
-    DecisionRail.jsx       profile · route · performance · tasks
-    useInbox.js            all shared state and the queue rules
-    data.js                seed, verbatim from the design file's `seed()`
+    InboxPage.tsx          the three columns, the breakpoints, the dialer FAB
+    RecentsPanel.tsx       search · All/Unread/Missed · person rows
+    ActivityPanel.tsx      person header · channel chips · timeline · composer
+    Timeline.tsx           one renderer per activity kind
+    Composer.tsx           Text / Email / Note + the Call button
+    DecisionRail.tsx       profile · route · performance · tasks
+    useInbox.ts            all shared state and the queue rules
+    data.ts                seed, verbatim from the design file's `seed()`
   features/profit-projection/
-    ProfitProjectionPage.jsx  sticky toolbar, sections, dialog, toast
-    Toolbar.jsx            grain · range stepper · lock · export
-    Summary.jsx            projection inputs · the money · what moves it · cost breakdown
-    DetailTable.jsx        day-by-day (week) or who-was-paid (day)
-    ImportDialog.jsx       the Paycom intake, mapped and split before it lands
-    Notes.jsx              a thread against the week or the day
-    charts/ChartKit.jsx    axes, plot, legend, tooltip, stacked bar, line
-    charts/WeekCharts.jsx  daily P&L · cost per route · per-route · reg vs OT · workforce
-    charts/DayCharts.jsx   hours per route
-    useProfitProjection.js all state
-    calc.js                formatters and the derived maths
-    data.js                the week's seven days, people, import fixtures
+    ProfitProjectionPage.tsx  sticky toolbar, sections, dialog, toast
+    Toolbar.tsx            grain · range stepper · lock · export
+    Summary.tsx            projection inputs · the money · what moves it · cost breakdown
+    DetailTable.tsx        day-by-day (week) or who-was-paid (day)
+    ImportDialog.tsx       the Paycom intake, mapped and split before it lands
+    Notes.tsx              a thread against the week or the day
+    charts/ChartKit.tsx    axes, plot, legend, tooltip, stacked bar, line
+    charts/WeekCharts.tsx  daily P&L · cost per route · per-route · reg vs OT · workforce
+    charts/DayCharts.tsx   hours per route
+    useProfitProjection.ts all state
+    calc.ts                formatters and the derived maths
+    data.ts                the week's seven days, people, import fixtures
   features/profitability/
-    ProfitabilityPage.jsx  toolbar, summary, the seven trends, history
-    Toolbar.jsx            period picker · range · inputs · compare · export
-    Summary.jsx            current-period strip · the money · what moves it
-    charts/Charts.jsx      the seven trend charts, drag-reorderable
-    HistoryTable.jsx       sortable history + the filter panel
-    useProfitability.js    all state, including the persisted chart order
-    calc.js                derived figures, comparison bases, deltas
-    data.js                sixteen pay periods and the projected current one
+    ProfitabilityPage.tsx  toolbar, summary, the seven trends, history
+    Toolbar.tsx            period picker · range · inputs · compare · export
+    Summary.tsx            current-period strip · the money · what moves it
+    charts/Charts.tsx      the seven trend charts, drag-reorderable
+    HistoryTable.tsx       sortable history + the filter panel
+    useProfitability.ts    all state, including the persisted chart order
+    calc.ts                derived figures, comparison bases, deltas
+    data.ts                sixteen pay periods and the projected current one
   features/payroll/
-    PayrollSetupPage.jsx   Calendar/Upload tabs, year + pay-period pickers
-    CalendarTab.jsx        setup form · the 26-row calendar · lock bar
-    UploadTab.jsx          Paycom drop zone · manual entry · figures · post bar
-    PayrollDialogs.jsx     lock · unlock · post · revert · discard
-    usePayrollSetup.js     all state, plus the generate and pay-date rules
-    calendar.js            Amazon-week maths — the only date logic in the app
-    data.js                seed, verbatim from the design file's constructor
-    table.js               the scroll wrapper dense tables share
+    PayrollSetupPage.tsx   Calendar/Upload tabs, year + pay-period pickers
+    CalendarTab.tsx        setup form · the 26-row calendar · lock bar
+    UploadTab.tsx          Paycom drop zone · manual entry · figures · post bar
+    PayrollDialogs.tsx     lock · unlock · post · revert · discard
+    usePayrollSetup.ts     all state, plus the generate and pay-date rules
+    calendar.ts            Amazon-week maths — the only date logic in the app
+    data.ts                seed, verbatim from the design file's constructor
+    table.ts               the scroll wrapper dense tables share
+  features/surveys/
+    SurveysPage.tsx        KPIs · the survey table · send dialog
+    SurveyMaker.tsx        the maker, which takes the page over while it is open
+    QuestionEditor.tsx     one question, collapsed or expanded
+    SurveyPreview.tsx      the driver's side, answerable
+    SendDialog.tsx         audience · timing · the anonymity promise, restated
+    useSurveys.ts          list, filters, send state
+    useSurveyMaker.ts      the survey being built
+    parts.tsx              the page's own controls
+    ui.ts                  segment tones and this page's eyebrow
+    data.ts                four surveys, the roster, the templates
+  features/admin-users/    portal users and Ultimate DA accounts, two populations
+  features/admin-roles/    the read-only capability matrix, six posts
+  features/admin-contacts/ the driver's phone directory, keyed by reason
+  features/admin-company/  company vs station, and the live brand preview
+  features/admin-connections/ punch API · mailbox · phone lines
+  features/admin-billing/  what UDSP charges the DSP, metered
+  features/dispatch/
+    DispatchPage.tsx       tabs, the day stepper, the calendar
+    LoadOutBoard.tsx       waves · roster · rescues · bench
+    OnRoadBoard.tsx        what is out there, ordered by trouble
+    RtsBoard.tsx           the closing count, and the day close
+    SetupBoard.tsx         the SMS templates every send reads from
+    Dialogs.tsx            send · add row · rescue · wave · swap · auto-assign
+    Menus.tsx              the anchored pickers, and the after-a-call prompt
+    useDispatch.ts         one day of state, shared by all four boards
+    calc.ts                waves, punch states, warnings, the two board models
+    data.ts                one seeded day, verbatim from the design file
+    ui.ts                  the style constants parts.tsx would break refresh on
+  features/rate-cards/
+    RateCardsPage.tsx      the page: two tables, the timeline, the notes
+    RateTable.tsx          Amazon Route Rates + the Others card
+    RateTimeline.tsx       every window drawn against a months axis
+    RateEditor.tsx         the dated change, its preview and both day pickers
+    AddServiceDialog.tsx   name + hours + paid by, or pick from Work Summary
+    FilterPanel.tsx        hours · paid by · to, applied as a set
+    Notes.tsx              a thread against the rates
+    useRateCards.ts        all state
+    calc.ts                windows, counts, revenue, and the write itself
+    data.ts                six service types and their rate history
+    ui.ts                  the style constants parts.tsx would break refresh on
 ```
 
 ## Navigation
@@ -106,68 +262,86 @@ The **top bar** is the shell's too: a Subtitle 2 wordmark that truncates with an
 ellipsis, a search field that swaps to a white plate with a blue border on focus
 (the `[data-field]` rule in `app.css`, so no state of its own) and narrows from
 240px to 180px below 1024, and a 32px persona tinted by a hash of the name —
-`ds/avatar.js`, the same rule the Inbox avatars use.
+`ds/avatar.ts`, the same rule the Inbox avatars use.
 
-The shell's wordmark is `brand + portal name`, because its always-open pane-2
-panel shows which page you are on. That panel is a popup here, so the page is
-appended when it would otherwise be invisible: **PacTrack Financial Management ·
-Payroll Setup**, but plain **PacTrack Inbox** where portal and page are one.
+The shell's wordmark is `brand + portal name` — **PacTrack Financial
+Management** — because the panel beside it already says which page you are on.
 
 A portal with no `pages` is a single-page portal — Inbox and General — and its
-rail entry opens the page directly. Every other portal opens its page list as a
-**panel floating against the rail**: click the tile to toggle it, click a page to
-go there, Escape or a click outside closes it.
+rail entry opens the page directly. Every other portal draws its page list as a
+**permanent pane-2 column**, in the content row below the header and flush with
+the rail, exactly where `Shell.dc.html` puts it. It is part of the layout, not a
+layer over it: the page sits beside the panel rather than under it.
 
-The panel is nested inside the content row, below the header and flush with the
-rail — the same place `Shell.dc.html` puts it — so the **header spans the full
-width in front of it** and opening the panel never covers the wordmark. It fills
-that row top to bottom, floats over the page without shifting it, keeps its
-heading pinned, and scrolls its rows when a portal has more pages than the
-window is tall.
+Collapsing is a width animation, and the mechanism is the design file's. The
+**wrapper** animates its width between `--panel-width` and `0` over
+`--duration-fast` on `--curve-easy-ease`; the `<nav>` inside keeps its full
+212px and fades over `--duration-faster` on `--curve-linear`. Animating the
+wrapper rather than the nav is what lets the page grow into the space instead of
+watching a squashed panel. Both read from the motion tokens, so
+`prefers-reduced-motion: reduce` collapses them to 1ms for free.
 
-It **slides** in and out, on the motion tokens: entering from off-screen it
-decelerates over `--duration-gentle` (250ms, the drawer step) on
-`--curve-decelerate-max`; leaving, it accelerates away over `--duration-faster`
-on `--curve-accelerate-max` — the system's "enters decelerate, exits accelerate"
-rule. Because both read from the tokens, `prefers-reduced-motion: reduce`
-collapses them to 1ms for free. The rail sits above the panel so a panel sliding
-out disappears *under* it rather than across it.
+The chevron at the foot of the rail walks the sidebar away in **two steps**, and
+each step names what it will do: **Collapse panel** puts the page list away and
+hands its 212px to the screen, then **Hide sidebar** takes the 48px rail too, so
+a 1440px window gives the page all 1440. A portal with no page list — Inbox,
+General — skips the first step. Once the rail is gone a slim tab against the
+left edge is the only thing left to click, and **Show sidebar** brings both
+back. A double-click on the panel puts it away; a double-click on the rail
+brings it back.
 
-The panel is mounted from the first render rather than on demand, so opening is a
-plain state flip with a from-state already in the DOM. Mounting on demand would
-need a frame to pass before flipping, and `requestAnimationFrame` does not fire
-in a background or non-compositing tab — the panel would open with no animation,
-or appear not to open at all. While shut it is `visibility: hidden`,
-`pointer-events: none` and `aria-hidden`, and its Escape and outside-click
-listeners are detached.
+Picking a portal opens its pages; picking a page navigates. Hiding the rail is a
+deliberate choice, so unlike the page list it is never taken away by a resize —
+only by asking for it.
 
-Only Payroll Setup and Inbox are built. Every other entry is listed because it
-is the real navigation, and renders a stub that says so.
+Two departures, both to keep the product usable outside the design file's
+desktop frame:
 
-> `Shell.dc.html` draws the page list as a permanent pane-2 side panel, as do
-> the page specs (Payroll Setup §3.0, "Pane-2 nav item"). It was made a popup by
-> request — the one place this code knowingly departs from the design files. The
-> list's order, icons and row styling are still the shell's.
+- The rail retracting at all is an addition: `Shell.dc.html` collapses the page
+  list and keeps its rail. Dispatch is 1,120px of board before the chrome, which
+  is what made the last 48px worth reclaiming.
+- Below **900px** the panel starts collapsed — a 48px rail plus a 212px panel
+  leaves a 375px phone 115px of page. It is still an ordinary collapse: the
+  control works, and picking a page puts the panel away again. A preference
+  belongs to the size class it was expressed in, so crossing that fold hands the
+  choice back to the viewport rather than carrying a desktop "keep it open" onto
+  a phone.
+- The design file's nav simply clips; Scorecard's six rows plus the heading need
+  250px, so a short viewport scrolls them rather than losing one.
+
+`Shell.dc.html` also remembers the page you were last on **per portal**, so
+leaving Financial Management on Profitability and coming back returns you there
+rather than to Payroll Setup. That is reproduced.
+
+Eleven pages are built. Every other entry is listed because it is the real
+navigation, and renders a stub that says so.
 
 ### Icons
 
-The design file's helmet loads four scripts and then installs a `window.Icon`
-factory. Here the four glyph tables are imported for their side effects by
-`ds/icons/glyphs.js`, and `Icon.jsx` re-expresses the factory as a React
-component, so nothing polls for a global.
+The design file's helmet loads its glyph tables as scripts that assign onto
+`window`, then installs a `window.Icon` factory that polls for them. Here each
+table is a plain ESM export, `ds/icons/glyphs.ts` merges them in the same order
+the helmet loaded them, and `Icon.tsx` re-expresses the factory as a React
+component — so nothing polls, and nothing touches a global. That last part is
+what lets an icon render in the server's HTML at all: there is no `window`
+there to assign to.
 
-Resolution order is unchanged: `SHELL_ICONS` → `PAGE_ICONS` → `FIG_ICONS`.
+Resolution order is unchanged: shell wins over page, and the `FIG_ICONS`
+fallback table is last.
 
-- `page-icons.js`, `inbox-icons.js` — verbatim from the design project.
-- `shell-icons.js` — the glyph table that was inline inside `icon-global.js`,
+- `page-icons.ts`, `inbox-icons.ts` — verbatim from the design project.
+- `shell-icons.ts` — the glyph table that was inline inside `icon-global.js`,
   lifted out so the ESM component can read it. Same data, same names.
-- `icon-data.js` — the `FIG_ICONS` fallback table, copied from
-  `Design System/assets/icons/`. The Inbox uses none of its 96 glyphs, so it is
-  ~190 kB of the bundle you can drop from `glyphs.js` if no later page needs it.
+- `icon-data.ts` — the fallback table, trimmed. The design system generates 266
+  of these; three are referenced, and the other 263 were 189 kB of glyph data in
+  the shared bundle of every route, including pages that render nothing but a
+  not-built notice. The full table is in `Design System/assets/icons/` — copy an
+  entry across by name to use another. A name with no entry is not an error:
+  `Icon` renders an empty box of the right size.
 
 ### Typography
 
-Segoe UI on the Fluent web ramp — all **16 named styles** live in `ds/type.js`,
+Segoe UI on the Fluent web ramp — all **16 named styles** live in `ds/type.ts`,
 cross-checked against Design System §2ty.
 
 A named style is a complete decision: size, line-height *and* weight travel
@@ -176,7 +350,7 @@ with a regular weight would invent a 17th style the ramp does not have. Spread
 one style and nothing else:
 
 ```jsx
-import { body1Strong, caption1 } from '../../ds/type.js'
+import { body1Strong, caption1 } from '../../ds/type'
 
 <span style={{ ...body1Strong }}>{person.name}</span>   // Body 1 Strong 14/20/600
 ```
@@ -241,8 +415,8 @@ gap.
 - **Post / revert.** Posting names every figure and the grand total before it
   commits; reverting requires a reason. Both toast in past tense.
 - **Narrow widths.** The page has no breakpoints of its own — the dense tables
-  scroll inside their own card (`table.js`) so the page body never scrolls
-  sideways, and the flyout keeps itself on screen when its tile sits low.
+  scroll inside their own card (`table.ts`) so the page body never scrolls
+  sideways, and the panel collapses rather than crowding the page.
 
 ## Profit Projection behaviour implemented
 
@@ -552,6 +726,151 @@ horizontal scroller, which is a flex column carrying the page's gap so the
 rhythm survives the move — a plain block wrapper would have collapsed it to the
 12px margin alone.
 
+## Surveys behaviour implemented
+
+A survey is a question a driver answers on the phone app. Two things govern the
+whole page: **anonymity is a promise**, and **a driver with no Ultimate DA
+account cannot receive anything**.
+
+- **Only what can happen is offered.** `Send now` is live only on an Active
+  survey — a draft says *"Activate it first. Drafts cannot be sent"*, an archived
+  one says *"Archived. Activate it first"*. `View answers` is live only once
+  there are answers. Both stay in place and explain themselves rather than
+  vanishing.
+- **A survey holding answers is archived, never deleted.** `Delete` is dark with
+  the count it would destroy — *"Archive instead. This survey holds 156
+  answers."* — and live only on an empty draft.
+- **The send dialog states the anonymity promise twice**: as a chip on the
+  survey, and again above the send button — *"you will see answers but never who
+  gave them."*
+- **Drivers with no app account stay visible and unselectable.** Hiding them
+  would hide the reason the count is short; instead the picker marks them and a
+  red panel says how many cannot receive it and why.
+- **Each audience counts what it is a count of.** "Everyone on the roster" reads
+  *32 of 36*; "everyone who ran today" reads *22 of 24, resolved at send time*;
+  hand-picking reads *n of 8 shown, 2 not selectable*.
+- **The maker is the page, not a dialog.** A survey gets built, so it takes the
+  screen over and comes back with a toast.
+- **Four sections that summarise themselves shut** — question count and how many
+  are required, the trigger, the attribution, the reminder — so the whole survey
+  is legible without opening anything.
+- **A template sets every section at once.** Picking `Weekly pulse` fills the
+  name, three questions, the weekly trigger, Anonymous, and the 2-day reminder.
+- **Length is called out while it is still being built.** Once more than half
+  the questions are required: *"3 of 3 questions are required. Long required
+  surveys get skipped."*
+- Questions collapse to one draggable line and expand to the full editor, one at
+  a time; `Choice` seeds two options and refuses to drop below two.
+- **The preview is the driver's side, and answerable** — rating dots, yes/no and
+  choices all respond — so the station can feel the length before shipping it.
+  Its caption restates the attribution in the driver's own words.
+
+## Dispatch behaviour implemented
+
+Four boards over one day, in the order the day happens. A change on one is
+visible on the others, because they all read the same day rather than four
+copies of it.
+
+**Load Out** gets routes out of the door. The waves strip is the morning in one
+line — every count is a filter, so "who is missing from the 11:45 wave" is one
+click. A wave's stroke is its whole status: green once everybody has punched,
+red when the wave is now or next and somebody is not in, amber while it is still
+ahead, grey when nobody is even due. The tooltip is the chase list, and it
+carries what happened on the last call, so the next person to chase does not
+repeat it.
+
+The grace window is the point of the punch column: inside it a punch is simply
+on time, and only past it does the cell start counting minutes. A row with no
+scheduled arrival cannot be late, so it reports the punch plainly instead of
+inventing a verdict. Retyping a wave drops a hand-typed scheduled arrival —
+the offset is the rule again unless somebody overrides it afresh.
+
+Duplicate warnings are the ones that matter most: one van cannot have two
+holders, and a route code on two rows is the code On Road matches and Return to
+Station closes by. Dismissing them hides the warning but keeps a marker naming
+who hid it and when.
+
+**On Road** is triage, so it sorts by trouble rather than by route number —
+late first, done last, and a finished route dims rather than leaving the board
+so the count still adds up. Rescues sit in the same list as routes, because
+from dispatch's side they are both things that are out.
+
+**Return to Station** is the day's arithmetic. Out minus delivered is what the
+file says came back; `Counted` is what a person counted at the door; `Returned`
+is what physically arrived. The board exists for the gaps between those three,
+so an uncounted route stays visibly open rather than defaulting to agreement,
+and the day refuses to close while any remain.
+
+**Setup** holds the SMS templates the other three send from. Each one's badge
+names where it is used, so an edit shows its blast radius before the edit. The
+preview resolves against a real row — a status template previews against a route
+that is actually behind — and the segment counter flags the cost past three
+segments rather than hiding it.
+
+Every send says who will get it *and who will not*: the group send skips the one
+driver with no phone on file and names them. Every destructive edit is one
+`Undo` away for six seconds, restoring the whole day rather than guessing at an
+inverse.
+
+> The design file is ~509 kB — three of the other pages combined. All four
+> boards are built. Of its overlays, the ones the boards actually open are
+> built: the group send, add row, create rescue, set wave, swap driver,
+> auto-assign vans, the van and people pickers, the row menu, and the
+> after-a-call prompt. Its deeper import wizards (roster, staging, itinerary and
+> closing files) are toasts rather than flows, since there is no file to parse.
+>
+> Two things it does that would not survive server rendering are done
+> differently: out-of-week route counts are seeded from the day index rather
+> than `Date.getTime()`, which is timezone-dependent; and its `dialer-icons.js`
+> self-heal script is unnecessary here, because the glyph tables are ESM exports
+> merged once in a fixed order rather than scripts racing over `window`.
+> `ds/icons/dispatch-icons.ts` carries the six glyphs it needs that no other
+> built page does, rather than the two whole tables it loads for them.
+
+## Rate Cards behaviour implemented
+
+A rate is never a number, it is a dated **window**, and every figure on the page
+is priced with the window in force on the day it belongs to. That one rule is
+what the page exists to make visible.
+
+- The table prices the seeded week day by day. Changing Step Van from $360 to
+  $400 on Wed Jul 29 leaves Sun–Tue at $360 and prices Wed–Sat at $400 —
+  $43,600 for the week, not 114 × $400 — and the row grows a **2 rates** chip so
+  one total can never imply one price.
+- The editor states the day before anything can be typed, then shows three
+  cards — the day before, the day itself, the day after — so "from here on" and
+  "for one day only" are visibly different gestures. Carry forward off adds a
+  To date and puts the old rate back the day after it ends.
+- It costs the change on the day (`$12,287.04 → $12,967.04`, margin
+  `21.0% → 25.2%`) and, separately, the days after it that are already priced.
+  Both are stated before Save, never after.
+- Payroll closes days behind it. A change dated into them is accepted for the
+  days it can reach and says what it could not: *6 locked days keep the old
+  rate*. Every change can be undone from its toast for six seconds.
+- `Unpaid Rescues` is DSP-paid, so its rate is locked at $0.00 — the cell is
+  still clickable, because a locked control that says nothing is worse than one
+  that explains itself.
+- Packages and training are switched with the same dated editor, not a silent
+  toggle: turning them off is a change with a date like any other.
+- The timeline draws every window against a months axis, marks the range the
+  tables are priced over, and says outright where a type did not exist yet
+  rather than leaving blank track that could read as "no rate set". A window
+  someone ended by hand is coloured apart from one a later change closed.
+- Adding a service type either takes a name and hours or picks one Work Summary
+  already knows, then opens the editor straight away — because a type with no
+  rate is not finished.
+
+> `RateCards.dc.html` also computes a grain picker, a range stepper, an export
+> menu, an earned-revenue summary and a margin line that **its own markup never
+> renders**. They are left out rather than invented, so the range is the file's
+> own default: the week of Sun Jul 26 – Sat Aug 1, 2026. The same gap appears in
+> `AdminBilling.dc.html` and `AdminUsers.dc.html`.
+>
+> Two things the file does that would not survive server rendering are done
+> differently: its out-of-week route counts are seeded from `Date.getTime()`,
+> which is timezone-dependent, so they are seeded from the day index instead;
+> and its icon polling is unnecessary here because the glyph tables are ESM.
+
 ## Not built yet
 
 Called out so nothing reads as an oversight:
@@ -565,8 +884,10 @@ Called out so nothing reads as an oversight:
   error states.
 - Dispatch tasks are local state. No page in the Dispatch portal defines a task
   store yet (`Inbox.md` §3.4, Card 4), so nothing is persisted.
-- The two other Financial Management pages, and the six portals with nothing
-  built yet.
+- Dispatch's Compliance and Work Summary pages are not built; the Dispatch board
+  itself is.
+- Invoice Validation, and the six portals with nothing built yet. Their nav entries are real routes and land on the not-built state,
+  which names the gap rather than pretending the entry does something.
 - Profitability's `Over workforce` diagnostic reads `—`: no page defines a
   staffing plan, so it states the gap rather than showing a number. Export is a
   staged interaction.
@@ -716,3 +1037,9 @@ The design file is the specification of record, so these follow it:
   added or deleted.
 - **Punch field names use Caption 1's metrics** rather than the design's 11px,
   which is off the type ramp.
+- Surveys is not role-gated and not persisted: surveys, answers and the roster
+  are in-memory, so a reload restores the seed. `Send`, `Export`, `Duplicate`,
+  `Pause`/`Activate`, `Archive`, `Delete`, `Preview on my phone` and
+  `View answers` all toast rather than doing anything. Saving from the maker
+  toasts and returns; it does not write the survey back to the list.
+- Responses — the Surveys portal's second page — is not built yet.
