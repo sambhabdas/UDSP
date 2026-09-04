@@ -39,7 +39,7 @@ export function Checkbox({ on, onClick }: { on: boolean; onClick: (e: React.Mous
 }
 
 /**
- * A switch. `tone` is red for at-risk flags — the one place a switch means
+ * A switch. `tone` is red for at-risk flags - the one place a switch means
  * "this counts as a problem" rather than "this is on".
  */
 export function Toggle({

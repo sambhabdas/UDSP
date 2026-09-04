@@ -1,10 +1,10 @@
-/* Ultimate DSP — Fluent corner radius.
+/* Ultimate DSP - Fluent corner radius.
    MEASURE THE SHAPE, NOT THE COMPONENT CLASS. Any shape whose shorter side is
    under 32px takes Small; badges are the one named exception at Medium. */
 :root {
   --radius-none: 0;      /* nav bars, tab bars, chrome */
   --radius-small: 2px;   /* small marks, shapes under 32px */
-  --radius-medium: 4px;  /* default rectangle — cards, tables, panels, buttons */
+  --radius-medium: 4px;  /* default rectangle - cards, tables, panels, buttons */
   --radius-large: 8px;   /* large buttons */
   --radius-xlarge: 12px; /* sheets, popovers, dialogs */
   --radius-circle: 50%;  /* avatars, personas, dots */

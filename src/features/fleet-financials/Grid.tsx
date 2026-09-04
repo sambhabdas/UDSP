@@ -10,8 +10,8 @@ import type { FleetFinancialsState } from './useFleetFinancials'
 /**
  * The money grid: insurance and lease by month, Amazon payments by week.
  *
- * It behaves like a spreadsheet on purpose — click and drag to select, type to
- * edit, ctrl+C / V / D / Z — because reconciling a lessor statement is a
+ * It behaves like a spreadsheet on purpose - click and drag to select, type to
+ * edit, ctrl+C / V / D / Z - because reconciling a lessor statement is a
  * spreadsheet job, and forcing it through a form would be slower than the
  * spreadsheet people would otherwise open instead.
  */
@@ -124,7 +124,7 @@ function HeadCell({ label, align, left }: { label: string; align: 'left' | 'righ
   )
 }
 
-/** Peak routes and Vehicles paid — context above the Amazon columns, not data. */
+/** Peak routes and Vehicles paid - context above the Amazon columns, not data. */
 function CountRow({ s, label, values }: { s: FleetFinancialsState; label: string; values: number[] }) {
   return (
     <div
@@ -351,7 +351,7 @@ function MoneyCell({
         </span>
       )}
 
-      {/* The fill handle, on the focus cell only — drag it down to copy. */}
+      {/* The fill handle, on the focus cell only - drag it down to copy. */}
       {isFocus && !editing && !s.dragging && (
         <span
           onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); s.setDragging(true); s.setFillDrag(true) }}

@@ -27,7 +27,7 @@ function AxisColumn({ labels, padTop = 20 }: { labels: string[]; padTop?: number
 /**
  * A line chart with a dot per point.
  *
- * The value only appears over the point the pointer is on — with 24 weeks on
+ * The value only appears over the point the pointer is on - with 24 weeks on
  * screen, showing every one at once is unreadable.
  */
 export function LineChart({
@@ -37,7 +37,7 @@ export function LineChart({
   points: string
   yLabels: string[]
   color: string
-  /** A dashed rule at this percentage down the plot — a target or a zero line. */
+  /** A dashed rule at this percentage down the plot - a target or a zero line. */
   refPct?: string
   zeroPct?: { pct: string; show: boolean }
   minHeight?: number
@@ -164,7 +164,7 @@ function Legend({ items }: { items: { label: string; fill: string }[] }) {
   )
 }
 
-/** Three plain bars with their values always shown — the aging buckets. */
+/** Three plain bars with their values always shown - the aging buckets. */
 export function BarChart({ bars, yLabels }: { bars: { label: string; value: string; h: string; fill: string; title: string }[]; yLabels: string[] }) {
   return (
     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 'var(--size-100)', padding: '0 var(--size-120) var(--size-120) var(--size-120)' }}>

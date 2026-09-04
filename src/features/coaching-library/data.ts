@@ -1,4 +1,4 @@
-// Coaching Library — the modules a coaching assignment actually delivers, and
+// Coaching Library - the modules a coaching assignment actually delivers, and
 // the videos and quizzes they are built from.
 
 export interface Module {
@@ -7,7 +7,7 @@ export interface Module {
   dur: string
   quiz: string | null
   quizMeta: string | null
-  /** [standard, category] — a module is paired to at most one standard. */
+  /** [standard, category] - a module is paired to at most one standard. */
   pairs: [string, string][]
   d30: number
   compl: number | null
@@ -87,7 +87,7 @@ export const DAS = [
   'Omar Haddad', 'Nina Torres', 'David Park', 'Maria Lopez', 'Sam Ortiz', 'Alex Chen', 'Priya Shah',
 ]
 
-/** Standards with no module yet — what "Link Standard" can choose from. */
+/** Standards with no module yet - what "Link Standard" can choose from. */
 export const STD_POOL: [string, string][] = [
   ['Sign and Signal', 'Safety'], ['DVIC Not Done', 'DVIC'], ['DVIC Under 90 Seconds', 'DVIC'],
   ['Violence', 'Work Ethics'], ['Order Refusal', 'Work Ethics'], ['Intentional Wrong Punch', 'Work Ethics'],
@@ -117,7 +117,7 @@ const THUMB_PAIRS: Record<string, [string, string]> = {
 }
 
 /**
- * A video's poster frame. Variants 0–3 are generated from the category's own
+ * A video's poster frame. Variants 0-3 are generated from the category's own
  * two colours; variant 4 is the neutral fill that stands in for an upload.
  */
 export function thumbCss(cat: string, variant = 0): string {

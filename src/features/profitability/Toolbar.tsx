@@ -249,7 +249,7 @@ function PeriodRow({
 }
 
 // Which of the current period's inputs are real and which are still standing
-// in — the reason the headline reads "projected".
+// in - the reason the headline reads "projected".
 function InputsPopover({ s }: { s: ProfitabilityState }) {
   const open = s.menu === 'inputs'
   return (

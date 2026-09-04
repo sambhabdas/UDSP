@@ -233,7 +233,7 @@ export function SearchField({
   )
 }
 
-/** A dialog field — label over control. */
+/** A dialog field - label over control. */
 export function Field({ label, children }: { label: string; children: ReactNode }) {
   return (
     <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: 'var(--size-40)' }}>
@@ -295,7 +295,7 @@ export function Input({
   )
 }
 
-/** A small filled action chip — the dialogs' inline buttons. */
+/** A small filled action chip - the dialogs' inline buttons. */
 export function ChipButton({
   children,
   onClick,
@@ -336,7 +336,7 @@ export function ChipButton({
   )
 }
 
-/** A 24px segmented option — the dialogs' pick-one rows. */
+/** A 24px segmented option - the dialogs' pick-one rows. */
 export function Seg({ children, on, onClick }: { children: ReactNode; on: boolean; onClick: () => void }) {
   return (
     <span
@@ -396,7 +396,7 @@ export function CheckRow({ label, on, onClick }: { label: string; on: boolean; o
   )
 }
 
-/** A tone plate — the dialogs' warning and refusal boxes. */
+/** A tone plate - the dialogs' warning and refusal boxes. */
 export function Note({ tone, children }: { tone: 'danger' | 'warn'; children: ReactNode }) {
   const t = tone === 'danger'
     ? { bg: 'var(--danger-bg)', bd: 'var(--danger-border)', fg: 'var(--danger-fg)' }
@@ -428,7 +428,7 @@ export function RuleIcon({ status }: { status: 'ok' | 'soft' | 'hard' }) {
   )
 }
 
-/** A tier badge — dot plus label, in the tier's own tone. */
+/** A tier badge - dot plus label, in the tier's own tone. */
 export function TierChip({ tier, palette }: { tier: string; palette: { bg: string; bd: string; fg: string; dot: string } }) {
   return (
     <span
@@ -454,7 +454,7 @@ export function TierChip({ tier, palette }: { tier: string; palette: { bg: strin
   )
 }
 
-/** Caption-scale toast — this page's design file sets it one step down. */
+/** Caption-scale toast - this page's design file sets it one step down. */
 export function Toast({ children, onUndo }: { children: ReactNode; onUndo?: () => void }) {
   return <BaseToast size="caption" onUndo={onUndo}>{children}</BaseToast>
 }

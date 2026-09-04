@@ -1,7 +1,7 @@
-// The Fluent web type ramp — Segoe UI · 16 styles (Design System §2ty).
+// The Fluent web type ramp - Segoe UI · 16 styles (Design System §2ty).
 //
 // A named style is a COMPLETE decision: size, line-height AND weight travel
-// together. That is why nothing here exports a bare weight — composing
+// together. That is why nothing here exports a bare weight - composing
 // `subtitle1` with a regular weight would invent a 17th style that the ramp
 // does not have. Spread one of these and nothing else.
 //
@@ -61,7 +61,7 @@ export const title1 = style('title-1', SEMIBOLD)
 export const largeTitle = style('large-title', SEMIBOLD)
 export const display = style('display', SEMIBOLD)
 
-// Section eyebrow — Caption 2 Strong set uppercase with tracking. Uppercase is
+// Section eyebrow - Caption 2 Strong set uppercase with tracking. Uppercase is
 // reserved for exactly this and 10px table headers, and always carries the
 // letter-spacing; it is a documented composite, not a 17th ramp style.
 export const eyebrow = {
@@ -71,7 +71,7 @@ export const eyebrow = {
   color: 'var(--text-helper)',
 } as const
 
-// The same composite one step wider and in the label colour — the section and
+// The same composite one step wider and in the label colour - the section and
 // table headings the pages use. Five features had written this one out too.
 export const labelEyebrow = {
   ...caption2Strong,
@@ -80,7 +80,7 @@ export const labelEyebrow = {
   color: 'var(--text-label)',
 } as const
 
-// Machine strings — transporter IDs, filenames, column names. The design files
+// Machine strings - transporter IDs, filenames, column names. The design files
 // set these at 11px; borrowing Caption 1's metrics keeps them on the ramp and
 // still clears a 12-character ID in its column.
 export const mono = {

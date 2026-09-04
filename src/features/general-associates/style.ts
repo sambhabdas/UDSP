@@ -42,7 +42,7 @@ export const TILE_LABEL: CSSProperties = {
   textOverflow: 'ellipsis',
 }
 
-/** The tiles' 28/36 number — one step off the ramp, as the design file has it. */
+/** The tiles' 28/36 number - one step off the ramp, as the design file has it. */
 export const TILE_VALUE: CSSProperties = {
   fontSize: 28,
   lineHeight: '36px',
@@ -62,7 +62,7 @@ export const ROW: CSSProperties = {
   borderBottom: '1px solid var(--border-subtle)',
 }
 
-/** And this head rhythm — same columns, tighter padding, tinted. */
+/** And this head rhythm - same columns, tighter padding, tinted. */
 export const HEAD: CSSProperties = {
   boxSizing: 'border-box',
   display: 'grid',

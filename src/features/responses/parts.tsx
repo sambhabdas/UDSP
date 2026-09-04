@@ -62,7 +62,7 @@ export function DropTrigger({
   )
 }
 
-/** A combobox trigger — the input IS the search box. */
+/** A combobox trigger - the input IS the search box. */
 export function ComboBox({
   value,
   onChange,
@@ -288,7 +288,7 @@ export function SearchField({
   )
 }
 
-/** A 24px outline button — the question header's View answers. */
+/** A 24px outline button - the question header's View answers. */
 export function SmallButton({ children, onClick }: { children: ReactNode; onClick: () => void }) {
   const [hover, hoverProps] = useHover()
   return (
@@ -395,7 +395,7 @@ export function Tip({ label, value, style }: { label: string; value: string; sty
   )
 }
 
-/** Caption-scale toast — this page's design file sets it one step down. */
+/** Caption-scale toast - this page's design file sets it one step down. */
 export function Toast({ children }: { children: ReactNode }) {
   return <BaseToast size="caption">{children}</BaseToast>
 }

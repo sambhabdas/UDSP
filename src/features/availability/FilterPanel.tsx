@@ -25,7 +25,7 @@ interface Section {
 /**
  * The filter drawer.
  *
- * It edits a copy and only writes it back on Apply, and it serves both tabs —
+ * It edits a copy and only writes it back on Apply, and it serves both tabs -
  * the grid filters rows and cells, History filters batches.
  */
 export function FilterPanel({ s }: { s: AvailabilityState }) {

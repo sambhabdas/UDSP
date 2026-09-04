@@ -14,7 +14,7 @@ export const DASH = '-'
 export const PUNCH = 'P'
 
 // Counts come from Users (portal accounts) except DA, which counts roster
-// records — a DA is not a portal user at all.
+// records - a DA is not a portal user at all.
 export const LADDER = [
   { label: 'Owner', count: '1' },
   { label: 'Sub Admin', count: '1' },
@@ -45,7 +45,7 @@ type Entry = { isBand: true; band: string } | ({ isBand: false } & CapRow)
 const band = (name: string): Entry => ({ isBand: true, band: name })
 const row = (cap: string, cells: Cell[]): Entry => ({ isBand: false, cap, cells })
 
-// Ten bands, six columns. The whole matrix is always visible — bands never
+// Ten bands, six columns. The whole matrix is always visible - bands never
 // collapse, because the page's job is comparison.
 const FLAT: Entry[] = [
   band('People'),
@@ -96,7 +96,7 @@ export const BANNER = {
   rest: 'This page is a reference. Nothing on it can be edited.',
 }
 
-// The prose form of the money boundary — the split people misread most.
+// The prose form of the money boundary - the split people misread most.
 export const SPLITS = [
   {
     label: 'Operations',

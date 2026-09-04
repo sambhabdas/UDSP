@@ -11,7 +11,7 @@ import type { WorkSummaryState } from './useWorkSummary'
 /**
  * Add / Edit Service Type.
  *
- * The two things that identify a type are its name and its hours — together
+ * The two things that identify a type are its name and its hours - together
  * they are the key, so the form refuses a pair that already exists. Everything
  * else is what the type does: who pays, what Amazon calls it, and which vans
  * may run it.

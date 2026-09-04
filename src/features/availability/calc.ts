@@ -2,7 +2,7 @@
 //
 // The grid addresses days as offsets from the anchor Sunday (Jul 26, 2026), so
 // a selection can straddle a week boundary without special-casing anything.
-// The arithmetic reuses Schedule's pure serial helpers — the two pages must
+// The arithmetic reuses Schedule's pure serial helpers - the two pages must
 // never disagree about which Sunday opens week 31.
 
 import { ANCHOR_WEEK, DAY_NAMES, MONTH_NAMES, dateOf, daysInMonth, fromSerial, toSerial, type Day } from '../schedule/date'
@@ -36,7 +36,7 @@ export const shortDate = (off: number): string => {
   return `${MONTHS[d.m]} ${d.d}`
 }
 
-/** "8/5" — the cell dialog's title. */
+/** "8/5" - the cell dialog's title. */
 export const numericDate = (off: number): string => {
   const d = dayOfOffset(off)
   return `${d.m + 1}/${d.d}`
@@ -61,7 +61,7 @@ export function overrideAt(overrides: Overrides, daId: string, day: number, week
 
 /**
  * What a cell actually says: the override if one exists, otherwise the
- * standing pattern — which is itself a value, not an absence of one.
+ * standing pattern - which is itself a value, not an absence of one.
  */
 export function effective(overrides: Overrides, da: Da, day: number, week: number): Cell {
   const o = overrideAt(overrides, da.id, day, week)
@@ -69,7 +69,7 @@ export function effective(overrides: Overrides, da: Da, day: number, week: numbe
   return da.pattern[day] ? { t: 'A', src: 'pattern' } : { t: 'U', src: 'pattern' }
 }
 
-/** Write, clear, and prune — an empty day map is removed, not left behind. */
+/** Write, clear, and prune - an empty day map is removed, not left behind. */
 export function writeCell(overrides: Overrides, daId: string, day: number, value: Cell | null, week: number): Overrides {
   const next: Overrides = JSON.parse(JSON.stringify(overrides))
   const w = (next[week] ??= {})
@@ -99,7 +99,7 @@ export interface CalCell {
   hint: string
 }
 
-/** The day the page treats as today — the same one Schedule uses. */
+/** The day the page treats as today - the same one Schedule uses. */
 const TODAY_SERIAL = toSerial({ y: 2026, m: 7, d: 18 })
 
 /** Which weekday the 1st of a month falls on. */

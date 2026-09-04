@@ -34,7 +34,7 @@ export interface Hours {
   toDate?: boolean
 }
 
-/** A pay period — the grain of this whole page. */
+/** A pay period - the grain of this whole page. */
 export interface Period {
   id: string
   year: number
@@ -169,7 +169,7 @@ export const CURRENT: Period = (() => {
 
 export const ALL = PERIODS.concat([CURRENT])
 
-/** A period that carries real timecards — what the hours charts need. */
+/** A period that carries real timecards - what the hours charts need. */
 export type TimedPeriod = Period & { hours: Hours }
 export const BY_ID: Record<string, Period> = Object.fromEntries(ALL.map((p) => [p.id, p]))
 

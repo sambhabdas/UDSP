@@ -92,7 +92,7 @@ export function useAdminUsers() {
   const [transferTarget, setTransferTarget] = useState<number | null>(null)
   const [transferEmail, setTransferEmail] = useState('')
 
-  // `toast` is the function and `toastText` the line — this page's own
+  // `toast` is the function and `toastText` the line - this page's own
   // naming, kept so no component of it has to change.
   const { toast: toastText, toastMsg: toast } = useToast(2600)
 
@@ -220,7 +220,7 @@ export function useAdminUsers() {
         : sort.col === 'last' ? u.lastActive
         : sort.col === 'status' ? STATUS_ORDER[u.status]
         : u.name
-    // The owner is pinned to the top whatever the sort — it is the one row that
+    // The owner is pinned to the top whatever the sort - it is the one row that
     // is never just another row.
     return out.slice().sort((a, b) => {
       if (a.role === 'Owner') return -1

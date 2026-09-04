@@ -18,7 +18,7 @@ export function CardHead({ children }: { children: ReactNode }) {
   return <div style={CARD_HEAD}>{children}</div>
 }
 
-/** A control-height button — the page's Export and the dialogs' footers. */
+/** A control-height button - the page's Export and the dialogs' footers. */
 export function Button({
   children,
   onClick,
@@ -65,7 +65,7 @@ export function Button({
 /**
  * The 28px button the profile and its tabs use everywhere.
  *
- * Three recipes: plain, `primary` blue-filled, and `link` — an outlined button
+ * Three recipes: plain, `primary` blue-filled, and `link` - an outlined button
  * whose text is blue and whose hover plate is blue-50 rather than the subtle
  * grey. The link recipe is what Reinstate and Open In Dispatch wear.
  */
@@ -112,7 +112,7 @@ export function SmallButton({
   )
 }
 
-/** A square glyph button — row ⋯, the call handset, a dialog's ✕. */
+/** A square glyph button - row ⋯, the call handset, a dialog's ✕. */
 export function IconButton({
   name,
   onClick,
@@ -258,7 +258,7 @@ export function Field({
   )
 }
 
-/** A dotted status chip — the roster's flags, a coaching state, a strip pill. */
+/** A dotted status chip - the roster's flags, a coaching state, a strip pill. */
 export function DotPill({
   tone,
   label,
@@ -276,7 +276,7 @@ export function DotPill({
   height?: number
   padding?: string
   radius?: string
-  /** Overrides the tone's own dot — the tier pills colour by band. */
+  /** Overrides the tone's own dot - the tier pills colour by band. */
   dot?: string
 }) {
   const t = typeof tone === 'string' ? TONES[tone] : tone
@@ -307,7 +307,7 @@ export function DotPill({
   )
 }
 
-/** A dotless chip — the header's count, the qualification tags, a feed tag. */
+/** A dotless chip - the header's count, the qualification tags, a feed tag. */
 export function Pill({
   children,
   tone = 'blue',
@@ -345,7 +345,7 @@ export function Pill({
   )
 }
 
-/** The circular initials badge — 24px on a row, 56px on the profile. */
+/** The circular initials badge - 24px on a row, 56px on the profile. */
 export function Avatar({ initials, size }: { initials: string; size: 24 | 56 }) {
   return (
     <span
@@ -385,7 +385,7 @@ export function Cell({
 }: {
   children?: ReactNode
   color?: string
-  /** Body 1 rather than Caption 1 — the design mixes both down a row. */
+  /** Body 1 rather than Caption 1 - the design mixes both down a row. */
   body?: boolean
   bold?: boolean
   mono?: boolean

@@ -3,7 +3,7 @@
 
 export type Minutes = number
 
-/** The clock the board is read against — 16:09. */
+/** The clock the board is read against - 16:09. */
 export const NOW: Minutes = 969
 
 /** The day the board opens on. Local-time parts only, so it is TZ-stable. */
@@ -42,7 +42,7 @@ export interface Person {
   /** Whether Load Out has a row for them at all. */
   hasRow: boolean
   phone: boolean
-  /** A shift that has not started yet — it is not scored. */
+  /** A shift that has not started yet - it is not scored. */
   future?: boolean
 }
 

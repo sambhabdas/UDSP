@@ -428,7 +428,7 @@ export function HistoryTable({ s }: { s: ProfitabilityState }) {
     margin: rangeOf(filtered.map((p) => der(p).margin)),
   }
 
-  // The average deliberately excludes the projected and provisional periods —
+  // The average deliberately excludes the projected and provisional periods -
   // a baseline built from numbers that are still moving is not a baseline.
   const pool = filtered.filter((p) => p.closed && !p.prov)
   const avg = pool.length
@@ -443,7 +443,7 @@ export function HistoryTable({ s }: { s: ProfitabilityState }) {
           margin: pct((gp / rev) * 100), ppr: money(gp / routes), drv: pct(drv),
         }
       })()
-    : { routes: '—', rev: '—', cost: '—', gp: '—', margin: '—', ppr: '—', drv: '—' }
+    : { routes: '-', rev: '-', cost: '-', gp: '-', margin: '-', ppr: '-', drv: '-' }
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--size-120)' }}>

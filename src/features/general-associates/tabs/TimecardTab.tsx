@@ -7,7 +7,7 @@ import { TC_HEADERS, TC_ROWS, TC_TOTALS } from '../data'
 import type { GaState } from '../useGeneralAssociates'
 
 /**
- * Timecard — the pay period as scheduled.
+ * Timecard - the pay period as scheduled.
  *
  * The In / Out and Worked columns stay empty on purpose: punches arrive from
  * the clock, and the period is still open, so there is nothing to show yet.

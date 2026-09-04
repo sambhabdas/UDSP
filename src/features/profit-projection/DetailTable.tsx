@@ -498,7 +498,7 @@ function weekRows(s: ProjectionState, defs: Def[]) {
 
   const rows = sorted.map((r) => {
     const proj = r.status === 'projected'
-    // A projected day is italic as well as amber — never colour alone.
+    // A projected day is italic as well as amber - never colour alone.
     const base = { c: proj ? 'var(--warning-fg)' : 'var(--text-primary)', fs: proj ? 'italic' : 'normal' }
     const b = badge(r.status)
     const cells: CellSpec[] = [

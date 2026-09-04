@@ -7,7 +7,7 @@ import { ContactForm } from './ContactForm'
 import { DeleteDialog } from './DeleteDialog'
 import { useAdminContacts } from './useAdminContacts'
 
-// The station's phone directory as a driver needs it — a list of REASONS, each
+// The station's phone directory as a driver needs it - a list of REASONS, each
 // pointing at whoever answers. It grants nothing and gates nothing: a contact
 // needs no invite and no seat, so an outside bookkeeper or a mechanic belongs
 // here as readily as the owner.

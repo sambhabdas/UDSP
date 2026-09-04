@@ -3,7 +3,7 @@ import { body1Strong, caption1Strong } from '../type'
 import { useHover } from '../useHover'
 
 // Fills for the three tones the console uses. Ghost is the default rectangle:
-// white plate, hairline, subtle hover — never a colour change.
+// white plate, hairline, subtle hover - never a colour change.
 export type ButtonTone = 'primary' | 'danger' | 'ghost'
 
 interface Fill {
@@ -93,9 +93,9 @@ export function Button({
   )
 }
 
-// Status pill — a coloured dot plus a word, so meaning survives greyscale.
+// Status pill - a coloured dot plus a word, so meaning survives greyscale.
 // Medium radius is the named badge exception at 20px tall.
-// [plate, hairline, text, dot] — the four steps of one tinted ramp.
+// [plate, hairline, text, dot] - the four steps of one tinted ramp.
 export type PillTone = readonly [string, string, string, string]
 
 export function StatusPill({
@@ -140,7 +140,7 @@ export function StatusPill({
   )
 }
 
-// Icon-only square control — the 24/28px affordances inside rows and toolbars.
+// Icon-only square control - the 24/28px affordances inside rows and toolbars.
 export function IconButton({
   children,
   onClick,

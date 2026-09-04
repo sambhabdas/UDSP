@@ -133,7 +133,7 @@ export function Dialogs({ s }: { s: DispatchState }) {
   }
 }
 
-/** P5 — the group send. It shows exactly who will get a message and who will
+/** P5 - the group send. It shows exactly who will get a message and who will
  *  not, because a send that silently skips people is worse than no send. */
 function SendDialog({ s }: { s: DispatchState }) {
   const ids = (s.dlgData.ids as string[] | undefined) ?? []
@@ -228,7 +228,7 @@ function SendDialog({ s }: { s: DispatchState }) {
   )
 }
 
-/** P7 — add a row to the roster. */
+/** P7 - add a row to the roster. */
 function AddRowDialog({ s }: { s: DispatchState }) {
   const [band, setBand] = useState('DLX5')
   const [route, setRoute] = useState('')
@@ -305,7 +305,7 @@ function AddRowDialog({ s }: { s: DispatchState }) {
   )
 }
 
-/** P6 — create a rescue. A rescue with no rescuer is still worth creating: it
+/** P6 - create a rescue. A rescue with no rescuer is still worth creating: it
  *  puts the stranded driver on the board where somebody will see them. */
 function RescueDialog({ s }: { s: DispatchState }) {
   const [rescuing, setRescuing] = useState('')
@@ -391,7 +391,7 @@ function RescueDialog({ s }: { s: DispatchState }) {
   )
 }
 
-/** P9 — set the wave on a set of rows at once. */
+/** P9 - set the wave on a set of rows at once. */
 function WaveDialog({ s }: { s: DispatchState }) {
   const ids = (s.dlgData.ids as string[] | undefined) ?? []
   const [v, setV] = useState('')
@@ -431,7 +431,7 @@ function WaveDialog({ s }: { s: DispatchState }) {
   )
 }
 
-/** P4 — swap who holds a row. The list says where each person already is, so a
+/** P4 - swap who holds a row. The list says where each person already is, so a
  *  swap that would strand somebody else is visible before it happens. */
 function SwapDialog({ s }: { s: DispatchState }) {
   const seat = s.dlgData.seat as string | undefined
@@ -449,7 +449,7 @@ function SwapDialog({ s }: { s: DispatchState }) {
       <Dialog width={560} label="Swap the driver">
         <span style={subtitle1}>Swap the driver</span>
         <span style={{ ...body1, color: 'var(--text-secondary)' }}>
-          {row?.route} · {row?.van || 'no van'} — currently {row?.emp || 'nobody'}
+          {row?.route} · {row?.van || 'no van'} - currently {row?.emp || 'nobody'}
         </span>
         <SearchField value={q} onChange={setQ} placeholder="Search people" width="100%" />
         <div style={{ display: 'flex', flexDirection: 'column', maxHeight: 260, overflow: 'auto' }}>
@@ -485,7 +485,7 @@ function SwapDialog({ s }: { s: DispatchState }) {
   )
 }
 
-/** P3 — fill empty vans from the fleet, saying what it would do first. */
+/** P3 - fill empty vans from the fleet, saying what it would do first. */
 function AutoAssignDialog({ s }: { s: DispatchState }) {
   const ids = (s.dlgData.rows as string[] | undefined) ?? []
   const rows = s.day.rows.filter((r) => ids.includes(r.id) && !r.van)
@@ -527,7 +527,7 @@ function AutoAssignDialog({ s }: { s: DispatchState }) {
             </div>
             {shortBy > 0 && (
               <span style={{ ...caption1, color: 'var(--warning-fg)', textWrap: 'pretty' }}>
-                ⚠ {shortBy} {shortBy === 1 ? 'row' : 'rows'} will still have no van — the fleet has none left in service.
+                ⚠ {shortBy} {shortBy === 1 ? 'row' : 'rows'} will still have no van - the fleet has none left in service.
               </span>
             )}
           </>

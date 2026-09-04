@@ -186,11 +186,14 @@ export function SortHead({
         padding: 'var(--size-60) var(--size-160)',
       }}
     >
-      {defs.map((d) => {
+      {/* Keyed by position, not label: the checkbox and actions columns both
+          have a blank label, and two `key=""` siblings make React drop one.
+          A column list is fixed and never reordered, so the index is stable. */}
+      {defs.map((d, di) => {
         const active = !!d.k && sort.k === d.k
         return (
           <div
-            key={d.label}
+            key={di}
             role={d.k ? 'button' : undefined}
             tabIndex={d.k ? 0 : undefined}
             onClick={d.k ? () => onSort({ k: d.k!, d: active && sort.d === 'asc' ? 'desc' : 'asc' }) : undefined}
@@ -298,7 +301,7 @@ export function DotPill({
   )
 }
 
-/** A plain pill — no dot. */
+/** A plain pill - no dot. */
 export function Pill({
   bg = 'var(--surface-subtle)',
   fg = 'var(--text-secondary)',
@@ -584,7 +587,7 @@ export function EmptyState({
 }
 
 
-/** Cell helpers — the four shapes the tables repeat. */
+/** Cell helpers - the four shapes the tables repeat. */
 export function Cell({ children, color, mono, bold, align, ellipsis, nums }: {
   children?: ReactNode
   color?: string

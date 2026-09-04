@@ -8,7 +8,7 @@ import { DA_COUNT, DA_LABEL, DA_POST, LADDER } from './data'
 const FOCUS_RING = '0 0 0 1px #FFFFFF, 0 0 0 3px var(--neutral-900)'
 
 // Selecting a post highlights its column across every band and dims the rest.
-// It changes no right — the matrix is read-only either way — it just holds one
+// It changes no right - the matrix is read-only either way - it just holds one
 // column still while you read down it.
 function Chip({
   label,
@@ -48,7 +48,7 @@ function Chip({
       aria-pressed={on}
       tabIndex={0}
       onClick={onPick}
-      // Clicking must not leave a focus ring behind — only keyboard should.
+      // Clicking must not leave a focus ring behind - only keyboard should.
       onMouseDown={(e) => e.preventDefault()}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -102,7 +102,7 @@ export function Ladder({
           onPick={() => onPick(l.label)}
         />
       ))}
-      {/* Set apart because a DA is not a portal user — the count is roster
+      {/* Set apart because a DA is not a portal user - the count is roster
           records, not accounts. */}
       <Chip
         dashed

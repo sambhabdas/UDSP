@@ -324,7 +324,7 @@ function InvoiceRow({ s, x }: { s: IvState; x: number }) {
           display: 'flex',
           justifyContent: 'flex-end',
           // The ⋯ hides until the row is under the pointer, unless its own menu
-          // is open — closing it by clicking away would otherwise be a chase.
+          // is open - closing it by clicking away would otherwise be a chase.
           opacity: hover || menuOpen ? 1 : 0,
           transition: 'opacity var(--duration-faster) var(--curve-linear)',
         }}

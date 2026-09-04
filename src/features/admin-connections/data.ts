@@ -18,7 +18,7 @@ export const PROVIDERS = ['Paycom', 'ADP', 'Not connected']
 export const ENVIRONMENTS = ['Production', 'Sandbox']
 export const INTERVALS = ['Every 15 min', 'Every 30 min', 'Every hour']
 
-// The two the file import cannot supply — the reason the API is worth wiring.
+// The two the file import cannot supply - the reason the API is worth wiring.
 export const PUNCH_FIELDS = [
   'ee_code',
   'date',

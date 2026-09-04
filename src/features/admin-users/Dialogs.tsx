@@ -42,7 +42,7 @@ export function UserForm({ s }: { s: UsersState }) {
         </Labelled>
       </div>
 
-      {/* The owner's post is not editable here — it moves only by transfer. */}
+      {/* The owner's post is not editable here - it moves only by transfer. */}
       {!s.editingOwner && (
         <Labelled label="Role">
           <div style={{ display: 'flex', gap: 'var(--size-60)', flexWrap: 'wrap' }}>
@@ -53,7 +53,7 @@ export function UserForm({ s }: { s: UsersState }) {
         </Labelled>
       )}
 
-      {/* An invite holds a seat, so a full plan blocks the send — and says so
+      {/* An invite holds a seat, so a full plan blocks the send - and says so
           rather than failing at the last click. */}
       {!editing && s.seatsLeft <= 0 && (
         <div
@@ -168,7 +168,7 @@ export function TransferDialog({ s }: { s: UsersState }) {
             : 'Pick the new owner. Only active users can take ownership.'}
         </div>
 
-        {/* Typing the exact address is the confirmation — there is no undo. */}
+        {/* Typing the exact address is the confirmation - there is no undo. */}
         <div
           data-field=""
           style={{
@@ -304,7 +304,7 @@ export function DaInviteDialog({ s }: { s: UsersState }) {
   )
 }
 
-// The invite goes by text, so a driver with no number cannot be picked — the
+// The invite goes by text, so a driver with no number cannot be picked - the
 // row stays visible and says why rather than disappearing.
 function CandidateRow({ d, on, onToggle }: { d: Da; on: boolean; onToggle: () => void }) {
   const noPhone = !d.phone

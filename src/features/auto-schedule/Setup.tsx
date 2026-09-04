@@ -12,7 +12,7 @@ import { DAY_NAMES, fmtDay, weekLabelShort } from '../schedule/date'
 import type { AutoState } from './useAutoSchedule'
 
 /**
- * Setup — what the run should aim for and what it is allowed to do.
+ * Setup - what the run should aim for and what it is allowed to do.
  *
  * Needs first (how many of each shift, each day), then the rules that gate the
  * fill, then who is out of the pool, then a review of whether the two can
@@ -92,7 +92,7 @@ export function WeekPicker({ s, which }: { s: AutoState; which: 'week' | 'reswee
 /**
  * The needs matrix.
  *
- * A cell turns amber when it asks for more than the day has eligible people —
+ * A cell turns amber when it asks for more than the day has eligible people -
  * the run cannot fill it however it is configured, and it says so before you
  * spend a run finding out.
  */
@@ -352,7 +352,7 @@ function ExclusionChip({ s, exclusion }: { s: AutoState; exclusion: { da: string
   const [hover, hoverProps] = useHover()
   const d = daOf(exclusion.da)
   const [avBg, avFg] = tint(d.name)
-  // An exclusion with an end date is the one worth noticing — it lapses.
+  // An exclusion with an end date is the one worth noticing - it lapses.
   const expiring = exclusion.until != null
 
   return (

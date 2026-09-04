@@ -23,7 +23,7 @@ const COLS = '32px minmax(200px,1.3fr) 90px minmax(150px,1fr) 70px 110px minmax(
 
 /**
  * Rescues: the rows Dispatch streams in, and the one question this page asks of
- * each — did Amazon pay for it? An unmarked assigned rescue is the honesty
+ * each - did Amazon pay for it? An unmarked assigned rescue is the honesty
  * light; an Unpaid one feeds the DSP service-type row and the route-hour count.
  */
 export function RescueTable({ s }: { s: WorkSummaryState }) {

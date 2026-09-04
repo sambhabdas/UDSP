@@ -27,7 +27,7 @@ import { int } from '../../ds/format'
  * about it.
  *
  * The tiles at the top are the checks. Routes Ran against Load Out's launched
- * count is the one that matters — a gap means the Amazon file, Dispatch and the
+ * count is the one that matters - a gap means the Amazon file, Dispatch and the
  * yard are telling three different stories, and the two tables below are where
  * that gets reconciled before the day is locked against the invoice.
  */
@@ -405,7 +405,7 @@ function menuItems(s: WorkSummaryState, kind: MenuKind, extra?: string): MenuIte
         s.setStatus(id)
         s.setStatusStamp({ who: ME, when: STAMP_TIME })
         s.setMenu(null)
-        // Locking a day that does not add up is allowed — but it is said out loud.
+        // Locking a day that does not add up is allowed - but it is said out loud.
         if (id === 'match' && s.gap !== 0) {
           s.toastMsg(`Locked with a mismatch - routes do not match Dispatch · ${s.totRan} vs ${s.expected}`)
         } else if (id === 'match') {

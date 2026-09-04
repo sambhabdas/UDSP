@@ -8,7 +8,7 @@ import type { Coaching } from '../data'
 import type { GaState } from '../useGeneralAssociates'
 
 /**
- * Performance — the Events that made the net, and the coaching those Events
+ * Performance - the Events that made the net, and the coaching those Events
  * fired. An assignment can be reminded once its state is anything but done.
  */
 export function PerformanceTab({ s }: { s: GaState }) {
@@ -17,7 +17,7 @@ export function PerformanceTab({ s }: { s: GaState }) {
   const open = s.openCoaching
   const overdue = open.some((c) => c.state === 'Overdue')
 
-  // Nobody with a clear record gets an empty table — they get one Clear row.
+  // Nobody with a clear record gets an empty table - they get one Clear row.
   const coachRows: Coaching[] = s.coaching.length
     ? s.coaching
     : [{ module: 'Nothing assigned', due: '', state: 'Clear' }]

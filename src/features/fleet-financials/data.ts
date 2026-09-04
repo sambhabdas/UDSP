@@ -87,8 +87,8 @@ export type Cells = Record<string, number>
 /**
  * Build the cell map: `tab|vehicleId|column`.
  *
- * Two holes are deliberate — Van 114 has no July lease and Van 128 no July
- * insurance — because an incomplete row is what the page is for. Earlier months
+ * Two holes are deliberate - Van 114 has no July lease and Van 128 no July
+ * insurance - because an incomplete row is what the page is for. Earlier months
  * use the full monthly rate; the off-fleet van's part-month figures only apply
  * to the month it left.
  */
@@ -113,7 +113,7 @@ export function seedCells(): Cells {
     // so the number is the same on every render.
     for (let m = 1; m <= 5; m++) {
       if (v.offM !== undefined && m > v.offM) continue
-      const seed = v.id.charCodeAt(3) + v.id.charCodeAt(4)
+      const seed = v.id.split('').reduce((a, c) => a + c.charCodeAt(0), 0)
       weeks(m).forEach((w, i) => {
         const base = v.wk[i % 5]
         if (base === null || base === undefined) return

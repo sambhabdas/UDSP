@@ -1,4 +1,4 @@
-// Avatar tinting and initials are DS-level rules — see ds/avatar.ts.
+// Avatar tinting and initials are DS-level rules - see ds/avatar.ts.
 import { env } from '../../config/env'
 
 export { initials, tint } from '../../ds/avatar'
@@ -10,7 +10,7 @@ export interface Activity {
   k: ActivityKind
   text: string
   time?: string
-  /** Email body — the line under the subject. */
+  /** Email body - the line under the subject. */
   sub?: string
   /** Direction, on the kinds where it is not implied by `k`. */
   dir?: 'in' | 'out'
@@ -56,7 +56,7 @@ export interface Person {
 
 // Seed for the Inbox portal.
 //
-// The shape and the values come straight from Inbox.dc.html's `seed()` — the
+// The shape and the values come straight from Inbox.dc.html's `seed()` - the
 // design file is the specification of record, so the people, timelines and
 // counts are reproduced verbatim rather than re-invented.
 
@@ -75,7 +75,7 @@ const person = (id: string, name: string, extra: Partial<Person> = {}): Person =
   tier: 'Tier 1',
   blocked: false,
   openEvents: 0,
-  coaching: '—',
+  coaching: '-',
   unread: 0,
   missed: false,
   timeline: [],
@@ -98,7 +98,7 @@ export function seedPeople(): Person[] {
       phone: '+1 (555) 012-3345',
       email: 'marcus.j@mail.com',
       tasks: [
-        { label: 'Rescue pickup — stops 41–60', status: 'assigned', done: false },
+        { label: 'Rescue pickup - stops 41-60', status: 'assigned', done: false },
         { label: 'RTS check-in · 17:30', status: 'pending', done: false },
       ],
       last: { ch: 'text', snip: "Van won't start at stop 41", t: '2m' },
@@ -108,16 +108,16 @@ export function seedPeople(): Person[] {
         { k: 'out', text: 'Great work today', time: '18:30' },
         { k: 'date', text: 'Today' },
         { k: 'sys', text: '09:02 · Route RT-12 assigned via Dispatch' },
-        { k: 'in', text: "Van won't start at stop 41 — need help", time: '09:31' },
+        { k: 'in', text: "Van won't start at stop 41 - need help", time: '09:31' },
         { k: 'call', text: 'Outbound call · 2:34 · answered' },
         {
           k: 'email',
           dir: 'out',
           text: 'Rescue confirmation',
-          sub: 'Rescue driver Sam Rivera is picking up stops 41–60. Stay with the van until he arrives.',
+          sub: 'Rescue driver Sam Rivera is picking up stops 41-60. Stay with the van until he arrives.',
         },
-        { k: 'note', text: 'Note · prefers text over call — JD' },
-        { k: 'out', text: 'Rescue is on the way — stay put at stop 41', time: '09:41' },
+        { k: 'note', text: 'Note · prefers text over call - JD' },
+        { k: 'out', text: 'Rescue is on the way - stay put at stop 41', time: '09:41' },
         { k: 'in', text: 'ok thank you', time: '09:42' },
       ],
     }),
@@ -172,7 +172,7 @@ export function seedPeople(): Person[] {
       score: 66,
       timeline: [
         { k: 'date', text: 'Yesterday' },
-        { k: 'email', text: 'Timesheet question', sub: 'Tuesday shows 7.5 h — should be 9' },
+        { k: 'email', text: 'Timesheet question', sub: 'Tuesday shows 7.5 h - should be 9' },
       ],
     }),
     person('omar', 'Omar Diallo', {
@@ -181,7 +181,7 @@ export function seedPeople(): Person[] {
       timeline: [
         { k: 'date', text: 'Yesterday' },
         { k: 'in', text: 'Running 10 late', time: '07:48' },
-        { k: 'out', text: 'Noted — wave 2 holds for you', time: '07:52' },
+        { k: 'out', text: 'Noted - wave 2 holds for you', time: '07:52' },
       ],
     }),
     person('kelly', 'Kelly Shaw', {
@@ -192,7 +192,7 @@ export function seedPeople(): Person[] {
     person('jordan', 'Jordan Fox', {
       last: { ch: 'email', snip: 'PTO request', t: '2d' },
       score: 37,
-      timeline: [{ k: 'email', text: 'PTO request', sub: 'Aug 21–22, family trip' }],
+      timeline: [{ k: 'email', text: 'PTO request', sub: 'Aug 21-22, family trip' }],
     }),
   ]
 }
@@ -216,5 +216,5 @@ export const CHANNELS: (Channel | 'All')[] = ['All', 'Texts', 'Calls', 'Emails',
 export const COMPOSER_TABS: ComposerTab[] = ['Text', 'Email', 'Note']
 export const EMOJIS = ['👍', '🙏', '😀', '😅', '🎉', '❤️', '🚚', '✅']
 
-// The station's designated SMS line — Connections → Phone lines (Inbox §3.3).
+// The station's designated SMS line - Connections → Phone lines (Inbox §3.3).
 export const STATION_LINE = `from: ${env.stationCode} · ${env.stationPhone}`

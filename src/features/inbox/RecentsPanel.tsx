@@ -41,7 +41,7 @@ function RecentRow({
       }}
       {...hoverProps}
     >
-      {/* Selection is two channels — a 2px accent bar plus the tinted plate. */}
+      {/* Selection is two channels - a 2px accent bar plus the tinted plate. */}
       {selected && (
         <span
           style={{
@@ -288,7 +288,7 @@ export function RecentsPanel({
           >
             <span style={{ ...caption1, color: 'var(--text-secondary)' }}>
               {filter === 'Unread'
-                ? "Nothing unread — you're caught up"
+                ? "Nothing unread - you're caught up"
                 : 'No missed calls or voicemails'}
             </span>
             <span

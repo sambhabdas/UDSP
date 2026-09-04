@@ -37,7 +37,7 @@ const PRESETS: Record<string, Preset> = {
 }
 
 /**
- * Export — the payroll dump.
+ * Export - the payroll dump.
  *
  * It refuses to be a quiet button: the preview shows the actual bytes, the
  * warnings name every reason the file might be wrong, and a hard violation

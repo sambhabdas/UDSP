@@ -140,7 +140,7 @@ const str = (v: unknown): string => (typeof v === 'string' ? v : '')
 const list = (v: unknown): string[] => (Array.isArray(v) ? (v as string[]) : [])
 
 /**
- * Exclude — pick people, give a reason, optionally an end date.
+ * Exclude - pick people, give a reason, optionally an end date.
  *
  * Exclusion is forward-only: it changes what the next run will do and never
  * touches a shift somebody already holds, so anyone picked who holds one gets

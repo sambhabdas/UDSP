@@ -68,7 +68,7 @@ export function Button({
   )
 }
 
-/** The decision pair — only the recommended half is saturated. */
+/** The decision pair - only the recommended half is saturated. */
 export function DecisionButton({
   children,
   onClick,
@@ -110,7 +110,7 @@ export function DecisionButton({
   )
 }
 
-/** A square glyph button — the row ⋯ and a dialog's ✕. */
+/** A square glyph button - the row ⋯ and a dialog's ✕. */
 export function IconButton({
   name,
   onClick,
@@ -181,7 +181,7 @@ export function SearchBox({
         transition: 'border-color var(--duration-ultra-fast) var(--curve-linear)',
       }}
     >
-      {/* Drawn inline rather than pulled from the glyph table — the design file
+      {/* Drawn inline rather than pulled from the glyph table - the design file
           hand-rolls this one magnifier, thinner than the icon set's. */}
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="var(--text-disabled)" strokeWidth="1.6" style={{ flexShrink: 0 }}>
         <circle cx="7" cy="7" r="4.6" />
@@ -310,7 +310,7 @@ export function Badge({
   )
 }
 
-/** A KPI tile — glyph and label on one line, the number under it. */
+/** A KPI tile - glyph and label on one line, the number under it. */
 export function Kpi({ icon, label, value, color }: { icon: string; label: string; value: string; color: string }) {
   return (
     <div

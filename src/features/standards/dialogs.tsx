@@ -13,7 +13,7 @@ import { blankMaker, type StandardsState } from './useStandards'
  * One dialog builds a standard and edits one.
  *
  * A built-in can have its points and pairing changed but not its name, its
- * category or its unit — those are what imports match on.
+ * category or its unit - those are what imports match on.
  */
 export function StandardDialog({ s }: { s: StandardsState }) {
   if (!s.stdDlg) return null

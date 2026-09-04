@@ -56,7 +56,7 @@ function Dropdown({
   )
 }
 
-// Prev / next stepper — one control, disabled ends greyed rather than hidden.
+// Prev / next stepper - one control, disabled ends greyed rather than hidden.
 function Stepper({
   label,
   onPrev,

@@ -26,7 +26,7 @@ export function useCompanyStation() {
   const [tzQuery, setTzQuery] = useState('')
   const [tzPending, setTzPending] = useState<string | null>(null)
 
-  // `toast` is the function and `toastText` the line — this page's own
+  // `toast` is the function and `toastText` the line - this page's own
   // naming, kept so no component of it has to change.
   const { toast: toastText, toastMsg: toast } = useToast(2600)
 
@@ -44,7 +44,7 @@ export function useCompanyStation() {
   }, [])
 
   // The rail is painted with the brand colour, so everything drawn on top of it
-  // — glyphs, the divider, the selection plate — derives from that colour's
+  // - glyphs, the divider, the selection plate - derives from that colour's
   // luminance. A pale brand cannot ship an unreadable rail.
   const rail = useMemo<RailTone>(() => {
     const hex = /^#[0-9a-fA-F]{6}$/.test(form.brand) ? form.brand : FALLBACK_BRAND

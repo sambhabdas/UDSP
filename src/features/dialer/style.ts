@@ -11,7 +11,7 @@ export const FIELD: CSSProperties = {
   background: 'var(--surface-subtle)',
 }
 
-/** An input with no chrome of its own — the field around it carries that. */
+/** An input with no chrome of its own - the field around it carries that. */
 export const BARE_INPUT: CSSProperties = {
   flex: 1,
   minWidth: 0,

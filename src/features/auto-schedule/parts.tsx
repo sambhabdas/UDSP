@@ -8,7 +8,7 @@ import { caption1, caption1Strong, subtitle2 } from '../../ds/type'
 import { LABEL } from './style'
 import { Toast as BaseToast } from '../../ds/components/Toast'
 
-/** A collapsible section card — every panel on both tabs is one of these. */
+/** A collapsible section card - every panel on both tabs is one of these. */
 export function Section({
   title,
   open,
@@ -366,7 +366,7 @@ export function HeadCell({ children, align, style }: { children: ReactNode; alig
   )
 }
 
-/** Caption-scale toast — this page's design file sets it one step down. */
+/** Caption-scale toast - this page's design file sets it one step down. */
 export function Toast({ children }: { children: ReactNode }) {
   return <BaseToast size="caption">{children}</BaseToast>
 }

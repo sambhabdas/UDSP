@@ -6,7 +6,7 @@ import { RT_HEADERS } from '../data'
 import type { GaState } from '../useGeneralAssociates'
 
 /**
- * Dispatch — what the day sheet says about them.
+ * Dispatch - what the day sheet says about them.
  *
  * Only today's row carries anything: the two before it are there to show the
  * shape the history will take once Return to Station starts writing into it.

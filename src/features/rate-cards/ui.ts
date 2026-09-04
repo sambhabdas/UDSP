@@ -22,7 +22,7 @@ export const CARD: CSSProperties = {
   flexDirection: 'column',
 }
 
-/** An input that carries no chrome of its own — the wrapper owns the border. */
+/** An input that carries no chrome of its own - the wrapper owns the border. */
 export const BARE_INPUT: CSSProperties = {
   flex: 1,
   minWidth: 0,

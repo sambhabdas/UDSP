@@ -34,7 +34,7 @@ export function QuestionCard({ q, i, m }: { q: Question; i: number; m: MakerStat
   )
 }
 
-const kindLabel = (q: Question) => (q.kind === 'Rating' ? `Rating 1–${q.scale}` : q.kind)
+const kindLabel = (q: Question) => (q.kind === 'Rating' ? `Rating 1-${q.scale}` : q.kind)
 
 function Collapsed({ q, i, m }: { q: Question; i: number; m: MakerState }) {
   return (
@@ -115,8 +115,8 @@ function Expanded({ q, i, m }: { q: Question; i: number; m: MakerState }) {
       {q.kind === 'Rating' && (
         <Labelled label="Scale">
           <div style={{ display: 'flex', gap: 'var(--size-60)' }}>
-            <Seg height={26} label="1–5" on={q.scale === 5} onPick={() => m.patchQ(i, { scale: 5 })} />
-            <Seg height={26} label="1–10" on={q.scale === 10} onPick={() => m.patchQ(i, { scale: 10 })} />
+            <Seg height={26} label="1-5" on={q.scale === 5} onPick={() => m.patchQ(i, { scale: 5 })} />
+            <Seg height={26} label="1-10" on={q.scale === 10} onPick={() => m.patchQ(i, { scale: 10 })} />
           </div>
         </Labelled>
       )}

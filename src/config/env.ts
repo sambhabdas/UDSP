@@ -1,7 +1,7 @@
 // Deployment configuration, read once and in one place.
 //
 // Next.js only inlines `process.env.NEXT_PUBLIC_*` when it is written out
-// literally, so every read below is a static property access — a lookup table
+// literally, so every read below is a static property access - a lookup table
 // or a computed key would compile to `undefined` in the browser bundle and the
 // fallback would silently win everywhere.
 //
@@ -30,7 +30,7 @@ export const env = {
    *
    * Fixed rather than taken from the visitor's browser: the server renders the
    * first paint, so a per-visitor locale would make the markup disagree with
-   * itself at hydration — and an operator reading "1.204,50" where a colleague
+   * itself at hydration - and an operator reading "1.204,50" where a colleague
    * reads "1,204.50" is a reconciliation bug, not a preference.
    */
   locale: read(process.env.NEXT_PUBLIC_LOCALE, 'en-US'),

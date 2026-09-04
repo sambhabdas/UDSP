@@ -14,7 +14,7 @@ import { money, num, rate as fmtRate, signColor, signed } from './fmt'
 import type { IvState } from './useInvoiceValidation'
 
 /**
- * The validate tab — one week at a time, top to bottom.
+ * The validate tab - one week at a time, top to bottom.
  *
  * Work summary (what we say happened) → extracted (what Amazon says it will
  * pay for) → the comparison → the dispute draft → the decision. Once a week is
@@ -435,7 +435,7 @@ function ComparisonTable({ s }: { s: IvState }) {
     actual: money(c.derived),
     diffMoney: totOk ? '-' : `${c.totalGap > 0 ? '+' : '−'}${money(Math.abs(c.totalGap))}`,
     diffUnitColor: signColor(totOk ? 0 : c.totalGap),
-    // The total is arithmetic, not a claim — it carries no badge of its own.
+    // The total is arithmetic, not a claim - it carries no badge of its own.
     badge: null,
     mismatch: false,
   })

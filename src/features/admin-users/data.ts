@@ -3,7 +3,7 @@
 // Two populations that are never the same list: PORTAL USERS hold one of the
 // five posts and consume a seat, and DAs are roster drivers whose only surface
 // is the phone app. A DA is not a portal user, so it has no role, no seat and
-// no email — it has a transporter ID and a number to text an invite to.
+// no email - it has a transporter ID and a number to text an invite to.
 
 export const SEAT_CAP = 12
 
@@ -70,7 +70,7 @@ export interface StatusTone {
   border: string
 }
 
-// A dot as well as a colour — status is never carried by hue alone.
+// A dot as well as a colour - status is never carried by hue alone.
 export const STATUS_TONE: Record<UserStatus, StatusTone> = {
   Active: { dot: 'var(--success-accent)', fg: 'var(--success-fg)', bg: 'var(--success-bg)', border: 'var(--success-border)' },
   Invited: { dot: 'var(--warning-accent)', fg: 'var(--warning-fg)', bg: 'var(--warning-bg)', border: 'var(--warning-border)' },

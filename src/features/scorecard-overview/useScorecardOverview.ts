@@ -18,8 +18,8 @@ export interface Sort {
 }
 
 /**
- * Every filter on the page is one of three kinds — a window, a category, or a
- * "top N" — so each panel keeps its own trio rather than sharing one, letting
+ * Every filter on the page is one of three kinds - a window, a category, or a
+ * "top N" - so each panel keeps its own trio rather than sharing one, letting
  * the Kudos table look at this month while the leaderboard looks at all time.
  */
 export interface PanelFilters {
@@ -34,7 +34,7 @@ export interface PanelFilters {
 const panel = (win: string, top: string): PanelFilters => ({ cat: 'Overall', win, top, q: '', from: '', to: '' })
 
 export function useScorecardOverview() {
-  // Named `period`, not `window` — shadowing the global in a client module is a
+  // Named `period`, not `window` - shadowing the global in a client module is a
   // trap waiting for the first line that needs the real one.
   const [period, setPeriod] = useState('This month')
   const [winFrom, setWinFrom] = useState('')
@@ -57,7 +57,7 @@ export function useScorecardOverview() {
 
   const { toast, toastMsg } = useToast(2400)
 
-  /** Every deep link on the page lands as a toast — the destinations are other pages. */
+  /** Every deep link on the page lands as a toast - the destinations are other pages. */
   const go = useCallback((m: string) => () => toastMsg(`Opening ${m}`), [toastMsg])
 
   const d = useMemo(() => dataFor(period), [period])

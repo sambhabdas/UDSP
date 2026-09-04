@@ -65,7 +65,7 @@ function ContactRow({
   )
 }
 
-// Card 1 — the person. Read-only: no rail control ever edits a roster field.
+// Card 1 - the person. Read-only: no rail control ever edits a roster field.
 function ProfileCard({ person }: { person: Person }) {
   const [avBg, avFg] = tint(person.name)
   return (
@@ -142,7 +142,7 @@ function ProfileCard({ person }: { person: Person }) {
   )
 }
 
-// Card 2 — route and van only. The freshness stamp is on screen, never only in
+// Card 2 - route and van only. The freshness stamp is on screen, never only in
 // the data: amber once the On Road board is more than 90 minutes old.
 function RouteCard({ person, stale }: { person: Person; stale: boolean }) {
   return (
@@ -172,7 +172,7 @@ function RouteCard({ person, stale }: { person: Person; stale: boolean }) {
   )
 }
 
-// Card 3 — the shift gate, the one number and its tier. This page defines none
+// Card 3 - the shift gate, the one number and its tier. This page defines none
 // of it and never clears the gate.
 function PerformanceCard({ person }: { person: Person }) {
   const blocked = person.blocked
@@ -195,7 +195,7 @@ function PerformanceCard({ person }: { person: Person }) {
             color: blocked ? 'var(--red-700)' : 'var(--green-700)',
           }}
         >
-          {blocked ? 'Blocked — overdue coaching' : 'Clear to work'}
+          {blocked ? 'Blocked - overdue coaching' : 'Clear to work'}
         </span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--size-100)' }}>
@@ -208,7 +208,7 @@ function PerformanceCard({ person }: { person: Person }) {
           {person.score > 0 ? '+' : ''}
           {person.score}
         </span>
-        {/* The tier chip carries the at-risk treatment — there is no second pill. */}
+        {/* The tier chip carries the at-risk treatment - there is no second pill. */}
         <StatusChip
           bg={person.atRisk ? 'var(--red-100)' : 'var(--surface-subtle)'}
           border={person.atRisk ? 'var(--red-200)' : 'var(--border-default)'}
@@ -267,7 +267,7 @@ function GhostButton({
   )
 }
 
-// Card 4 — the rail's only writes: + Add task and the done checkbox.
+// Card 4 - the rail's only writes: + Add task and the done checkbox.
 function TasksCard({ person, state }: { person: Person; state: InboxState }) {
   const tasks = person.tasks || []
   const doneTasks = person.doneTasks || []
@@ -330,7 +330,7 @@ function TasksCard({ person, state }: { person: Person; state: InboxState }) {
         <input
           data-field=""
           autoFocus
-          placeholder="Task label — Enter to add"
+          placeholder="Task label - Enter to add"
           value={state.newTask}
           onChange={(e) => state.setNewTask(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && state.addTask()}

@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import type { CSSProperties, MouseEvent, PointerEvent, ReactNode } from 'react'
+import type { CSSProperties, MouseEvent, ReactNode } from 'react'
 import { Icon } from '../ds/icons/Icon'
 import { useHover } from '../ds/useHover'
 import { body1, body1Strong, caption1, caption1Strong, subtitle2 } from '../ds/type'
@@ -19,74 +19,11 @@ import {
 import type { NavPage, Portal } from './nav'
 import { Dialer } from '../features/dialer/Dialer'
 
-/** What the rail and the panel spread over their shared hover zone. */
-export interface PeekHandlers {
-  onPointerEnter: (e: PointerEvent<HTMLElement>) => void
-  onPointerLeave: (e: PointerEvent<HTMLElement>) => void
-}
-
-// Brushing past the rail on the way somewhere else should not flash the panel,
-// and crossing the seam between the rail and the panel should not lose it — so
-// opening waits, and closing waits longer.
-const PEEK_OPEN_DELAY = 140
-const PEEK_CLOSE_DELAY = 220
-
-/**
- * The hover half of the panel. Returns the open flag plus the handlers that go
- * on both the rail and the panel, which together are one hover zone even though
- * they are not siblings in the tree.
- *
- * `enabled` is false when the panel is pinned (nothing to peek at) and on a
- * touch-sized viewport, where there is no hover to speak of.
- */
-function usePeek(enabled: boolean): [boolean, PeekHandlers, () => void] {
-  const [peek, setPeek] = useState(false)
-  const timer = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const clear = () => {
-    if (timer.current) {
-      clearTimeout(timer.current)
-      timer.current = null
-    }
-  }
-  useEffect(() => clear, [])
-
-  // A peek that is open when peeking stops being allowed has to be put away, or
-  // it would hang over the page with nothing left to close it. Adjusted during
-  // render rather than in an effect: the panel must not paint one frame open.
-  const [wasEnabled, setWasEnabled] = useState(enabled)
-  if (wasEnabled !== enabled) {
-    setWasEnabled(enabled)
-    if (!enabled) setPeek(false)
-  }
-
-  const close = () => {
-    clear()
-    setPeek(false)
-  }
-
-  const handlers: PeekHandlers = {
-    onPointerEnter: (e) => {
-      // Touch and pen have no hover; they get the click path instead.
-      if (e.pointerType !== 'mouse' || !enabled) return
-      clear()
-      timer.current = setTimeout(() => setPeek(true), PEEK_OPEN_DELAY)
-    },
-    onPointerLeave: (e) => {
-      if (e.pointerType !== 'mouse') return
-      clear()
-      timer.current = setTimeout(() => setPeek(false), PEEK_CLOSE_DELAY)
-    },
-  }
-
-  return [peek, handlers, close]
-}
-
 // Rail geometry and states are Shell.dc.html's, not invented here:
 //  · 48px rail, 40×36 tiles at 2px/4px margins, 8px top and 6px bottom padding
 //  · groups separated by a 1px white-at-14% rule, plus one under the monogram
 //  · selection is a 2px white pill bar at the tile's left edge and the FILLED
-//    glyph — no background plate, and the selected tile takes no hover plate
+//    glyph - no background plate, and the selected tile takes no hover plate
 //  · hover is white at 8% with the glyph lifting to pure white
 const RAIL_DIVIDER = 'rgba(255,255,255,.14)'
 const RAIL_HOVER = 'rgba(255,255,255,.08)'
@@ -119,7 +56,7 @@ function RailTile({
         height: 'var(--rail-tile-height)',
         margin: 'var(--size-20) var(--size-40) 0 var(--size-40)',
         borderRadius: 'var(--radius-medium)',
-        // The active tile never takes a hover plate — its bar already carries it.
+        // The active tile never takes a hover plate - its bar already carries it.
         background: !active && hover ? RAIL_HOVER : 'transparent',
         color: active || hover ? 'var(--white)' : 'var(--on-dark-icon)',
         display: 'flex',
@@ -154,8 +91,6 @@ function SideRail({
   hidden,
   nextStep,
   onStep,
-  onExpand,
-  hoverProps,
 }: {
   active: string
   onSelect: (id: string) => void
@@ -163,9 +98,6 @@ function SideRail({
   /** What the control at the foot of the rail will do next. */
   nextStep: 'unpin-panel' | 'hide-rail'
   onStep: () => void
-  onExpand: () => void
-  /** The rail is the left half of the panel's hover zone. */
-  hoverProps: PeekHandlers
 }) {
   return (
     <div
@@ -178,17 +110,14 @@ function SideRail({
         transition: 'width var(--duration-fast) var(--curve-easy-ease)',
       }}
       aria-hidden={hidden || undefined}
-      {...hoverProps}
     >
     <nav
       data-rail=""
-      // Shell.dc.html: double-clicking the rail brings a collapsed panel back.
-      onDoubleClick={onExpand}
       style={{
         boxSizing: 'border-box',
         width: 'var(--rail-width)',
         // The retract wrapper is a plain block, so the rail has to claim the
-        // full height itself — without this it shrinks to its tiles and the
+        // full height itself - without this it shrinks to its tiles and the
         // dark column stops short of the bottom of the window.
         height: '100%',
         flexShrink: 0,
@@ -249,7 +178,7 @@ function SideRail({
   )
 }
 
-// The control at the foot of the rail — 16px chevron, pointing the way the
+// The control at the foot of the rail - 16px chevron, pointing the way the
 // sidebar will move.
 function CollapseTile({
   step,
@@ -452,7 +381,7 @@ function PinToggle({ pinned, onClick }: { pinned: boolean; onClick: () => void }
  *
  * Pinned, it is Shell.dc.html's column in the content row: the wrapper animates
  * its width and the page beside it grows into the space. Unpinned, it is a
- * flyout — the same nav, laid over the page instead of beside it, so brushing
+ * flyout - the same nav, laid over the page instead of beside it, so brushing
  * the rail to check where you are does not reflow a wide table underneath.
  */
 function PortalPanel({
@@ -463,7 +392,6 @@ function PortalPanel({
   onSelect,
   onDismiss,
   onTogglePin,
-  hoverProps,
 }: {
   portal: Portal
   activePage: string | null
@@ -472,7 +400,6 @@ function PortalPanel({
   onSelect: (id: string) => void
   onDismiss: () => void
   onTogglePin: () => void
-  hoverProps: PeekHandlers
 }) {
   const wrapper: CSSProperties = floating
     ? {
@@ -500,7 +427,7 @@ function PortalPanel({
       }
 
   return (
-    <div style={wrapper} aria-hidden={!open || undefined} {...hoverProps}>
+    <div style={wrapper} aria-hidden={!open || undefined}>
       <nav
         data-panel=""
         aria-label={portal.name}
@@ -578,12 +505,20 @@ function PortalPanel({
 
 // The top bar, from Shell.dc.html: the wordmark, a search field that swaps to a
 // white plate on focus, and a 32px persona. Resting chrome, so a hairline and
-// no shadow — the stroke-instead-of-key-shadow rule.
+// no shadow - the stroke-instead-of-key-shadow rule.
 const SEARCH_NARROW_BELOW = 1024
 
 function Header({ wordmark }: { wordmark: string }) {
   const searchWidth = useViewportWidth() < SEARCH_NARROW_BELOW ? 180 : 240
   const [avatarBg, avatarFg] = tint(USER_NAME)
+
+  // The persona is the way out. A full navigation rather than a router push:
+  // the middleware has to see the request without the cookie to send us to the
+  // sign-in screen, and a client-side transition would not carry it there.
+  const signOut = () => {
+    void fetch('/api/logout', { method: 'POST' }).finally(() => window.location.assign('/login'))
+  }
+
   return (
     <header
       style={{
@@ -618,7 +553,7 @@ function Header({ wordmark }: { wordmark: string }) {
       </div>
       <div style={{ flex: 1 }} />
 
-      {/* The focus swap — white plate, blue border — is the [data-field] rule
+      {/* The focus swap - white plate, blue border - is the [data-field] rule
           in app.css, so it needs no state of its own. */}
       <span
         data-field=""
@@ -653,7 +588,17 @@ function Header({ wordmark }: { wordmark: string }) {
       </span>
 
       <span
-        title={USER_NAME}
+        role="button"
+        tabIndex={0}
+        aria-label={`${USER_NAME} - sign out`}
+        title={`${USER_NAME} - sign out`}
+        onClick={signOut}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault()
+            signOut()
+          }
+        }}
         style={{
           marginLeft: 'var(--size-40)',
           width: 32,
@@ -677,13 +622,11 @@ function Header({ wordmark }: { wordmark: string }) {
   )
 }
 
-// The shell is the layout, so it reads the route rather than being handed it —
-// which is what makes every page linkable, bookmarkable and reloadable.
 // Below this the rail and a 212px panel leave the page under 120px, so the
-// panel starts put away. It is still a normal collapse — the control works.
+// panel starts put away. It is still a normal collapse - the control works.
 const PANEL_FOLD = 900
 
-// The shell is the layout, so it reads the route rather than being handed it —
+// The shell is the layout, so it reads the route rather than being handed it -
 // which is what makes every page linkable, bookmarkable and reloadable.
 export function AppShell({ children }: { children: ReactNode }) {
   const router = useRouter()
@@ -704,9 +647,9 @@ export function AppShell({ children }: { children: ReactNode }) {
     if (pageId) lastPage.current[portalId] = pageId
   }, [portalId, pageId])
 
-  // The panel does not stay open by default. It flies out over the page when
-  // the pointer is on the rail, and docks beside the page only when asked —
-  // a preference that belongs to the size class it was expressed in, since
+  // The panel does not stay open by default. It flies out over the page when a
+  // rail tile is clicked, and docks beside the page only when asked - a
+  // preference that belongs to the size class it was expressed in, since
   // docking a 212px column on a 375px screen would leave the page 115px wide.
   const narrow = useViewportWidth() < PANEL_FOLD
   const [pref, setPref] = useState<{ pinned: boolean; narrow: boolean } | null>(null)
@@ -714,19 +657,15 @@ export function AppShell({ children }: { children: ReactNode }) {
   const setPinned = (v: boolean) => setPref({ pinned: v, narrow })
 
   // The rail is a separate choice from the page list, and a deliberate one, so
-  // it is never taken away by a resize — only by asking for it.
+  // it is never taken away by a resize - only by asking for it.
   const [railHidden, setRailHidden] = useState(false)
 
-  const [peek, peekHandlers, closePeek] = usePeek(hasPanel && !pinned && !railHidden && !narrow)
-
-  // Tapping a rail tile is the touch path to the same flyout: no hover to work
-  // with, so the tap that picks the portal also shows its pages.
-  const [tapped, setTapped] = useState(false)
-  const panelOpen = hasPanel && !railHidden && (pinned || peek || tapped)
-  const closePanel = () => {
-    closePeek()
-    setTapped(false)
-  }
+  // The flyout opens on a click and shuts on the next one. It used to fly out
+  // on hover, which meant it appeared whenever the pointer crossed the rail on
+  // its way somewhere else - so the panel is only ever opened deliberately now.
+  const [shown, setShown] = useState(false)
+  const panelOpen = hasPanel && !railHidden && (pinned || shown)
+  const closePanel = () => setShown(false)
 
   // One control, walked in steps: undock the page list first, then the rail.
   // A portal with no docked list skips straight to the rail.
@@ -743,9 +682,13 @@ export function AppShell({ children }: { children: ReactNode }) {
   const go = (id: string, page?: string | null) =>
     router.push(hrefOf(id, page ?? lastPage.current[id] ?? null))
 
-  // Selecting a portal shows its pages, so the next click is the page you want.
+  // A rail tile toggles its own portal: the first click shows the pages, so the
+  // next click is the page you want, and clicking the same tile again puts the
+  // list away. Moving to a different portal keeps the list up, since the point
+  // of that click was to see what is in there.
   const handleRail = (id: string) => {
-    setTapped(!!getPortal(id)?.pages)
+    const hasPages = !!getPortal(id)?.pages
+    setShown(hasPages && !(id === portalId && shown))
     go(id)
   }
 
@@ -764,10 +707,6 @@ export function AppShell({ children }: { children: ReactNode }) {
         hidden={railHidden}
         nextStep={nextStep}
         onStep={step}
-        onExpand={() => {
-          if (hasPanel && !narrow) setPinned(true)
-        }}
-        hoverProps={peekHandlers}
       />
 
       <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
@@ -791,10 +730,9 @@ export function AppShell({ children }: { children: ReactNode }) {
                   closePanel()
                 }
               }}
-              hoverProps={peekHandlers}
             />
           )}
-          {/* Reaching for the page puts a flyout away — the touch path's
+          {/* Reaching for the page puts a flyout away - the touch path's
               equivalent of moving the pointer off the rail. */}
           <main
             style={{ flex: 1, minWidth: 0, minHeight: 0 }}

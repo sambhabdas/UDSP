@@ -108,7 +108,7 @@ function Chip({
   )
 }
 
-// The payroll file is read, mapped and split into days BEFORE anything lands —
+// The payroll file is read, mapped and split into days BEFORE anything lands -
 // the dialog says exactly what each day will do, including the ones it skips.
 export function ImportDialog({ s }: { s: ProjectionState }) {
   const splitRows = s.splitAll ? SPLIT_BASE.concat(SPLIT_EXTRA) : SPLIT_BASE

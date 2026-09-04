@@ -186,7 +186,7 @@ function FiguresTable({ s }: { s: PayrollState }) {
   if (!fig) return null
   // [group, the positions it sums, gross, employer taxes, why it might be absent]
   const rows: [string, string, number | null, number | null, string][] = [
-    ['Driver', 'Driver · Driver–Step Van · Standby', fig.dg, fig.dt, ''],
+    ['Driver', 'Driver · Driver-Step Van · Standby', fig.dg, fig.dt, ''],
     ['Dispatch', 'Dispatch', fig.pg, fig.pt, ''],
     [
       'Training',
@@ -262,7 +262,7 @@ function FiguresTable({ s }: { s: PayrollState }) {
         >
           <div style={{ width: 90, flexShrink: 0 }}>{group}</div>
           <div style={{ flex: 1.4, minWidth: 170, color: 'var(--text-secondary)' }}>{positions}</div>
-          {/* An absent group prints nothing and says why on hover — absent is
+          {/* An absent group prints nothing and says why on hover - absent is
               not zero, and a zero here would be a lie about the file. */}
           <div title={g == null ? absentHover : ''} style={{ ...cell, color: g == null ? 'var(--text-helper)' : 'var(--text-primary)' }}>
             {g == null ? '' : money(g)}
@@ -352,7 +352,7 @@ function FiguresTable({ s }: { s: PayrollState }) {
 }
 
 export function UploadTab({ s }: { s: PayrollState }) {
-  // Tab B needs a locked calendar — upload is keyed to a calendar period, never
+  // Tab B needs a locked calendar - upload is keyed to a calendar period, never
   // to free dates.
   if (!s.dataYear) {
     return (
@@ -458,7 +458,7 @@ export function UploadTab({ s }: { s: PayrollState }) {
         >
           <span style={{ ...caption1, color: 'var(--text-secondary)' }}>
             Every closed pay period is posted. P{s.periodRow.n} is still open until{' '}
-            {fmtRange(s.periodRow.start, s.periodRow.end, s.dataYear).split('–').pop()?.trim()}.
+            {fmtRange(s.periodRow.start, s.periodRow.end, s.dataYear).split('-').pop()?.trim()}.
           </span>
         </div>
       )}

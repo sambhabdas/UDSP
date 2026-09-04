@@ -135,7 +135,7 @@ export function Dialogs({ s }: { s: SchedState }) {
   }
 }
 
-/** Every soft warning goes through here — a typed reason or nothing happens. */
+/** Every soft warning goes through here - a typed reason or nothing happens. */
 function ReasonDialog({ s }: { s: SchedState }) {
   const f = s.form as { title: string; softLines: string[]; commit: (r: string) => void; reason: string }
   const ok = f.reason.trim().length >= 5
@@ -601,7 +601,7 @@ function SwapRow({
   )
 }
 
-/** Dropping one shift onto another means trading them — both halves checked. */
+/** Dropping one shift onto another means trading them - both halves checked. */
 function SwapConfirmDialog({ s }: { s: SchedState }) {
   const f = s.form as { a: Shift; b: Shift }
   const ca = s.check(f.b.da, f.b.day, f.a.dept, f.b)
@@ -743,7 +743,7 @@ function ViolationsDialog({ s }: { s: SchedState }) {
  * The shift templates.
  *
  * The order is the fill priority the auto-scheduler walks, so the rows drag to
- * reorder. Deleting one leaves the shifts already on the board alone — it only
+ * reorder. Deleting one leaves the shifts already on the board alone - it only
  * takes the template out of the pickers.
  */
 function DeptsDialog({ s }: { s: SchedState }) {

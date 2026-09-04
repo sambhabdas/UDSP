@@ -1,4 +1,4 @@
-// Schedule — one week of the station, seven columns wide.
+// Schedule - one week of the station, seven columns wide.
 //
 // A shift is a (DA, day, department) triple. The department carries the start
 // time and the length, so a shift only overrides them when someone typed real
@@ -184,7 +184,7 @@ export const HOURS_CAP = 50
 /** Where the hours cell turns amber ahead of the cap. */
 export const HOURS_WARN = 46
 
-/** Avatar tints, picked by a hash of the name — the same rule the DS uses. */
+/** Avatar tints, picked by a hash of the name - the same rule the DS uses. */
 export function tint(name: string): [string, string] {
   const tints: [string, string][] = [
     ['var(--blue-100)', 'var(--blue-700)'],

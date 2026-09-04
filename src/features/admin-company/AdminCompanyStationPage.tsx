@@ -13,7 +13,7 @@ import { useCompanyStation } from './useCompanyStation'
 import type { CompanyState } from './useCompanyStation'
 
 // The company is the legal entity that signs and gets paid; the station is the
-// building Amazon dispatches from. Documents carry the legal name — the display
+// building Amazon dispatches from. Documents carry the legal name - the display
 // name is only what the product wears.
 export function AdminCompanyStationPage() {
   const s = useCompanyStation()
@@ -469,7 +469,7 @@ function ZoneRow({ label, on, onPick }: { label: string; on: boolean; onPick: ()
   )
 }
 
-// Changing the zone re-renders every timestamp in the product, so it asks —
+// Changing the zone re-renders every timestamp in the product, so it asks -
 // and says plainly that nothing which already happened actually moves.
 function TzConfirm({ s }: { s: CompanyState & { tzPending: string } }) {
   return (

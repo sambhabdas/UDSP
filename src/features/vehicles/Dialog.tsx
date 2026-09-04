@@ -282,7 +282,7 @@ function isEligible(s: VehiclesState, daId: string, vid: string): boolean {
   return true
 }
 
-/** How often a reminder comes back — by date or by miles. */
+/** How often a reminder comes back - by date or by miles. */
 function RepeatBlock({ s }: { s: VehiclesState }) {
   const f = s.form
   const on = !!f.repeatOn

@@ -412,7 +412,7 @@ function saveDialog(s: LibraryState) {
     return
   }
 
-  // Add Video — which may have been reached from inside the module editor.
+  // Add Video - which may have been reached from inside the module editor.
   if (!s.v.title.trim()) { s.toastMsg('Title the video first'); return }
   const title = s.v.title.trim()
   if (s.meStash) {

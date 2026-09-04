@@ -17,7 +17,7 @@ const VIEWS: [string, string][] = [
 /**
  * Vehicles: the fleet's records.
  *
- * Two lists — every van, and every service record across all of them — plus a
+ * Two lists - every van, and every service record across all of them - plus a
  * profile for one van in six tabs. The profile is a view, not a route, so
  * getting back is a link rather than the browser's back button.
  */

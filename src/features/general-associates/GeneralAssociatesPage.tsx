@@ -15,7 +15,7 @@ import { DocsTab } from './tabs/DocsTab'
 import { useGeneralAssociates } from './useGeneralAssociates'
 
 /**
- * Associates — every DA on the roster, and one profile in six tabs.
+ * Associates - every DA on the roster, and one profile in six tabs.
  *
  * The profile is a view rather than a route: opening one keeps the roster's
  * scroll, sort and filters intact underneath, so working a filtered list one

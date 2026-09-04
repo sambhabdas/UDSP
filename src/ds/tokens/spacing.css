@@ -1,4 +1,4 @@
-/* Ultimate DSP — Fluent global size ramp, 4px base.
+/* Ultimate DSP - Fluent global size ramp, 4px base.
    size20 / size60 / size100 are icon-inset exceptions; everything else is a multiple of 4. */
 :root {
   --size-none: 0px;

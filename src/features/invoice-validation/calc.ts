@@ -61,8 +61,8 @@ export function dataOf(n: number, inv: Invoice | undefined): WeekData {
 /**
  * The whole check, in one pass.
  *
- * Each service type can be wrong two ways at once — the wrong number of blocks
- * AND the wrong price per block — and both count as separate discrepancies,
+ * Each service type can be wrong two ways at once - the wrong number of blocks
+ * AND the wrong price per block - and both count as separate discrepancies,
  * because they are separate claims with separate arithmetic behind them.
  */
 export function compare(n: number, inv: Invoice | undefined, rates: Record<string, number>): Comparison {

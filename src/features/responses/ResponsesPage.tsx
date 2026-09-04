@@ -9,7 +9,7 @@ import { useResponses } from './useResponses'
 import type { RespState } from './useResponses'
 
 /**
- * Responses — what the drivers actually said.
+ * Responses - what the drivers actually said.
  *
  * The page is a read, not a workspace: the numbers, the shape of the week, who
  * has not answered yet, then every question with its own answers underneath.
@@ -367,7 +367,7 @@ function Lightbox({ s }: { s: RespState }) {
 /**
  * The filter drawer.
  *
- * One section on this page — which question to show — but it keeps the shared
+ * One section on this page - which question to show - but it keeps the shared
  * drawer's shape: a draft that Cancel discards, a searchable body, and a footer
  * whose Clear All greys out when there is nothing to clear.
  */

@@ -6,7 +6,7 @@ import { useHover } from '../../ds/useHover'
 import { caption2, caption2Strong } from '../../ds/type'
 
 /**
- * The small square hit targets in the card's chrome — close, back, backspace.
+ * The small square hit targets in the card's chrome - close, back, backspace.
  * They tint on hover and carry no border of their own.
  */
 export function GhostButton({
@@ -106,7 +106,7 @@ export function Avatar({
   )
 }
 
-/** A tappable list row — history, contacts and message threads share it. */
+/** A tappable list row - history, contacts and message threads share it. */
 export function ListRow({
   height,
   title,

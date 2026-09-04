@@ -127,7 +127,7 @@ export function useRoster() {
         case 'name': return d.name
         case 'openEv': return d.openEv
         case 'coach': return coachRank(d.coach)
-        // Inactive sorts last, blocked first — the order you would triage in.
+        // Inactive sorts last, blocked first - the order you would triage in.
         case 'el': return d.inactive ? 2 : d.blocked ? 0 : 1
         case 'tenure': return d.tenureN
         default: return d.net

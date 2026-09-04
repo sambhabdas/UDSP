@@ -41,7 +41,7 @@ export interface PunchState {
  *
  * The grace window is the whole point: a punch inside it is simply on time, and
  * only past it does the cell start counting minutes. A row with no scheduled
- * arrival cannot be late — it has nothing to be late against — so it reports the
+ * arrival cannot be late - it has nothing to be late against - so it reports the
  * punch plainly rather than inventing a verdict.
  */
 export function punchState(
@@ -83,7 +83,7 @@ export function punchState(
   return { txt: 'Not yet', color: 'var(--text-secondary)', weight: 'var(--weight-regular)', title: 'Not due yet' }
 }
 
-/** Whether a row has punched, is late, or is simply not due — the three states
+/** Whether a row has punched, is late, or is simply not due - the three states
  *  the wave boxes count. */
 export type WaveState = 'in' | 'missing' | 'out'
 
@@ -139,7 +139,7 @@ export function whereOf(day: Day, name: string): { hint: string; dot: string } {
   return { hint: 'Not scheduled', dot: 'var(--neutral-400)' }
 }
 
-/** Rows that will actually launch — OPS and Trainer rows are here but are not
+/** Rows that will actually launch - OPS and Trainer rows are here but are not
  *  routes, so they never count toward readiness. */
 export const routeRows = (rows: Row[]): Row[] => rows.filter((r) => ROUTE_BANDS.includes(r.band))
 
@@ -158,7 +158,7 @@ import type { Itinerary, OnRoadNote, Rescue } from './data'
 /** How a route is going. `preimport` means the itinerary file has not landed. */
 export type RouteState = 'pace' | 'behind' | 'nodata' | 'done' | 'preimport'
 
-/** One line on the On Road board — a launched route, or a rescue in flight. */
+/** One line on the On Road board - a launched route, or a rescue in flight. */
 export type BoardItem =
   | {
       kind: 'route'
@@ -188,7 +188,7 @@ export type BoardItem =
 /**
  * What is actually out there right now.
  *
- * A route is on the board once its wave has passed — before that it is still a
+ * A route is on the board once its wave has passed - before that it is still a
  * Load Out problem. "Late" is deliberately two things: a projection past the
  * plan, or a plan that has simply gone by with the driver not back.
  */
@@ -266,7 +266,7 @@ export interface RtsRow {
   recon: number
   /** What physically returned to the station. */
   returned: number
-  /** What a person counted at the door — undefined until somebody counts. */
+  /** What a person counted at the door - undefined until somebody counts. */
   counted?: number
   /** An issue raised on road that the door should know about. */
   inNote: OnRoadNote | null
@@ -290,7 +290,7 @@ const RECON: Record<string, number> = {
   CX300: 1, CX302: 2, CX308: 1, CX310: 2,
 }
 
-/** One route the closing file simply does not mention — the board says so
+/** One route the closing file simply does not mention - the board says so
  *  rather than quietly balancing without it. */
 export const MISSING_FROM_FILE = 'CX298'
 
@@ -303,7 +303,7 @@ export function rtsBoard(day: Day): { rows: RtsRow[]; launched: number; missing:
       const stopsAll = 96 + ((i * 7) % 52)
       const out = 180 + ((i * 13) % 130)
       const recon = RECON[r.route] ?? 1
-      // One van came back three short of what the file claims — the gap is the
+      // One van came back three short of what the file claims - the gap is the
       // point of the board.
       const returned = r.route === 'CX272' ? Math.max(0, recon - 3) : recon
       const it = day.itin[r.id]
@@ -340,7 +340,7 @@ export function rtsBoard(day: Day): { rows: RtsRow[]; launched: number; missing:
  *
  * The preview is resolved against an actual driver rather than placeholder
  * text, because the thing worth checking before a group send is what the
- * message will really say — including the fields that come out empty.
+ * message will really say - including the fields that come out empty.
  */
 export function resolveTemplate(body: string, r: Row | undefined, day: Day, schedOff: number): string {
   if (!r) return body

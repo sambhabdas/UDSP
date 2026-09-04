@@ -2,7 +2,7 @@
 //
 // This page bills UDSP to the DSP. It has nothing to do with what Amazon pays
 // the DSP (Invoice Validation, Rate Cards) or what the DSP pays its drivers
-// (Payroll Setup) — three different money stories, and no figure is shared
+// (Payroll Setup) - three different money stories, and no figure is shared
 // between them.
 
 export const COMPANY_LEGAL_NAME = 'Cedar Ridge Logistics LLC'
@@ -47,7 +47,7 @@ export const METER_SPECS: MeterSpec[] = [
   },
 ]
 
-// The billing month — not the Amazon week and not the pay period.
+// The billing month - not the Amazon week and not the pay period.
 export interface Period {
   range: string
   tag: string

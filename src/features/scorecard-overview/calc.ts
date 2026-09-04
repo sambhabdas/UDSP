@@ -22,7 +22,7 @@ export interface LineSeries {
 }
 
 /**
- * A line over a 0..max axis — the shape used by the coaching charts, where
+ * A line over a 0..max axis - the shape used by the coaching charts, where
  * nothing goes negative and the axis therefore starts at zero.
  */
 export function buildLine(values: number[], max: number, fmt: (v: number) => string): LineSeries {
@@ -231,10 +231,10 @@ export function movement(category: string, window: string, seed: number, weight:
   }).sort((a, b) => b.d - a.d)
 }
 
-/** Biggest improvements — the Kudos table. */
+/** Biggest improvements - the Kudos table. */
 export const improvements = (category: string, window: string): MoveRow[] => movement(category, window, 0, 1)
 
-/** Biggest declines — the coaching table. */
+/** Biggest declines - the coaching table. */
 export const declines = (category: string, window: string): MoveRow[] => movement(category, window, 7, 3)
 
 export const rankedRoster = (): { name: string; net: number; tier: Tier }[] =>

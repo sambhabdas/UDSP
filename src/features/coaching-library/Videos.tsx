@@ -10,7 +10,7 @@ import { FiltersButton } from './Modules'
 import type { LibraryState } from './useCoachingLibrary'
 import { Icon } from '../../ds/icons/Icon'
 
-/** Videos — the same library seen as a table or as poster-frame cards. */
+/** Videos - the same library seen as a table or as poster-frame cards. */
 export function Videos({ s }: { s: LibraryState }) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--size-120)' }}>

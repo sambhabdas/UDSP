@@ -70,10 +70,10 @@ export function useDispatch() {
 
   // `setDay`, `act` and `commitEdit` all close over the current day, which is a
   // new object every render. Wrapping them in useCallback would rebuild the
-  // callback every render anyway — the memo would be a lie — so they are plain
+  // callback every render anyway - the memo would be a lie - so they are plain
   // functions. They are only ever called from event handlers.
 
-  /** Write into today and stamp the save clock — every board edits through here. */
+  /** Write into today and stamp the save clock - every board edits through here. */
   const setDay = (patch: Partial<Day>) => {
     setDays((ds) => ({ ...ds, [dayOff]: { ...(ds[dayOff] ?? seedDay()), ...patch } }))
     setSavedAt(fmt(NOW))

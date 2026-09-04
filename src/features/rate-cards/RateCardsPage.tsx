@@ -11,7 +11,7 @@ import { useRateCards } from './useRateCards'
 
 // Rate Cards answers one question: what does Amazon pay for a route, and since
 // when. Every rate is a dated window rather than a single number, so changing
-// today's price cannot rewrite what last week earned — the table, the timeline
+// today's price cannot rewrite what last week earned - the table, the timeline
 // and the editor all say that in different ways.
 //
 // Below this the eight columns collide, so the page scrolls sideways in its own

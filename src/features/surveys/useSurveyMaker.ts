@@ -124,7 +124,7 @@ export function useSurveyMaker(survey: Survey | null) {
 
   const requiredCount = questions.filter((q) => q.required).length
 
-  // Long required surveys get skipped — say so rather than letting it ship.
+  // Long required surveys get skipped - say so rather than letting it ship.
   const reqWarning = questions.length > 0 && requiredCount > questions.length / 2
 
   const sections = useMemo<{ id: SectionId; title: string; summary: string }[]>(

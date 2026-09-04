@@ -236,7 +236,7 @@ function InvoiceRow({ v, s, flip }: { v: Invoice; s: BillingState; flip: boolean
 
       <NumberCell v={v} onOpen={() => s.toast(`Open ${v.num} · ${v.breakdown}`)} />
 
-      {/* The amount carries its own breakdown — plan and overage are never one
+      {/* The amount carries its own breakdown - plan and overage are never one
           opaque figure. */}
       <div
         title={v.breakdown}

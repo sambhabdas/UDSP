@@ -20,7 +20,7 @@ const MIN_WIDTH = 940
 export function SurveysPage() {
   const s = useSurveys()
 
-  // The maker is the page while it is open — a survey is built, not dialogued.
+  // The maker is the page while it is open - a survey is built, not dialogued.
   if (s.makerFor) {
     return <SurveyMaker survey={s.makerSurvey} onBack={s.closeMaker} />
   }

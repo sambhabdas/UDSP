@@ -93,7 +93,7 @@ export function SetupBoard({ s }: { s: DispatchState }) {
               {t.badge}
             </Pill>
             {t.seeded && (
-              <Pill bg="var(--info-bg)" border="var(--info-border)" fg="var(--info-fg)" title="Ships with the product — it can be edited but not archived">
+              <Pill bg="var(--info-bg)" border="var(--info-border)" fg="var(--info-fg)" title="Ships with the product - it can be edited but not archived">
                 Built in
               </Pill>
             )}

@@ -11,7 +11,7 @@ import {
 } from './data'
 import type { Line, LineSortKey, ReservedNumber, TabId } from './data'
 
-/** The mailbox connect form — OAuth needs only the address; IMAP needs the
+/** The mailbox connect form - OAuth needs only the address; IMAP needs the
  *  host, port and credentials. */
 export interface MailForm {
   provider: string
@@ -114,7 +114,7 @@ export function useConnections() {
   const [addOpen, setAddOpen] = useState(false)
   const [al, setAl] = useState(EMPTY_ADD_LINE)
 
-  // `toast` is the function and `toastText` the line — this page's own naming.
+  // `toast` is the function and `toastText` the line - this page's own naming.
   const { toast: toastText, toastMsg: toast } = useToast(2600)
   type Timer = ReturnType<typeof setTimeout> | undefined
   const testTimer = useRef<Timer>(undefined)
@@ -242,7 +242,7 @@ export function useConnections() {
     [toast],
   )
 
-  // Deleting a line takes its forwards with it — any other line pointing at it
+  // Deleting a line takes its forwards with it - any other line pointing at it
   // falls back to voicemail rather than forwarding into nothing.
   const dropLine = useCallback(
     (id: number) => {

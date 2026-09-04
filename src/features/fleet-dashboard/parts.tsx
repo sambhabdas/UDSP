@@ -12,7 +12,7 @@ export function SectionTitle({ children }: { children: ReactNode }) {
   return <span style={subtitle2}>{children}</span>
 }
 
-/** A KPI tile. `size` is the number's type — 28px on the fleet row, 24 in spend. */
+/** A KPI tile. `size` is the number's type - 28px on the fleet row, 24 in spend. */
 export function Tile({
   label,
   value,
@@ -377,7 +377,7 @@ export function DotPill({ bg, fg, dot, children }: { bg: string; fg: string; dot
   )
 }
 
-/** A plain pill — no dot. */
+/** A plain pill - no dot. */
 export function Pill({
   bg,
   fg,

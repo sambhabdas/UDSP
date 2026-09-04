@@ -88,7 +88,7 @@ function UserRow({ u, s, flip }: { u: User; s: UsersState; flip: boolean }) {
   return (
     <Row fg={fg}>
       <div style={{ width: 24, flexShrink: 0, display: 'flex', alignItems: 'center' }}>
-        {/* The owner is never bulk-selectable — nothing bulk applies to it. */}
+        {/* The owner is never bulk-selectable - nothing bulk applies to it. */}
         {!isOwner && (
           <CheckBox
             on={s.sel.includes(u.id)}
@@ -155,7 +155,7 @@ function UserRow({ u, s, flip }: { u: User; s: UsersState; flip: boolean }) {
 
 // The owner row is protected: everything that would reduce it is dark, and the
 // only way out is Transfer ownership. Everyone else can be deactivated, but
-// only an account with no history — an invite never accepted — can be removed.
+// only an account with no history - an invite never accepted - can be removed.
 function menuItems(u: User, s: UsersState): MenuItemSpec[] {
   if (u.role === 'Owner') {
     return [

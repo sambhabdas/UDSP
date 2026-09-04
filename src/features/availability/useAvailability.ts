@@ -150,7 +150,7 @@ export function useAvailability() {
 
   const eff = useCallback((da: Da, day: number, w: number) => effective(overrides, da, day, w), [overrides])
 
-  /** The roster after search, filters and sort — before paging. */
+  /** The roster after search, filters and sort - before paging. */
   const filtered = useMemo(() => {
     let list = das.slice()
     if (sort === 'Name') {
@@ -184,7 +184,7 @@ export function useAvailability() {
     setOverrides((o) => write(o, daId, day, value, w))
   }, [])
 
-  /** Replace the whole override tree — the bulk "revert to pattern" path. */
+  /** Replace the whole override tree - the bulk "revert to pattern" path. */
   const setOverridesDirect = useCallback((next: Overrides) => setOverrides(next), [])
 
   /** Step the visible window by its own length, clamped to the calendar. */

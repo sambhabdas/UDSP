@@ -438,7 +438,7 @@ function Head({ s }: { s: ComplianceState }) {
   )
 }
 
-/** One line of the board — every cell says what it says because of `warns`. */
+/** One line of the board - every cell says what it says because of `warns`. */
 function Row({ x, s }: { x: RowEval; s: ComplianceState }) {
   const p = x.p
   const w = x.warns
@@ -551,7 +551,7 @@ function Row({ x, s }: { x: RowEval; s: ComplianceState }) {
         padding: 'var(--size-40) var(--size-160)',
         borderBottom: '1px solid var(--border-subtle)',
         background: on ? 'var(--blue-50)' : 'var(--surface-card)',
-        // Gone home, or not started — the row is still there but stepped back.
+        // Gone home, or not started - the row is still there but stepped back.
         opacity: out || p.future ? 0.55 : 1,
       }}
     >

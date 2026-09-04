@@ -22,7 +22,7 @@ export function Dialogs({ s }: { s: AvailabilityState }) {
   if (s.dlg === 'clearWeek' || s.dlg === 'clearDa') return <ClearDialog s={s} />
   if (s.dlg === 'rollback') return <RollbackDialog s={s} />
   // `coldRemove` is reachable from the batch menu but the design file gives it
-  // no body, so it renders nothing — as it does there.
+  // no body, so it renders nothing - as it does there.
   return null
 }
 
@@ -120,7 +120,7 @@ function CellDialog({ s }: { s: AvailabilityState }) {
   )
 }
 
-/** The standing weekly pattern — the fallback every cell derives from. */
+/** The standing weekly pattern - the fallback every cell derives from. */
 function PatternDialog({ s }: { s: AvailabilityState }) {
   const f = s.form
   const daId = str(f.da)
@@ -184,7 +184,7 @@ function PatternDialog({ s }: { s: AvailabilityState }) {
   )
 }
 
-/** A block of days at once — a holiday, or a run of unavailability. */
+/** A block of days at once - a holiday, or a run of unavailability. */
 function RangeDialog({ s }: { s: AvailabilityState }) {
   const f = s.form
   const daId = str(f.da)
@@ -264,7 +264,7 @@ function RangeDialog({ s }: { s: AvailabilityState }) {
 /**
  * Reverting to the pattern.
  *
- * Approved time off survives — it is payroll data, not a preference, so it can
+ * Approved time off survives - it is payroll data, not a preference, so it can
  * only be cleared one cell at a time.
  */
 function ClearDialog({ s }: { s: AvailabilityState }) {

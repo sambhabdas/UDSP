@@ -1,4 +1,4 @@
-// Imports — bringing outside files into the scorecard.
+// Imports - bringing outside files into the scorecard.
 //
 // A five-step wizard on one side, and the record of everything already run on
 // the other.
@@ -30,7 +30,7 @@ export const STEPS = ['Choose Source', 'Upload File', 'Map Columns', 'Scoring Ru
 
 export interface Batch {
   date: string
-  /** Day of August — what the Date column sorts on. */
+  /** Day of August - what the Date column sorts on. */
   d: number
   source: string
   file: string
@@ -55,7 +55,7 @@ export interface Issue {
   id: string
   value: string
   cause: string
-  /** `filter` and `hold` are by design — they are reported, not resolved. */
+  /** `filter` and `hold` are by design - they are reported, not resolved. */
   kind: 'da' | 'map' | 'date' | 'filter' | 'hold'
   rows: number
 }

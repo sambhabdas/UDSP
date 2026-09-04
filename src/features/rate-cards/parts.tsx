@@ -214,7 +214,7 @@ export function Switch({ on, onClick, title }: { on: boolean; onClick?: () => vo
   )
 }
 
-/** The editable rate cell — a control, not a label, wherever it can be changed. */
+/** The editable rate cell - a control, not a label, wherever it can be changed. */
 export function RateCell({
   children,
   onClick,
@@ -396,7 +396,7 @@ export function SortGlyph({ active, dir }: { active: boolean; dir: 'asc' | 'desc
   )
 }
 
-/** Caption-scale toast — this page's design file sets it one step down. */
+/** Caption-scale toast - this page's design file sets it one step down. */
 export function Toast({ children, onUndo }: { children: ReactNode; onUndo?: () => void }) {
   return <BaseToast size="caption" onUndo={onUndo}>{children}</BaseToast>
 }

@@ -31,7 +31,7 @@ export function useAdminBilling() {
   const [cancelOpen, setCancelOpen] = useState(false)
   const [cancelText, setCancelText] = useState('')
 
-  // `toast` is the function and `toastText` the line — this page's own
+  // `toast` is the function and `toastText` the line - this page's own
   // naming, kept so no component of it has to change.
   const { toast: toastText, toastMsg: toast } = useToast(2600)
 
@@ -43,7 +43,7 @@ export function useAdminBilling() {
   const p = PERIODS[period]
 
   // Each meter reports how much of its allowance is gone and what the overage
-  // costs so far — the DSP sees the number accruing rather than meeting it on
+  // costs so far - the DSP sees the number accruing rather than meeting it on
   // the invoice.
   const meters = useMemo(
     () =>
@@ -61,7 +61,7 @@ export function useAdminBilling() {
           capLabel: int(spec.cap),
           pct: `${Math.min(100, Math.round(frac * 100))}%`,
           fill: frac >= 1 ? 'var(--danger-accent)' : frac >= 0.8 ? 'var(--warning-accent)' : 'var(--blue-300)',
-          // Amber from 80% — the point of a meter is the warning before the bill.
+          // Amber from 80% - the point of a meter is the warning before the bill.
           color: frac >= 0.8 ? 'var(--warning-fg)' : 'var(--text-primary)',
           sub: overCost > 0 ? `${money(overCost)} over` : 'Within the allowance',
           subColor: frac > 1 ? 'var(--warning-fg)' : 'var(--text-helper)',
@@ -110,7 +110,7 @@ export function useAdminBilling() {
     setInvYear('All')
   }, [])
 
-  // Cancelling is confirmed by typing the legal name — there is no undo inside
+  // Cancelling is confirmed by typing the legal name - there is no undo inside
   // the dialog, so the confirmation has to be deliberate.
   const canCancel = cancelText.trim() === COMPANY_LEGAL_NAME
 

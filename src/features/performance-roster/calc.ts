@@ -15,7 +15,7 @@ export const detailFor = (d: Associate): Detail => DETAILS[d.name] ?? fallbackDe
  * Nine points ending on today's net.
  *
  * The wobble is seeded from the transporter ID, so a given associate's
- * sparkline is always the same line — it is a fixture, not decoration.
+ * sparkline is always the same line - it is a fixture, not decoration.
  */
 export function sparkFor(d: Associate): { points: string; zero: number } {
   const seed = d.tid.charCodeAt(0) + d.tid.charCodeAt(3)
@@ -200,7 +200,7 @@ const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', '
 /**
  * "Aug 13" as a sortable integer.
  *
- * Deliberately not `new Date()` — a locale-dependent parse would let the
+ * Deliberately not `new Date()` - a locale-dependent parse would let the
  * server and the browser disagree about the order of two rows.
  */
 export function ackDay(text: string): number {

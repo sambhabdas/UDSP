@@ -61,7 +61,7 @@ export function usePayrollSetup() {
   const [dialog, setDialog] = useState<DialogKind | null>(null)
   const [typedVal, setTypedVal] = useState('')
   const [reasonVal, setReasonVal] = useState('')
-  // `toast` is the function and `toastText` the line — this page's own naming.
+  // `toast` is the function and `toastText` the line - this page's own naming.
   const { toast: toastText, toastMsg: toast } = useToast(3000)
 
   // The staged parse animation runs on its own timers, which still need
@@ -116,7 +116,7 @@ export function usePayrollSetup() {
       }))
     }
 
-    // A week can belong to only one pay period — check both directions against
+    // A week can belong to only one pay period - check both directions against
     // every locked year, and warn (never block) on a gap.
     let warning = ''
     for (const ly of lockedYears) {

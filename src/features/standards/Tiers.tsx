@@ -7,7 +7,7 @@ import { CARD, HEAD, LADDER_COLS, NUM } from './style'
 import type { StandardsState } from './useStandards'
 
 /**
- * Performance Tiers — the ladder that turns a net score into a label, and
+ * Performance Tiers - the ladder that turns a net score into a label, and
  * every consequence of changing it, stated before you commit.
  */
 export function Tiers({ s }: { s: StandardsState }) {

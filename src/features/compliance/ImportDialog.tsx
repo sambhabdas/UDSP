@@ -10,7 +10,7 @@ import { TallButton } from './parts'
 import type { ComplianceState } from './useCompliance'
 
 /**
- * Import Punches — three numbered steps: the file, what the rows are matched
+ * Import Punches - three numbered steps: the file, what the rows are matched
  * on, and which columns are allowed to overwrite the board.
  */
 export function ImportDialog({ s }: { s: ComplianceState }) {

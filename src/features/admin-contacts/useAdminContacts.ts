@@ -72,7 +72,7 @@ export function useAdminContacts() {
   const [ncNew, setNcNew] = useState('')
   const [rename, setRename] = useState<{ id: number | null; val: string }>({ id: null, val: '' })
   const [delFor, setDelFor] = useState<number | null>(null)
-  // `toast` is the function and `toastText` the line — this page's own
+  // `toast` is the function and `toastText` the line - this page's own
   // naming, kept so no component of it has to change.
   const { toast: toastText, toastMsg: toast } = useToast(2600)
   const dragId = useRef<number | null>(null)
@@ -94,7 +94,7 @@ export function useAdminContacts() {
     [contacts],
   )
 
-  // Every category in play — from live reasons plus any invented this session.
+  // Every category in play - from live reasons plus any invented this session.
   const categories = useMemo(() => {
     const out: string[] = []
     reasons.forEach((r) => {
@@ -106,7 +106,7 @@ export function useAdminContacts() {
     return out
   }, [reasons, extraCats])
 
-  // Categories including retired reasons' — the Reasons panel still lists them.
+  // Categories including retired reasons' - the Reasons panel still lists them.
   const allCategories = useMemo(() => {
     const out: string[] = []
     reasons.forEach((r) => {
@@ -161,7 +161,7 @@ export function useAdminContacts() {
     [],
   )
 
-  // Renaming a reason renames it everywhere it is held — the name is the thing
+  // Renaming a reason renames it everywhere it is held - the name is the thing
   // drivers read, so it cannot diverge per contact.
   const commitRename = useCallback(
     (r: Reason) => {
@@ -219,7 +219,7 @@ export function useAdminContacts() {
       toast(`Saved: ${who}`)
     } else {
       setContacts((cs) => cs.concat([{ id: Date.now(), ...patch }]))
-      toast(`Added last in the order: ${who} — drag it where it belongs`)
+      toast(`Added last in the order: ${who} - drag it where it belongs`)
     }
     setFormOpen(false)
   }, [form, toast])
@@ -234,7 +234,7 @@ export function useAdminContacts() {
     [vSelIds, toast],
   )
 
-  // The dragged id is a ref, not state — it changes mid-gesture and must not
+  // The dragged id is a ref, not state - it changes mid-gesture and must not
   // re-render the list underneath the pointer.
   const beginDrag = useCallback((id: number) => {
     dragId.current = id

@@ -14,7 +14,7 @@ interface Item {
 }
 
 /**
- * One menu serves the whole page — kebabs, the export split, and the three
+ * One menu serves the whole page - kebabs, the export split, and the three
  * combo fields inside the dialogs. It is positioned in viewport coordinates
  * against whatever opened it, so a menu inside a dialog is not clipped by it.
  */

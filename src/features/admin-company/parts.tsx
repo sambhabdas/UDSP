@@ -97,7 +97,7 @@ export function Field({
   maxLength?: number
   readOnly?: boolean
   uppercase?: boolean
-  /** Focus/blur pair that swaps the example text aside — see `sampleProps`. */
+  /** Focus/blur pair that swaps the example text aside - see `sampleProps`. */
   sample?: { onFocus?: () => void; onBlur?: () => void }
   width?: number | string
 }) {

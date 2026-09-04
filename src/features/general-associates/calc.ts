@@ -64,7 +64,7 @@ export function coachTone(state: string): ToneName {
   return 'blue'
 }
 
-/** The searchable text of a record — name, both IDs and the phone. */
+/** The searchable text of a record - name, both IDs and the phone. */
 export function searchText(d: Da): string {
   return `${d.name} ${d.tr} ${d.ee} ${d.phone}`.toLowerCase()
 }

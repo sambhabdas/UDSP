@@ -29,12 +29,12 @@ export function useProfitProjection() {
   const [notesDay, setNotesDay] = useState(SEED_NOTES_DAY)
 
 
-  // `toast` is the function and `toastMsg` the line — this page's own naming.
+  // `toast` is the function and `toastMsg` the line - this page's own naming.
   const { toast: toastMsg, toastMsg: toast } = useToast(2600)
 
   const isDay = scope === 'day'
   const isWeek = !isDay
-  // Stepping off the seeded week leaves nothing to show — the page says so
+  // Stepping off the seeded week leaves nothing to show - the page says so
   // rather than inventing figures.
   const empty = isWeek && weekOffset !== 0
 

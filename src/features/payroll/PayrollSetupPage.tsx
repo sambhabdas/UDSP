@@ -8,7 +8,7 @@ import { Icon } from '../../ds/icons/Icon'
 import { IconButton, StatusPill } from '../../ds/components/Button'
 import { Field, Menu, MenuItem, Toast } from '../../ds/components/Overlay'
 import { useHover } from '../../ds/useHover'
-import { body1, caption1, caption2Strong } from '../../ds/type'
+import { body1, body1Strong, caption1, caption2Strong } from '../../ds/type'
 import { fmtD, fmtRange, periodWeeks } from './calendar'
 import { STATUS_NAME, STATUS_TONE, YEARS } from './data'
 import { usePayrollSetup } from './usePayrollSetup'
@@ -57,6 +57,44 @@ function Tab({ label, selected, onClick }: { label: string; selected: boolean; o
         />
       )}
     </div>
+  )
+}
+
+/**
+ * The year's lock state, sitting beside the year picker in the tab row.
+ *
+ * This is a control, not a status pill: `PayrollSetup.dc.html:68` gives it
+ * `--control-height` and `--size-120` padding, the same box as the picker next
+ * to it, so the two line up. A 20px pill here left the row visibly uneven.
+ *
+ * The icon carries the accent colour while the text carries the foreground -
+ * two steps of the same tone, which is what the design file's `lockDot` and
+ * `lockFg` bindings are.
+ */
+function LockState({ locked }: { locked: boolean }) {
+  const tone = locked ? 'info' : 'warning'
+  return (
+    <span
+      style={{
+        boxSizing: 'border-box',
+        height: 'var(--control-height)',
+        display: 'flex',
+        alignItems: 'center',
+        gap: 'var(--size-60)',
+        padding: '0 var(--size-120)',
+        borderRadius: 'var(--radius-medium)',
+        background: `var(--${tone}-bg)`,
+        border: `1px solid var(--${tone}-border)`,
+        ...body1Strong,
+        color: `var(--${tone}-fg)`,
+        whiteSpace: 'nowrap',
+      }}
+    >
+      <span style={{ display: 'flex', color: `var(--${tone}-accent)` }}>
+        <Icon name={locked ? 'FnLock' : 'FnLockOpen'} size={16} />
+      </span>
+      {locked ? 'Locked' : 'Unlocked'}
+    </span>
   )
 }
 
@@ -401,18 +439,7 @@ export function PayrollSetupPage() {
         {isCal && (
           <>
             <YearPicker s={s} />
-            <StatusPill
-              tone={
-                s.isLocked
-                  ? ['var(--info-bg)', 'var(--info-border)', 'var(--info-fg)', 'var(--info-accent)']
-                  : ['var(--warning-bg)', 'var(--warning-border)', 'var(--warning-fg)', 'var(--warning-accent)']
-              }
-            >
-              <span style={{ display: 'flex' }}>
-                <Icon name={s.isLocked ? 'FnLock' : 'FnLockOpen'} size={14} />
-              </span>
-              {s.isLocked ? 'Locked' : 'Unlocked'}
-            </StatusPill>
+            <LockState locked={s.isLocked} />
             {s.isLocked && (
               <span style={{ position: 'relative', display: 'flex' }}>
                 <IconButton

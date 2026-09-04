@@ -240,7 +240,7 @@ function ReplaceButton({ onClick }: { onClick: () => void }) {
   )
 }
 
-/** Step 3 — which column of the file feeds which field. */
+/** Step 3 - which column of the file feeds which field. */
 function MapColumns({ s }: { s: AvailabilityState }) {
   const combos: [string, keyof Mapping, string[]][] = s.isSchedSrc
     ? [
@@ -268,7 +268,7 @@ function MapColumns({ s }: { s: AvailabilityState }) {
   )
 }
 
-/** Step 4 — what each file value writes, and which rows count at all. */
+/** Step 4 - what each file value writes, and which rows count at all. */
 function ValueMap({ s }: { s: AvailabilityState }) {
   if (s.isSchedSrc) {
     return (
@@ -364,7 +364,7 @@ function ValueMap({ s }: { s: AvailabilityState }) {
   )
 }
 
-/** Step 5 — what the run will write, and everything still unanswered. */
+/** Step 5 - what the run will write, and everything still unanswered. */
 function Review({ s }: { s: AvailabilityState }) {
   const tiles = [
     { label: 'Rows in file', value: String(s.review.inFile), color: 'var(--text-primary)' },

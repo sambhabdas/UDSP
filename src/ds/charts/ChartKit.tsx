@@ -134,7 +134,7 @@ export function Plot({
   )
 }
 
-// A reference line the reader is meant to compare against — break-even, or the
+// A reference line the reader is meant to compare against - break-even, or the
 // blocked hours per route.
 export function ReferenceRule({ top }: { top: number | string }) {
   return (
@@ -247,7 +247,7 @@ export function Tooltip({
   )
 }
 
-// Column labels under a plot — one per column, matching the plot's flex split.
+// Column labels under a plot - one per column, matching the plot's flex split.
 export function ColumnLabels<T>({
   cols,
   marginLeft = 46,
@@ -280,7 +280,7 @@ export function ColumnLabels<T>({
 }
 
 // A hit target spanning the full column height, so hovering anywhere in the
-// column works — not just on the mark itself.
+// column works - not just on the mark itself.
 export function Column({
   onEnter,
   onLeave,
@@ -383,7 +383,7 @@ export function PlotLine({
   )
 }
 
-// A half-circle gauge for a 0–1 fraction. Reads at a glance beside a figure;
+// A half-circle gauge for a 0-1 fraction. Reads at a glance beside a figure;
 // the figure itself always carries the precise value.
 export function Gauge({
   frac,
@@ -416,7 +416,7 @@ export function Gauge({
 
 
 // One or more series, each optionally split into a solid actual run and a
-// dashed projected tail — the second channel that marks "not final yet".
+// dashed projected tail - the second channel that marks "not final yet".
 export function MultiLine({
   series,
 }: {
@@ -497,7 +497,7 @@ export function Dot({
   )
 }
 
-// A 100%-tall column of proportional segments — for share-of-total charts,
+// A 100%-tall column of proportional segments - for share-of-total charts,
 // where every column reaches the top by definition.
 export function ShareBar({
   width,

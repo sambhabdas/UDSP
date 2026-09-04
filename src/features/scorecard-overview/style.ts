@@ -3,7 +3,7 @@ import { caption1, caption1Strong } from '../../ds/type'
 
 /**
  * This page sets its column headings and section eyebrows one step larger than
- * the shared `labelEyebrow` — Caption 1 rather than Caption 2 — because the
+ * the shared `labelEyebrow` - Caption 1 rather than Caption 2 - because the
  * dashboard is read at arm's length. Both live here so the two never drift.
  */
 export const HEAD: CSSProperties = {

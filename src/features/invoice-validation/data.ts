@@ -1,4 +1,4 @@
-// Invoice Validation — one Amazon invoice per week, checked against the work
+// Invoice Validation - one Amazon invoice per week, checked against the work
 // summary the station already confirmed.
 //
 // The seed covers weeks 20-33 of 2026 with "today" pinned to Aug 11, so W33 is

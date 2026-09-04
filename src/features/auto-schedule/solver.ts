@@ -2,7 +2,7 @@
 //
 // A deterministic greedy fill: walk the days in order, the departments in fill
 // priority, and the roster in rank order, taking the first DA who clears every
-// gate. Nothing is random, so the same inputs always produce the same run —
+// gate. Nothing is random, so the same inputs always produce the same run -
 // which is what makes the assignment log worth reading.
 
 import { DAS, DEPTS } from './data'

@@ -102,7 +102,7 @@ export function Button({
   )
 }
 
-// A segmented pick — used for audience, timing, answer type and attribution.
+// A segmented pick - used for audience, timing, answer type and attribution.
 export function Seg({
   label,
   on,

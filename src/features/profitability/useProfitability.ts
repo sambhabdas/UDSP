@@ -11,7 +11,7 @@ export type ProfitabilityState = ReturnType<typeof useProfitability>
 
 const defaultLayout = (): Layout => Object.fromEntries(CHART_KEYS.map((k, i) => [k, i]))
 
-// Chart order is the reader's, and it persists — someone who cares about
+// Chart order is the reader's, and it persists - someone who cares about
 // overtime should not have to scroll past four charts every visit.
 //
 // Read after mount, never during render: there is no localStorage on the
@@ -53,7 +53,7 @@ export function useProfitability({ scrollToTop }: { scrollToTop?: () => void } =
     if (saved) setLayout(saved)
   }, [])
 
-  // `toast` is the function and `toastMsg` the line — this page's own naming.
+  // `toast` is the function and `toastMsg` the line - this page's own naming.
   const { toast: toastMsg, toastMsg: toast } = useToast(2600)
 
   const closeMenus = useCallback(() => setMenu((m) => (m ? null : m)), [])
@@ -66,7 +66,7 @@ export function useProfitability({ scrollToTop }: { scrollToTop?: () => void } =
     [],
   )
 
-  // Picking a period scrolls back to the top — the figures above are the point.
+  // Picking a period scrolls back to the top - the figures above are the point.
   const pickPeriod = useCallback(
     (id: string) => {
       setSel(id)

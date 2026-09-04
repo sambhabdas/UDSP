@@ -7,7 +7,7 @@ import { Button, Checkbox, DaLink, Empty, GridRow, IconButton, Pill } from './pa
 import { COLS, NUM } from './style'
 import type { EventsState } from './useEvents'
 
-/** All — every event that scored, including the ones since voided. */
+/** All - every event that scored, including the ones since voided. */
 export function AllTable({ s }: { s: EventsState }) {
   const rows = s.pageAll.slice
   if (rows.length === 0) return <Empty>No events match.</Empty>
@@ -55,7 +55,7 @@ function AllRow({ s, r }: { s: EventsState; r: LedgerRow }) {
   )
 }
 
-/** Open — what is still owed, in the order it needs chasing. */
+/** Open - what is still owed, in the order it needs chasing. */
 export function OpenTable({ s }: { s: EventsState }) {
   const rows = s.pageOpen.slice
   if (rows.length === 0) return <Empty>No open coaching.</Empty>
@@ -97,7 +97,7 @@ function OpenRowView({ s, r }: { s: EventsState; r: OpenRow }) {
   )
 }
 
-/** Completed — the closed loops, and whether the conversation happened. */
+/** Completed - the closed loops, and whether the conversation happened. */
 export function DoneTable({ s }: { s: EventsState }) {
   const rows = s.pageDone.slice
   if (rows.length === 0) return <Empty>No completions match.</Empty>

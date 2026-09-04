@@ -7,7 +7,7 @@
  * out of every page's tree.
  */
 export interface DialOptions {
-  /** Shown under the name — usually the person's local time. */
+  /** Shown under the name - usually the person's local time. */
   local?: string
   /** The route they are on, if they are out. */
   route?: string

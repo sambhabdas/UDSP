@@ -54,7 +54,7 @@ export function BarButton({
   )
 }
 
-/** A control-height button — the page's top bar and the dialog's footer. */
+/** A control-height button - the page's top bar and the dialog's footer. */
 export function TallButton({
   children,
   onClick,

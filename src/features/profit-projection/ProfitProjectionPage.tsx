@@ -23,7 +23,7 @@ import { Notes } from './Notes'
 import { useProfitProjection } from './useProfitProjection'
 
 // The DAILY P&L. One editable day; a range is a read-only sum of its days.
-// Payroll-side only — the vehicle economy lives on Fleet Financials and is
+// Payroll-side only - the vehicle economy lives on Fleet Financials and is
 // never added, compared or reconciled here.
 export function ProfitProjectionPage() {
   const s = useProfitProjection()

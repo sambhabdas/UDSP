@@ -204,7 +204,7 @@ export function useFleetFinancials() {
 
   /**
    * Commit an edit. A period that has already closed cannot be changed quietly
-   * — it opens the restatement dialog and asks why.
+   * - it opens the restatement dialog and asks why.
    */
   const commitEdit = () => {
     if (!edit) return
@@ -301,7 +301,7 @@ export function useFleetFinancials() {
         const num = Number(clean)
         if (isNaN(num)) { skipped++; return }
         const key = `${gridTab}|${id}|${colIds[c]}`
-        // A paste over a closed period is still a restatement — it is counted
+        // A paste over a closed period is still a restatement - it is counted
         // and named, even though it does not stop to ask.
         const isClosed = gridTab === 'amz' ? true : Number(colIds[c]) < 6
         if (isClosed && next[key] !== undefined && next[key] !== num) restated++

@@ -6,7 +6,7 @@ import type { PeriodRow } from './calendar'
 export type PeriodStatus = 'posted' | 'uploaded' | 'needs-re-upload' | 'empty'
 
 /** The six group-level aggregates Paycom returns. Null Training means the file
- *  carried no Trainer rows at all — absent, not zero. */
+ *  carried no Trainer rows at all - absent, not zero. */
 export interface Figures {
   dg: number
   dt: number
@@ -97,7 +97,7 @@ export const MANUAL_GROUPS: readonly (readonly [string, keyof ManualEntry, keyof
 export const EMPTY_MANUAL: ManualEntry = { dg: '', dt: '', pg: '', pt: '', tg: '', tt: '' }
 
 // Deterministic pseudo-figures so a period always extracts the same numbers.
-// A null Training pair means the file had no Trainer rows at all — absent, not
+// A null Training pair means the file had no Trainer rows at all - absent, not
 // zero, which the review table says out loud.
 export function figuresFor(n: number): Figures {
   const b = (n * 7919) % 887

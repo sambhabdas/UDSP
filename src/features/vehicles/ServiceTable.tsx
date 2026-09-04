@@ -19,7 +19,7 @@ const BASE: HeadDef[] = [
 
 /**
  * Service records, shared by the ledger view and the profile's Service tab.
- * `withVehicle` is what tells them apart — everything else is identical.
+ * `withVehicle` is what tells them apart - everything else is identical.
  */
 export function ServiceTable({
   s,

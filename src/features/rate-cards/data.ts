@@ -1,6 +1,6 @@
 // Seed for Financial Management · Rate Cards, from RateCards.dc.html.
 //
-// A rate is never a single number — it is a dated WINDOW. Every figure on this
+// A rate is never a single number - it is a dated WINDOW. Every figure on this
 // page is priced with the rate that was in force on the day it belongs to, so
 // changing a rate today cannot rewrite what yesterday earned.
 
@@ -38,7 +38,7 @@ export const TODAY = new Date(2026, 6, 29) // Wed Jul 29, 2026
 // Payroll has closed these days; a rate change cannot reach back through them.
 export const LOCKED_THROUGH = new Date(2026, 6, 25)
 
-// The week the daily counts below describe: Sun Jul 26 – Sat Aug 1, 2026.
+// The week the daily counts below describe: Sun Jul 26 - Sat Aug 1, 2026.
 export const WEEK0 = new Date(2026, 6, 26)
 
 // Where the timeline starts, and the months it can span.
@@ -90,7 +90,7 @@ export const SEED_TYPES: ServiceType[] = [
     windows: [
       w(150, '2026-01-19', '2026-06-01', 'M. Chen', 'Jan 12, 2026'),
       // The one window with an end somebody typed, rather than one a later
-      // change closed — the timeline colours it differently for that reason.
+      // change closed - the timeline colours it differently for that reason.
       w(180, '2026-06-02', '2026-06-02', 'N. Shazu', 'Jun 1, 2026', true),
       w(150, '2026-06-03', null, 'N. Shazu', 'Jun 1, 2026'),
     ],
@@ -122,7 +122,7 @@ export const DAILY: Record<string, number[]> = {
 export const PKG = [7222, 7400, 7200, 7392, 7200, 7100, 7100]
 export const TRAIN = [3, 2, 2, 3, 2, 2, 1]
 
-// What a route of each type costs to run — only used to show what a rate change
+// What a route of each type costs to run - only used to show what a rate change
 // does to the day's margin.
 export const COST: Record<string, number> = {
   sv10: 250, sv9: 230, xl9: 232, lv10: 250, ad4: 105, ur4: 180,

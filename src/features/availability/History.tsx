@@ -9,7 +9,7 @@ import { Card, CardTitle, Chip, IconButton, SearchField } from './parts'
 import { BATCH_COLS, BATCH_HEADS, LABEL, NUM, TILE_LABEL } from './style'
 import type { AvailabilityState } from './useAvailability'
 
-/** History — every import already run, and what it wrote. */
+/** History - every import already run, and what it wrote. */
 export function History({ s }: { s: AvailabilityState }) {
   const pending = s.batches.filter((b) => b.status === 'Needs review').reduce((a, b) => a + b.unmatched, 0)
   const tiles = [

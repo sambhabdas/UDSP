@@ -1,4 +1,4 @@
-// Performance Roster — the whole fleet in one table, and any one associate in
+// Performance Roster - the whole fleet in one table, and any one associate in
 // full when you open them.
 //
 // The roster, the standards catalogue and the two hand-written detail records
@@ -232,5 +232,5 @@ export const WINDOW_PRESETS = ['Yesterday', 'This Week', 'Last Week', 'This Mont
 
 export const STATUSES = ['Active', 'All', 'Inactive']
 
-/** The page's fixed "today" — the design file hard-codes it into every date field. */
+/** The page's fixed "today" - the design file hard-codes it into every date field. */
 export const TODAY_ISO = '2026-08-18'

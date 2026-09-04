@@ -9,7 +9,7 @@ import type { VehiclesState } from '../useVehicles'
 
 /**
  * Who gets this van, in order. The list is drag-ordered, and each row says
- * whether that DA is actually allowed to take it — a rank on somebody who is
+ * whether that DA is actually allowed to take it - a rank on somebody who is
  * deactivated or uncarded is a hole in the plan, not a preference.
  */
 export function PriorityTab({ s }: { s: VehiclesState }) {

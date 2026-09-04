@@ -11,7 +11,7 @@ import type { FleetFinancialsState } from './useFleetFinancials'
 
 /**
  * Restating a closed period. The figure is already agreed with somebody, so
- * changing it costs a reason — and the Save button stays dead until there is one.
+ * changing it costs a reason - and the Save button stays dead until there is one.
  */
 export function RetroDialog({ s }: { s: FleetFinancialsState }) {
   const r = s.retro
@@ -359,6 +359,7 @@ export function HistoryDrawer({ s }: { s: FleetFinancialsState }) {
   return (
     <Scrim onClose={() => s.setHistoryOpen(false)} align="right">
       <div
+        data-dialog-drawer=""
         onClick={(e) => e.stopPropagation()}
         style={{
           boxSizing: 'border-box', width: 720, height: '100%',
@@ -425,7 +426,7 @@ export function FilterDrawer({ s }: { s: FleetFinancialsState }) {
   return (
     <Scrim onClose={() => s.setFpOpen(false)} align="right">
       <div
-        data-dialog-card=""
+        data-dialog-drawer=""
         onClick={(e) => e.stopPropagation()}
         style={{
           boxSizing: 'border-box', width: 360, height: '100%',

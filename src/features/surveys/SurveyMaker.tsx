@@ -94,7 +94,7 @@ export function SurveyMaker({
               padding: 0,
             }}
           />
-          {/* Templates only exist while creating — an edit already has content. */}
+          {/* Templates only exist while creating - an edit already has content. */}
           {m.isCreate && (
             <div style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: 'var(--size-60)', marginTop: 'var(--size-40)' }}>
               <Helper>Start from</Helper>

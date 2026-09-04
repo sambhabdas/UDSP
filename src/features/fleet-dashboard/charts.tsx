@@ -27,7 +27,7 @@ export function UtilChart({ s }: { s: FleetDashboardState }) {
             borderBottom: '1px solid var(--border-default)',
           }}
         >
-          {/* The 100% line sits 20px down — the height the hover label reserves. */}
+          {/* The 100% line sits 20px down - the height the hover label reserves. */}
           <div
             style={{ position: 'absolute', left: 0, right: 0, top: 20, borderTop: '1px dashed var(--border-strong)', pointerEvents: 'none' }}
           />
@@ -72,7 +72,7 @@ export function UtilChart({ s }: { s: FleetDashboardState }) {
 /**
  * Spend by month: a stacked bar per month, out-of-pocket at the bottom and
  * whoever covered the rest above it. July is month-to-date, so it is outlined
- * and its own share is drawn pale — the month is not finished arguing yet.
+ * and its own share is drawn pale - the month is not finished arguing yet.
  */
 export function TrendChart({ s }: { s: FleetDashboardState }) {
   return (

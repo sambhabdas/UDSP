@@ -1,4 +1,4 @@
-/* Ultimate DSP — Fluent shadow ramp.
+/* Ultimate DSP - Fluent shadow ramp.
    Blur = the token number; key y-offset = half of it. Key + ambient are one token;
    never use either half alone.
 

@@ -11,7 +11,7 @@ import type { PayrollState } from './usePayrollSetup'
 
 const num = (v: number | null | undefined) => v ?? 0
 
-// Discarding a draft removes it from the map — a year with no draft has no key,
+// Discarding a draft removes it from the map - a year with no draft has no key,
 // rather than a key holding nothing.
 const dropYear = (drafts: Record<number, Draft>, year: number): Record<number, Draft> => {
   const next = { ...drafts }
@@ -65,7 +65,7 @@ function buildDialog(s: PayrollState): DialogSpec | null {
         ['Year', String(year)],
         ['Seed week', `${periodWeeks(rows[0].start).split(' + ')[0]}, starting ${fmtD(rows[0].start, true)}`],
         ['First pay date', fmtD(rows[0].pay, true)],
-        ['Periods', `26 biweekly payrolls · ${fmtD(rows[0].start)} – ${fmtD(rows[25].end, true)}`],
+        ['Periods', `26 biweekly payrolls · ${fmtD(rows[0].start)} - ${fmtD(rows[25].end, true)}`],
       ],
       note:
         draft.fromUnlock && !draft.dirty

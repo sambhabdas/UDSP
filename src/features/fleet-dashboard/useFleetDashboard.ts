@@ -83,8 +83,8 @@ export function useFleetDashboard() {
 
   /**
    * The month a period names. "This Month" is July; a named month like
-   * "Mar 2026" is its first word. Periods with their own data — the two weeks
-   * and the year — are looked up whole first.
+   * "Mar 2026" is its first word. Periods with their own data - the two weeks
+   * and the year - are looked up whole first.
    */
   const mKey =
     period === 'This Month' ? 'Jul' : period === 'Last Month' ? 'Jun' : period.split(' ')[0]

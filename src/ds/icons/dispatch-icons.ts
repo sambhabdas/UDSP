@@ -1,4 +1,4 @@
-// Fluent System Icons (MIT, microsoft/fluentui-system-icons) — the handful of
+// Fluent System Icons (MIT, microsoft/fluentui-system-icons) - the handful of
 // glyphs the Fleet and Dispatch pages need that no other built page does.
 //
 // The design file loads ds/icons/fleet-icons.js whole for these; the Fleet

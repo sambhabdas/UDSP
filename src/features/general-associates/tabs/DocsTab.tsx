@@ -7,7 +7,7 @@ import { DOC_ROWS } from '../data'
 import type { GaState } from '../useGeneralAssociates'
 
 /**
- * Documents — what has been signed, and what they are qualified to drive.
+ * Documents - what has been signed, and what they are qualified to drive.
  *
  * A Manual row is one the Owner closed without a DA acknowledgement, so it is
  * toned as neutral rather than green: it is filed, not agreed to.

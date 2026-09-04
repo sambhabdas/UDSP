@@ -9,7 +9,7 @@ import { Chip, Empty, GridHead, IconButton, Pager, SearchField, SortHead } from 
 import { BATCH_COLS, BATCH_HEADS, CARD, NUM, TILE_LABEL } from './style'
 import type { ImportsState } from './useImports'
 
-/** History — every batch already run, and what it did. */
+/** History - every batch already run, and what it did. */
 export function History({ s }: { s: ImportsState }) {
   const tiles = [
     { label: 'Batches', value: '6', color: 'var(--blue-700)' },

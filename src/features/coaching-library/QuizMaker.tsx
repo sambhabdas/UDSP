@@ -22,7 +22,7 @@ const blankQuestion = (): Question => ({ text: '', options: [{ t: '' }, { t: '' 
  * Quiz Maker.
  *
  * A full-page editor that takes over the Coaching Library rather than opening
- * as a dialog — a quiz is long enough that it needs the whole width.
+ * as a dialog - a quiz is long enough that it needs the whole width.
  */
 export function QuizMaker({ quiz, onBack }: { quiz: MakerQuiz | null; onBack: () => void }) {
   const [name, setName] = useState(quiz?.name ?? '')

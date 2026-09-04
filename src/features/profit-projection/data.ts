@@ -1,7 +1,7 @@
 // Seed for Profit Projection, from ProfitProjection.dc.html's own data.
 //
 // The page is the DAILY P&L: one editable day, a range is a read-only sum. The
-// week shown is Sun Jul 26 – Sat Aug 1, 2026, with the last day still projected
+// week shown is Sun Jul 26 - Sat Aug 1, 2026, with the last day still projected
 // because its Paycom file has not landed yet.
 
 export type DayStatus = 'actual' | 'projected'
@@ -12,7 +12,7 @@ export interface Day {
   full: string
   long: string
   routes: number
-  /** People clocked in — above `routes` is idle capacity. */
+  /** People clocked in - above `routes` is idle capacity. */
   clock: number
   hours: number
   otPct: number
@@ -33,7 +33,7 @@ export const DAYS: Day[] = [
   { l: 'Sat 1', full: 'Sat Aug 1', long: 'Sat Aug 1, 2026', routes: 31, clock: 31, hours: 284.5, otPct: 23.2, payroll: 8627.06, revenue: 11509.96, pkg: 6906, status: 'projected', mix: 'Step Van 16 + 2 · XL 8 · Large 4 · Adhoc 1' },
 ]
 
-export const DEFAULT_DAY = 3 // Wed Jul 29 — the day the mock detail belongs to
+export const DEFAULT_DAY = 3 // Wed Jul 29 - the day the mock detail belongs to
 export const WEEK_LABEL = 'Sun Jul 26 - Sat Aug 1'
 export const BREAK_EVEN = 311.23
 export const BLOCK_HOURS = 10 // the blocked hours per route the day chart marks
@@ -60,7 +60,7 @@ export interface CostLine {
   amt: number
 }
 
-// Cost is payroll only — an adjustments surface was removed by owner decision
+// Cost is payroll only - an adjustments surface was removed by owner decision
 // on 2026-08-12 and must never be re-added here.
 export const WEEK_BREAKDOWN: CostLine[] = [
   { label: 'Regular pay', amt: 41330 },
@@ -117,7 +117,7 @@ const DRAWN_PEOPLE: Person[] = [
   { code: 'A1F3', name: 'GONZALEZ, RUBEN', pos: 'Driver', reg: 8.0, ot: 2.25, regD: 180.0, otD: 75.94, bonus: 0 },
   { code: 'A03Z', name: 'CASILLAS, JESUS', pos: 'Dispatch', reg: 8.53, ot: 0, regD: 192.0, otD: 0, bonus: 0 },
   { code: 'A1AJ', name: 'ALVARENGA, CHRISTIAN JOSEPH', pos: 'Driver', reg: 8.0, ot: 0.75, regD: 180.0, otD: 25.19, bonus: 19.69 },
-  // A payroll code with no roster match — the row the page has to be honest about.
+  // A payroll code with no roster match - the row the page has to be honest about.
   { code: 'A1I4', name: 'KNOKE, MAIK', pos: null, reg: 8.0, ot: 1.82, regD: 180.0, otD: 61.43, bonus: 0, unmatched: true },
 ]
 

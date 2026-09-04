@@ -113,7 +113,7 @@ function DeltaLine({ d, invert, vs }: { d: Delta | null; invert?: boolean; vs: s
           {d.text}
         </span>
       ) : (
-        <span style={{ color: 'var(--text-disabled)' }}>—</span>
+        <span style={{ color: 'var(--text-disabled)' }}>-</span>
       )}
       <span style={{ color: 'var(--text-helper)', whiteSpace: 'nowrap' }}>{vs}</span>
     </span>
@@ -131,7 +131,7 @@ export function MoneyKpis({ s }: { s: ProfitabilityState }) {
     { label: 'Total cost', value: money(sel.cost), d: b ? delta(sel.cost, b.cost) : null, invert: true },
     { label: 'Gross profit', value: money(d.gp), d: b ? delta(d.gp, b.gp) : null },
     { label: 'Profit margin', value: pct(d.margin), d: b ? delta(d.margin, b.margin, 'pts') : null },
-    { label: 'Profit / route', value: sel.routes ? money(d.ppr) : '—', d: b ? delta(d.ppr, b.ppr) : null },
+    { label: 'Profit / route', value: sel.routes ? money(d.ppr) : '-', d: b ? delta(d.ppr, b.ppr) : null },
   ]
 
   return (
@@ -187,7 +187,7 @@ export function WhatMovesIt({ s }: { s: ProfitabilityState }) {
     { label: 'Employer tax load', value: pct(taxLoad), d: dTax, gauge: { frac: taxLoad / 20, color: gaugeColor(dTax) } },
     // Staffing plans are not built, so this one states that rather than
     // showing a number nothing stands behind.
-    { label: 'Over workforce', value: '—', d: null, muted: true, vs: '' },
+    { label: 'Over workforce', value: '-', d: null, muted: true, vs: '' },
   ]
 
   return (

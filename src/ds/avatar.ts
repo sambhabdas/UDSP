@@ -1,6 +1,6 @@
 // Persona tinting, shared by every avatar and monogram in the product.
-// Shell.dc.html and the Inbox both hash the name across the same four ramps —
-// "the same rule as the DS Avatar component" — so it lives at the DS layer
+// Shell.dc.html and the Inbox both hash the name across the same four ramps -
+// "the same rule as the DS Avatar component" - so it lives at the DS layer
 // rather than being written out twice.
 
 const TINTS: readonly (readonly [string, string])[] = [

@@ -4,7 +4,7 @@ import { BANDS, FULL, POSTS, PUNCH, READ } from './data'
 import type { Cell as CellValue, CapRow } from './data'
 
 // Six columns of comparison. Below this the pills would be squeezed and
-// `Punch API tab only` — the one partial that is named rather than coloured —
+// `Punch API tab only` - the one partial that is named rather than coloured -
 // would be clipped, so the matrix scrolls sideways as one piece instead. All
 // ten bands share a single scroller, otherwise their columns would drift out of
 // alignment with each other.
@@ -67,8 +67,8 @@ function Cell({ value, i, selIdx }: { value: CellValue; i: number; selIdx: numbe
           {pill.label}
         </span>
       ) : (
-        /* A dash is hidden, never disabled — the post never sees the thing. */
-        <span style={{ ...caption1, color: 'var(--text-disabled)' }}>—</span>
+        /* A dash is hidden, never disabled - the post never sees the thing. */
+        <span style={{ ...caption1, color: 'var(--text-disabled)' }}>-</span>
       )}
     </div>
   )

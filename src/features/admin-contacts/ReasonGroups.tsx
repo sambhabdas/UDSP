@@ -10,7 +10,7 @@ import { useHover } from '../../ds/useHover'
 import { caption1, caption1Strong, caption2 } from '../../ds/type'
 
 // The grouped, collapsible reason list. Both the Reasons panel and the contact
-// form render it — the panel selects reasons to act on in bulk, the form
+// form render it - the panel selects reasons to act on in bulk, the form
 // selects the ones a contact answers for.
 
 export function CheckBox({ on, onClick }: { on: boolean; onClick?: () => void }) {
@@ -147,10 +147,10 @@ function ReasonRow({
       {...hoverProps}
     >
       <CheckBox on={on} onClick={onToggle} />
-      {/* Urgent is a red dot as well as a pinned position — never colour alone. */}
+      {/* Urgent is a red dot as well as a pinned position - never colour alone. */}
       {showUrgent && r.urgent && !r.retired && (
         <span
-          title="Urgent — pinned to the top of the driver's Help screen"
+          title="Urgent - pinned to the top of the driver's Help screen"
           style={{ width: 6, height: 6, borderRadius: 'var(--radius-circle)', background: 'var(--danger-accent)', flexShrink: 0 }}
         />
       )}
@@ -197,7 +197,7 @@ function ReasonRow({
             e.stopPropagation()
             setRename({ id: r.id, val: r.name })
           }}
-          title="Tap to rename — it renames on every contact that holds it"
+          title="Tap to rename - it renames on every contact that holds it"
           style={{
             flex: 1,
             minWidth: 0,
@@ -272,7 +272,7 @@ export function ReasonGroups({
         .filter((r) => !q || r.name.toLowerCase().includes(q) || `${c} - ${r.name}`.toLowerCase().includes(q))
       const total = pool.filter((r) => r.cat === c).length
       const picked = pool.filter((r) => r.cat === c && selectedIds.includes(r.id)).length
-      // Searching forces every matching group open — a hit must never hide.
+      // Searching forces every matching group open - a hit must never hide.
       const open = q ? true : !collapsed.includes(c)
       return { cat: c, rows, open, meta: metaLabel(picked, total) }
     })

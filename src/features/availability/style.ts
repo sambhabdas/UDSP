@@ -53,7 +53,7 @@ export const BATCH_HEADS: [string | null, string, string][] = [
 /** Weekends get a tinted column so the week reads at a glance. */
 export const dayBg = (dow: number): string => (dow === 0 || dow === 6 ? 'var(--surface-subtle)' : 'transparent')
 
-/** The hatch that means "not available" — never a flat grey. */
+/** The hatch that means "not available" - never a flat grey. */
 export const UNAVAILABLE_FILL =
   'repeating-linear-gradient(45deg, var(--neutral-100) 0 6px, var(--border-subtle) 6px 12px)'
 

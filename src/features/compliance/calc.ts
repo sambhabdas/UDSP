@@ -4,7 +4,7 @@
 import { LUNCH_WINDOW, MIN_LUNCH, NOW } from './data'
 import type { Minutes, Person, WarnKey, Work } from './data'
 
-/** 24-hour, no leading zero on the hour — the board's own format. */
+/** 24-hour, no leading zero on the hour - the board's own format. */
 export function fmt(m: Minutes | null | undefined): string {
   if (m === null || m === undefined) return ''
   const h = Math.floor(m / 60)
@@ -12,7 +12,7 @@ export function fmt(m: Minutes | null | undefined): string {
   return `${h}:${mm < 10 ? '0' : ''}${mm}`
 }
 
-/** 12-hour with the meridiem — only the message previews use it. */
+/** 12-hour with the meridiem - only the message previews use it. */
 export function fmt12(m: Minutes): string {
   const h = Math.floor(m / 60)
   const mm = m % 60
@@ -34,8 +34,8 @@ export interface RowEval {
 /**
  * Score one row.
  *
- * A shift that has not started yet is not scored at all — no warnings, no
- * contribution to the compliance percentage — because there is nothing yet to
+ * A shift that has not started yet is not scored at all - no warnings, no
+ * contribution to the compliance percentage - because there is nothing yet to
  * be non-compliant about.
  */
 export function evalRow(

@@ -9,8 +9,8 @@ import type { GaState } from './useGeneralAssociates'
 /**
  * The filter drawer.
  *
- * Two copies of the filter state exist while this is open — the draft it edits
- * and the applied set behind it — so Cancel and the backdrop both mean "throw
+ * Two copies of the filter state exist while this is open - the draft it edits
+ * and the applied set behind it - so Cancel and the backdrop both mean "throw
  * this away" without the roster having flickered in the meantime.
  */
 export function FilterDrawer({ s }: { s: GaState }) {
@@ -30,7 +30,7 @@ export function FilterDrawer({ s }: { s: GaState }) {
       }}
     >
       <div
-        data-dialog-card=""
+        data-dialog-drawer=""
         data-pop=""
         onClick={(e) => e.stopPropagation()}
         style={{

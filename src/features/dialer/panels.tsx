@@ -89,7 +89,7 @@ export function ContactsPanel({ s }: { s: DialerState }) {
       <div style={{ display: 'flex', flexDirection: 'column', maxHeight: 300, overflow: 'hidden auto' }}>
         {rows.length === 0 ? (
           <ListRow height={56}>
-            <Avatar text="–" bg="var(--surface-subtle)" fg="var(--text-disabled)" />
+            <Avatar text="-" bg="var(--surface-subtle)" fg="var(--text-disabled)" />
             <span style={{ flex: 1, minWidth: 0, ...caption1Strong, ...ELLIPSIS, color: 'var(--text-helper)' }}>
               No matches
             </span>

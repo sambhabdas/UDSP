@@ -38,7 +38,7 @@ export const ROW: CSSProperties = {
   borderBottom: '1px solid var(--border-subtle)',
 }
 
-/** A dialog's tone recipes — the CTA fill and the note plate. */
+/** A dialog's tone recipes - the CTA fill and the note plate. */
 export const CTA_TONES = {
   primary: { bg: 'var(--primary)', border: 'var(--primary)', fg: 'var(--text-inverse)', hover: 'var(--primary-hover)' },
   danger: { bg: 'var(--red-600)', border: 'var(--red-600)', fg: 'var(--text-inverse)', hover: 'var(--red-700)' },

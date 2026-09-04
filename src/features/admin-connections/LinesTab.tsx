@@ -31,8 +31,8 @@ const MIN_WIDTH = 700
 const RSV_MIN_WIDTH = 360
 
 // A horizontal scroller clips vertically too, and a short table is shorter than
-// its own row menu. Rather than flip the menu — which a two-row table has no
-// room for in either direction — the scroller grows while a menu is open.
+// its own row menu. Rather than flip the menu - which a two-row table has no
+// room for in either direction - the scroller grows while a menu is open.
 const MENU_ROOM = 84
 
 export function LinesTab({ s }: { s: ConnectionsState }) {
@@ -122,7 +122,7 @@ function LineRow({ l, s }: { l: Line; s: ConnectionsState }) {
   const open = s.drawerFor === l.id
 
   // The default line is the one everything falls back to, so it can be neither
-  // re-defaulted nor deleted — both say why rather than vanishing.
+  // re-defaulted nor deleted - both say why rather than vanishing.
   const items = [
     l.isDefault
       ? { label: 'Set as default', why: WHY.alreadyDefault }

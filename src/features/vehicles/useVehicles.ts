@@ -62,7 +62,7 @@ export interface ComboRect {
 const num = (v: unknown): number => Number(String(v ?? '').replace(/[$,]/g, ''))
 const str = (v: unknown): string => (v === undefined || v === null ? '' : String(v))
 
-/** Parse the loose dates the dialogs accept — "Aug 15" means Aug 15, 2026. */
+/** Parse the loose dates the dialogs accept - "Aug 15" means Aug 15, 2026. */
 function parseDate(raw: string): Date | null {
   let d = new Date(`${raw}, 2026`)
   if (isNaN(d.getTime())) d = new Date(raw)
@@ -238,7 +238,7 @@ export function useVehicles() {
 
   /**
    * The rules a vehicle record has to pass. A VIN is 17 characters and never
-   * contains I, O or Q — they are excluded so they cannot be read as 1 and 0.
+   * contains I, O or Q - they are excluded so they cannot be read as 1 and 0.
    */
   const validateVehicle = (f: Form): string | null => {
     if (!f.name || !f.type || !f.vin || !f.own) return 'Vehicle name, type, VIN and ownership are required.'

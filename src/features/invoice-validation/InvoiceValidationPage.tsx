@@ -16,7 +16,7 @@ import { useInvoiceValidation } from './useInvoiceValidation'
 import type { IvState } from './useInvoiceValidation'
 
 /**
- * Invoice Validation — is Amazon paying what the week actually earned?
+ * Invoice Validation - is Amazon paying what the week actually earned?
  *
  * Two tabs over the same records: the dashboard is every week and its state,
  * the validate tab is one week checked line by line. The KPI strip belongs to

@@ -7,7 +7,7 @@ import { SHIFT_HEADERS, SHIFT_ROWS } from '../data'
 import type { GaState } from '../useGeneralAssociates'
 
 /**
- * Schedule — the next fourteen days as the spine has them, with the flag column
+ * Schedule - the next fourteen days as the spine has them, with the flag column
  * carrying whatever the auto-scheduler would refuse or warn about.
  */
 export function ScheduleTab({ s }: { s: GaState }) {

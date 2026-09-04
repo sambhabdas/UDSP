@@ -30,7 +30,7 @@ export interface MenuState {
   w: number
   x: number
   y: number
-  /** Where the inline search sits — over the control that opened the menu. */
+  /** Where the inline search sits - over the control that opened the menu. */
   tx: number
   ty: number
   tw: number
@@ -51,7 +51,7 @@ export function useCompliance() {
   const [sortC, setSortC] = useState<{ k: SortKey; dir: 1 | -1 } | null>(null)
   const [menu, setMenu] = useState<MenuState | null>(null)
   const [menuQ, setMenuQ] = useState('')
-  // Compliance holds its line longest — its messages carry a reason.
+  // Compliance holds its line longest - its messages carry a reason.
   const { toast, toastMsg } = useToast(5000)
 
   const [autoOn, setAutoOn] = useState(true)

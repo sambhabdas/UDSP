@@ -172,7 +172,7 @@ function DashedButton({ children, onClick, minHeight }: { children: string; onCl
   )
 }
 
-/** Step 2 — the file, and the first five rows of it. */
+/** Step 2 - the file, and the first five rows of it. */
 function UploadFile({ s }: { s: ImportsState }) {
   const head = s.roster ? ROSTER_PREVIEW_HEAD : COLS
   const rows = s.roster ? ROSTER_PREVIEW : EVENT_PREVIEW
@@ -231,7 +231,7 @@ function UploadFile({ s }: { s: ImportsState }) {
   )
 }
 
-/** Step 3 — which column of the file feeds which field. */
+/** Step 3 - which column of the file feeds which field. */
 function MapColumns({ s }: { s: ImportsState }) {
   const rosterFields: [string, keyof ColumnMap][] = s.src === 'Paycom'
     ? [['EE Code Column', 'rEeCol'], ['EE Name Column', 'rNameCol']]
@@ -273,7 +273,7 @@ function MapColumns({ s }: { s: ImportsState }) {
   )
 }
 
-/** Step 4 — what each file value scores, and which rows count at all. */
+/** Step 4 - what each file value scores, and which rows count at all. */
 function ScoringRules({ s }: { s: ImportsState }) {
   if (s.roster) {
     return (
@@ -349,7 +349,7 @@ function ScoringRules({ s }: { s: ImportsState }) {
   )
 }
 
-/** Step 5 — what the run will do, and everything still unanswered. */
+/** Step 5 - what the run will do, and everything still unanswered. */
 function Review({ s }: { s: ImportsState }) {
   const tiles = [
     { label: 'Rows In File', value: comma(s.review.inFile), color: 'var(--text-primary)' },

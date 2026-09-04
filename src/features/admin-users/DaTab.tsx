@@ -174,7 +174,7 @@ function DaRow({ d, s, flip }: { d: Da; s: UsersState; flip: boolean }) {
   )
 }
 
-// Revoking takes the app account away and leaves the driver on the roster —
+// Revoking takes the app account away and leaves the driver on the roster -
 // this page never removes anyone from the roster.
 function daMenuItems(d: Da, s: UsersState): MenuItemSpec[] {
   const noPhone = !d.phone

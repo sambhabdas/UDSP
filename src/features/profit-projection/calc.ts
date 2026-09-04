@@ -6,14 +6,14 @@ import { AXIS, DAY3_BREAKDOWN, DAYS, DEFAULT_DAY } from './data'
 import type { CostLine, Person } from './data'
 import { fixed, money0 as baseMoney0 } from '../../ds/format'
 
-// The sign sits outside the symbol here — accounting reads "-$1,204.50".
+// The sign sits outside the symbol here - accounting reads "-$1,204.50".
 export { signedMoney as money } from '../../ds/format'
 export const money0 = (v: number) => (v < 0 ? '-' : '') + baseMoney0(Math.abs(v))
 export const pct = (v: number, d = 1) => `${v.toFixed(d)}%`
 
 export const num = (v: number, d = 0) => fixed(v, d)
 
-export const DASH = '—'
+export const DASH = '-'
 
 // Cost is payroll and nothing else.
 export const costOf = (i: number) => DAYS[i].payroll
@@ -75,7 +75,7 @@ export const weekTotals = () => {
 export const marginOf = (i: number) => ((revOf(i) - costOf(i)) / revOf(i)) * 100
 export const cprOf = (i: number) => costOf(i) / DAYS[i].routes
 
-// The OT hours behind a day — the design pins Wed Jul 29 and divides the rest
+// The OT hours behind a day - the design pins Wed Jul 29 and divides the rest
 // by the $33.75 default OT rate.
 export const otHoursOf = (i: number) => (i === DEFAULT_DAY ? 47.14 : breakdownOf(i)[1].amt / 33.75)
 
@@ -116,7 +116,7 @@ export function scaleColor(t: number): string {
 export const marginColor = (m: number) =>
   m >= 15 ? 'var(--success-fg)' : m >= 5 ? 'var(--warning-fg)' : 'var(--danger-fg)'
 
-// Cost-per-route plots on a $260–$320 window, measured from the top.
+// Cost-per-route plots on a $260-$320 window, measured from the top.
 export const cprY = (v: number) => ((AXIS.cprHi - v) / (AXIS.cprHi - AXIS.cprLo)) * 100
 
 // Tooltip anchor for a 7-column plot, clamped so it never runs off either edge.

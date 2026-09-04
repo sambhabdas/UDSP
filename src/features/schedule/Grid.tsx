@@ -10,7 +10,7 @@ import type { Da } from './data'
 import { DAY_NAMES, fmtDay, fmtT } from './date'
 import type { SchedState } from './useSchedule'
 
-/** The grid's one column template — the name rail plus seven equal days. */
+/** The grid's one column template - the name rail plus seven equal days. */
 const COLS = 'minmax(170px,230px) repeat(7, minmax(76px, 1fr))'
 
 /** Weekends carry a tint the whole column deep. */
@@ -100,7 +100,7 @@ function DayHeader({ s }: { s: SchedState }) {
  * The unassigned row.
  *
  * One chip per department per day showing filled-of-needed. A chip with an
- * opening is dashed and draggable — dropping it on a DA is how a need becomes
+ * opening is dashed and draggable - dropping it on a DA is how a need becomes
  * a shift.
  */
 function Pool({ s }: { s: SchedState }) {
@@ -212,7 +212,7 @@ function Row({ s, da }: { s: SchedState; da: Da }) {
         display: 'grid',
         gridTemplateColumns: COLS,
         borderBottom: '1px solid var(--border-subtle)',
-        // A blocked DA's whole row washes red — they cannot take any shift.
+        // A blocked DA's whole row washes red - they cannot take any shift.
         background: hover ? 'var(--surface-subtle)' : da.blocked ? 'var(--red-50)' : 'transparent',
         transition: 'background var(--motion-hover)',
       }}

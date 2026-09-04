@@ -16,7 +16,7 @@ export function days(d: Date): number {
   return Math.round((d.getTime() - TODAY.getTime()) / 86400000)
 }
 
-/** The year is dropped from labels in the current year — it is understood. */
+/** The year is dropped from labels in the current year - it is understood. */
 export const short = (s: string): string => s.replace(', 2026', '')
 
 export function money(n: number | null | undefined): string {
@@ -58,7 +58,7 @@ export function latestOdo(odo: OdoReading[], vid: string): OdoReading | null {
 
 /**
  * How close a renewal is. A lease is measured to its notice date rather than
- * its expiry, because missing notice is the thing that costs money — but it is
+ * its expiry, because missing notice is the thing that costs money - but it is
  * only LAPSED once the expiry itself has passed.
  */
 export function renewalStatus(n: Renewal): { label: string; u: Urgency; dd: number } {

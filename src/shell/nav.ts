@@ -1,7 +1,7 @@
 import type { Route } from 'next'
 import { env } from '../config/env'
 
-// The rail, taken from Shell.dc.html — the canonical shell.
+// The rail, taken from Shell.dc.html - the canonical shell.
 //
 // Nine portals in four groups. `Shell.dc.html` draws a divider before
 // `scorecard`, `finance` and `admin`, which gives 4 · 3 · 1 · 1 and agrees with
@@ -9,7 +9,7 @@ import { env } from '../config/env'
 // 4" (Inbox §3.0) and Financial Management is "8th of 9 · group 3 of 4, alone
 // between dividers" (Payroll Setup §3.0).
 //
-// `label` is the rail tooltip — the portal's full name. `name` is the short
+// `label` is the rail tooltip - the portal's full name. `name` is the short
 // form the nav heading uses. They differ for Scorecard and Admin.
 //
 // A portal with no `pages` is a single-page portal: the rail entry opens the
@@ -17,6 +17,10 @@ import { env } from '../config/env'
 // rail, below the header; the shell file draws that same list as a permanent
 // pane-2 column, and it was made a popup by request, so the page keeps the full
 // width whenever it is shut. The order and the icons below are the shell file's.
+//
+// That flyout opens on a click of the rail tile and shuts on the next click of
+// it. It used to fly out on hover, which meant it appeared whenever the pointer
+// crossed the rail on the way somewhere else - changed by request.
 
 // Branding is deployment data, not code: a second station running this build
 // changes it without a rebuild of the source. Re-exported from the env module
@@ -45,7 +49,7 @@ export interface Portal {
   built?: boolean
 }
 
-// Portals that start a new group — the rail draws a rule above each.
+// Portals that start a new group - the rail draws a rule above each.
 const GROUP_STARTS = new Set(['scorecard', 'finance', 'admin'])
 
 export const PORTALS: Portal[] = [
@@ -156,10 +160,10 @@ export function pageLabel(portalId: string, pageId: string | null): string {
 //
 // The URL is the nav model written down: /finance/payroll-setup, /inbox. Every
 // path the rail can reach exists as a real route, so a page can be linked,
-// bookmarked and reloaded — none of which a state-only shell could do.
+// bookmarked and reloaded - none of which a state-only shell could do.
 
 // The cast is the one place typed routes cannot help: every path is a catch-all
-// segment built from this table, so the table — not the type — is the guarantee,
+// segment built from this table, so the table - not the type - is the guarantee,
 // and `resolveRoute` is what enforces it at the other end.
 export function hrefOf(portalId: string, pageId?: string | null): Route {
   const page = pageId ?? firstPageOf(portalId)

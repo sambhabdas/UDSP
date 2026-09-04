@@ -16,7 +16,7 @@ import type { AvailabilityState } from './useAvailability'
  *
  * One row per associate, one column per day in the selected span. Clicking a
  * cell flips it; right-clicking opens the full editor. Approved time off is
- * deliberately not click-flippable — it is payroll data.
+ * deliberately not click-flippable - it is payroll data.
  */
 export function Grid({ s }: { s: AvailabilityState }) {
   const gridCols = `minmax(170px,230px) repeat(${s.cols.length}, minmax(70px, 1fr))`

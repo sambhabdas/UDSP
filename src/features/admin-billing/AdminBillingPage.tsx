@@ -33,7 +33,7 @@ import { useAdminBilling } from './useAdminBilling'
 import type { BillingState } from './useAdminBilling'
 
 // The DSP's own bill, in the DSP's own product. Usage is metered but never
-// blocked — passing an allowance bills the overage, it never stops a dispatcher
+// blocked - passing an allowance bills the overage, it never stops a dispatcher
 // texting a driver at 6am. The one hard stop is the seat cap, and that stops an
 // invite, not a day's work.
 export function AdminBillingPage() {
@@ -132,7 +132,7 @@ export function AdminBillingPage() {
             }}
           >
             <span style={{ flex: 1, minWidth: 0, textWrap: 'pretty' }}>
-              Cancelled — access continues to {ACCESS_UNTIL}. Nothing has been deleted.
+              Cancelled - access continues to {ACCESS_UNTIL}. Nothing has been deleted.
             </span>
             <TinyButton onClick={s.resume}>Resume subscription</TinyButton>
           </div>

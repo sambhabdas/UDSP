@@ -58,7 +58,7 @@ export function RateEditor({ s }: { s: RateCardsState }) {
   const marginBefore = revBefore ? ((revBefore - cost) / revBefore) * 100 : 0
   const marginAfter = revAfter ? ((revAfter - cost) / revAfter) * 100 : 0
 
-  // And to the days after it that are already priced — minus the ones payroll
+  // And to the days after it that are already priced - minus the ones payroll
   // has closed, which keep the old rate whatever this says.
   let laterDays = 0
   let laterUnits = 0
@@ -131,7 +131,7 @@ export function RateEditor({ s }: { s: RateCardsState }) {
       <Dialog width={600} label={title}>
         <span style={subtitle1}>{title}</span>
 
-        {/* What is being changed, and on what day — stated before anything can
+        {/* What is being changed, and on what day - stated before anything can
             be typed, because the day is the whole point. */}
         <div
           style={{

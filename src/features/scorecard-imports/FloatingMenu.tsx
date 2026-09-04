@@ -12,7 +12,7 @@ interface Item {
   pick: () => void
 }
 
-/** Menus that search: the long lists — people and standards. */
+/** Menus that search: the long lists - people and standards. */
 const SEARCHABLE = new Set(['mvStd', 'issDa', 'issStd'])
 
 export function FloatingMenu({ s }: { s: ImportsState }) {
@@ -94,7 +94,7 @@ function itemsFor(s: ImportsState): Item[] {
 
   if (m.kind === 'repCol' || m.kind === 'descCol') {
     const key = m.kind as keyof ColumnMap
-    // Both fields can opt out — one to the clock, one to nothing.
+    // Both fields can opt out - one to the clock, one to nothing.
     const extra = m.kind === 'repCol' ? 'Import time' : 'None'
     return [extra, ...COLS].map((c) => ({ label: c, selected: s.columns[key] === c, pick: () => { s.setColumn(key, c); s.closeMenu() } }))
   }

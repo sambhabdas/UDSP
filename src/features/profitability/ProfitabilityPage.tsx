@@ -20,7 +20,7 @@ import { ALL, CURRENT, PERIODS } from './data'
 
 // Profit per 2-week pay period, with an always-on projection of the period in
 // flight. The calendar comes from Payroll Setup; this page never reconciles
-// with Profit Projection — they answer different questions at different grains.
+// with Profit Projection - they answer different questions at different grains.
 export function ProfitabilityPage() {
   const scroller = useRef<HTMLDivElement>(null)
   const scrollToTop = useCallback(

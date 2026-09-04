@@ -104,7 +104,7 @@ function ReasonChip({
   return (
     <span
       onClick={onPick}
-      title={r.retired ? 'Retired — kept on this contact, never offered to drivers' : ''}
+      title={r.retired ? 'Retired - kept on this contact, never offered to drivers' : ''}
       style={{
         boxSizing: 'border-box',
         height: 20,
@@ -114,7 +114,7 @@ function ReasonChip({
         padding: '0 var(--size-80)',
         borderRadius: 'var(--radius-small)',
         background: 'var(--surface-card)',
-        // A dashed border means retired — the chip is still here, but no driver
+        // A dashed border means retired - the chip is still here, but no driver
         // is ever offered it.
         border: `1px ${r.retired ? 'dashed var(--border-strong)' : 'solid var(--border-default)'}`,
         ...caption2,
@@ -181,7 +181,7 @@ function Row({
     >
       <div style={{ width: 56, flexShrink: 0, display: 'flex', alignItems: 'center', gap: 'var(--size-40)' }}>
         <span
-          title={manual ? 'Drag to reorder — this is the order the app renders' : 'Sort by Order to drag'}
+          title={manual ? 'Drag to reorder - this is the order the app renders' : 'Sort by Order to drag'}
           style={{
             display: 'flex',
             color: manual ? 'var(--text-disabled)' : 'var(--border-subtle)',
@@ -557,7 +557,7 @@ function FilterRow({
     >
       <CheckBox on={on} />
       <span style={{ flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis' }}>{label}</span>
-      {/* Zero contacts is a warning, not a neutral fact — nobody answers it. */}
+      {/* Zero contacts is a warning, not a neutral fact - nobody answers it. */}
       <span style={{ ...caption2, color: count === 0 ? 'var(--warning-fg)' : 'var(--text-helper)' }}>{count}</span>
     </div>
   )
@@ -581,9 +581,9 @@ export function Directory({ s }: { s: ContactsState }) {
 
   const zeroText =
     s.contacts.length === 0
-      ? 'No contacts yet — until you add one, a driver’s Help screen offers only the station line'
+      ? 'No contacts yet - until you add one, a driver’s Help screen offers only the station line'
       : s.reasonFilter.length
-        ? 'No contacts match — nobody covers this reason'
+        ? 'No contacts match - nobody covers this reason'
         : 'No contacts match'
 
   return (

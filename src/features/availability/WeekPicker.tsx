@@ -14,7 +14,7 @@ const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S']
 /**
  * The week stepper: arrows, a label that opens a two-month calendar, and Today.
  *
- * The calendar picks a *range* — first click sets the start, second the end —
+ * The calendar picks a *range* - first click sets the start, second the end -
  * and refuses anything longer than a fortnight.
  */
 export function WeekPicker({ s }: { s: AvailabilityState }) {

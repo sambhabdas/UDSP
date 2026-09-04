@@ -13,7 +13,7 @@ import { useConnections } from './useConnections'
 
 // Three things UDSP plugs into, and none of them overlap: the punch API brings
 // worked hours in, the mailbox sends and receives email in the Inbox, and phone
-// lines carry text and calls. Losing one never degrades the others — each tab
+// lines carry text and calls. Losing one never degrades the others - each tab
 // says so in its own banner.
 export function AdminConnectionsPage() {
   const s = useConnections()

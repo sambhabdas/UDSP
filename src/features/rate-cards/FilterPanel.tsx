@@ -27,7 +27,7 @@ export function FilterPanel({ s }: { s: RateCardsState }) {
       }}
     >
       <div
-        data-dialog-card=""
+        data-dialog-drawer=""
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-label="Filters"

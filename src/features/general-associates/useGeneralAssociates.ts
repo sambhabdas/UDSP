@@ -71,7 +71,7 @@ const TOAST_MS = 5000
 export function useGeneralAssociates() {
   const [view, setView] = useState<View>('dir')
   const [daId, setDaId] = useState<string | null>(null)
-  /** The row the directory tints blue — the one most recently opened. */
+  /** The row the directory tints blue - the one most recently opened. */
   const [lastOpened, setLastOpened] = useState<string | null>(null)
   const [tab, setTab] = useState<Tab>('overview')
   const [q, setQ] = useState('')
@@ -170,7 +170,7 @@ export function useGeneralAssociates() {
     setMenu(null)
   }, [])
 
-  /** Point the profile-shaped state at a DA without leaving the roster — the
+  /** Point the profile-shaped state at a DA without leaving the roster - the
    *  row menu's Assign Coaching and Exclude both act on a record in place. */
   const focusDa = useCallback((id: string) => setDaId(id), [])
 

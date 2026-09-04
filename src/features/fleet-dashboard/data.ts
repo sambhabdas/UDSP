@@ -142,7 +142,7 @@ export const FLEET_TILES: { label: string; value: string; color: string; dim?: b
 ]
 
 /** Whole dollars unless `dec`, which the design never asks for but keeps.
- *  The magnitude only — every figure on this board is already labelled as a
+ *  The magnitude only - every figure on this board is already labelled as a
  *  cost or a saving, so the design does not repeat it as a sign. */
 export function money(n: number, dec?: boolean): string {
   return dec ? moneyDec(Math.abs(n)) : money0(Math.abs(n))

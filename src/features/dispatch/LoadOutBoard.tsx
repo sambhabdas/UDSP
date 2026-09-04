@@ -26,7 +26,7 @@ import type { DispatchState } from './useDispatch'
 /**
  * Load Out: the board that gets routes out of the door.
  *
- * Read top to bottom it is the morning's argument — which waves are short, how
+ * Read top to bottom it is the morning's argument - which waves are short, how
  * close the day is to launching, what is blocking it, then the roster itself
  * and everybody who is here but not on a route.
  */
@@ -691,7 +691,7 @@ function RosterRow({
           onChange={s.setEditVal}
           onCommit={s.commitEdit}
           onCancel={() => s.setEdit(null)}
-          title={r.schedOv ? 'Typed by hand — the wave offset no longer applies to this row' : undefined}
+          title={r.schedOv ? 'Typed by hand - the wave offset no longer applies to this row' : undefined}
         />
       )}
 

@@ -5,7 +5,7 @@ import { caption1, caption1Strong, subtitle2 } from '../../ds/type'
 import { Btn, CheckBox } from './parts'
 import { FOCUS_RING, INSET_FOCUS_RING, useFocusRing } from '../../ds/focus'
 
-// One drawer serves both tabs — the sections come from the tab's filter defs.
+// One drawer serves both tabs - the sections come from the tab's filter defs.
 // Edits land in a draft and only reach the table on Apply.
 export function FilterPanel({ s }: { s: UsersState }) {
   const q = s.fpQ.trim().toLowerCase()

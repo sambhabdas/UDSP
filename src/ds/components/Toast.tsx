@@ -10,7 +10,7 @@ import { body1, caption1 } from '../type'
  * (Schedule, Dispatch, Availability) put it at Caption 1, the report-style
  * screens at Body 1. Nothing else about it varies.
  *
- * It sits above dialogs deliberately — an action taken inside a modal still
+ * It sits above dialogs deliberately - an action taken inside a modal still
  * has to be able to say what it did.
  */
 export function Toast({

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { caption1, caption1Strong, caption2Strong } from '../type'
 import { useHover } from '../useHover'
 
-// Selectable pill — the Recents filter row and the timeline channel row.
+// Selectable pill - the Recents filter row and the timeline channel row.
 // Selected is two channels so it survives greyscale: tinted plate + weight.
 export function FilterChip({
   label,
@@ -44,7 +44,7 @@ export function FilterChip({
   )
 }
 
-// Read-only status pill — 20px tall, Caption 2 semibold on a tinted plate.
+// Read-only status pill - 20px tall, Caption 2 semibold on a tinted plate.
 export function StatusChip({
   children,
   bg,

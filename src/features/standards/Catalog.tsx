@@ -8,7 +8,7 @@ import { Button, Chip, IconButton, SearchField, SortHead, Toggle } from './parts
 import { CARD, CAT_COLS, CAT_HEADS, NUM, TILE_LABEL } from './style'
 import type { Ref, StandardsState } from './useStandards'
 
-/** Standards — the catalogue, grouped by category, with drag between groups. */
+/** Standards - the catalogue, grouped by category, with drag between groups. */
 export function Catalog({ s }: { s: StandardsState }) {
   const tiles = [
     { label: 'Categories', value: String(s.stats.categories), color: 'var(--text-primary)' },

@@ -1,4 +1,4 @@
-// Events — the scorecard ledger and the coaching loop it opens.
+// Events - the scorecard ledger and the coaching loop it opens.
 //
 // Three readings of the same coaching cycle: every event that scored (All),
 // every assignment still owed (Open), and every one closed out (Completed).
@@ -59,7 +59,7 @@ export const LEDGER: LedgerRow[] = [
 
 export interface OpenRow {
   due: string
-  /** Negative is late, 0 is today — what the Due column sorts on. */
+  /** Negative is late, 0 is today - what the Due column sorts on. */
   dueN: number
   red?: boolean
   amber?: boolean
@@ -149,7 +149,7 @@ export function statusTone(s: string): { bg: string; bd: string; fg: string } {
   return { bg: 'var(--blue-50)', bd: 'var(--blue-100)', fg: 'var(--blue-700)' }
 }
 
-/** Soonest problem first — the order the chase list is worked in. */
+/** Soonest problem first - the order the chase list is worked in. */
 export function coachRank(c: string | undefined): number {
   if (c === 'Overdue') return 0
   if (c === 'Due Today') return 1

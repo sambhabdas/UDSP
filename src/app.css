@@ -18,36 +18,48 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
   background: var(--surface-card) !important;
 }
 
-/* Dialogs, drawers and filter panels.
+/* Overlays.
 
-   A floating card is laid out in pixels — 880 for the fleet ledger, 672 for an
-   import, 360 for a filter drawer — because that is what the design files
+   A floating surface is laid out in pixels - 880 for the fleet ledger, 672 for
+   an import, 360 for a filter drawer - because that is what the design files
    specify at a comfortable width. None of those numbers know how wide the
-   window actually is, so the card has to be told: never wider or taller than
-   the window it opens in, less a 16px gutter on each side.
+   window actually is, so the surface has to be told.
 
-   This replaced five different guesses at the same rule (92vw, 94vw, 100%,
-   calc(100vw - 96px), and nothing at all), which is why it is one declaration
-   on one attribute rather than a maxWidth in thirty-nine style objects. A card
-   already holding its own inner scroller keeps it; this only sets the ceiling.
+   There are two kinds, and they want different things:
 
-   Scrolling is the safety net: a card whose content cannot shrink to fit shows
-   it on a scrollbar rather than spilling its text across the page. */
-[data-dialog-card] {
+   A DIALOG floats in the middle of the window. It is capped on both axes with
+   a 16px gutter, so it never runs off any edge.
+
+   A DRAWER is anchored to an edge and spans the full height - that is what
+   makes it a drawer rather than a tall dialog. Capping its height would leave
+   a gap at the bottom and break the illusion, so it takes the width cap only,
+   and keeps 48px of scrim beside it to click on to dismiss.
+
+   One rule each, rather than a maxWidth in forty style objects - which is what
+   this replaced, along with five different guesses at the same thing (92vw,
+   94vw, 100%, calc(100vw - 96px), and nothing at all). */
+[data-dialog-card], [data-dialog-drawer] {
   max-width: calc(100vw - 32px) !important;
-  /* Height is deliberately NOT !important: several cards set a tighter 82–86vh
-     so the scrim still reads as a scrim behind them. Those keep their own cap;
-     this only catches the ones that never set one. */
+}
+[data-dialog-drawer] {
+  max-width: calc(100vw - 48px) !important;
+}
+/* Height is deliberately NOT !important: several dialogs set a tighter 82-86vh
+   so the scrim still reads as a scrim behind them. Those keep their own cap;
+   this only catches the ones that never set one. Drawers are excluded - a
+   drawer is full-bleed by definition. */
+[data-dialog-card] {
   max-height: calc(100vh - 32px);
 }
 
-/* Once a card has been capped below the width it was drawn at, its contents
+/* Once a surface has been capped below the width it was drawn at, its contents
    have to go somewhere. Scrolling shows all of them; the `overflow: hidden`
-   most of these cards set for their rounded corners would just cut the
-   right-hand column off instead. `data-dialog-loose` opts out the four whose
-   own dropdowns are meant to escape the card — clipping those would be the
-   worse bug, and none of them is drawn wider than 720. */
-[data-dialog-card]:not([data-dialog-loose]) {
+   most of these set for their rounded corners would just cut the right-hand
+   column off instead. `data-dialog-loose` opts out the four whose own dropdowns
+   are meant to escape the card - clipping those would be the worse bug, and
+   none of them is drawn wider than 720. */
+[data-dialog-card]:not([data-dialog-loose]),
+[data-dialog-drawer] {
   overflow-x: auto !important;
   overflow-y: auto;
 }
@@ -63,7 +75,7 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
 
 /* Rate Cards.
    The page is eight columns wide and cannot fold, so it keeps its own 980px
-   scroller and gives the padding back instead — RateCards.dc.html's own rule,
+   scroller and gives the padding back instead - RateCards.dc.html's own rule,
    at its own breakpoints. */
 @media (max-width: 1279px) {
   [data-screen-label='Rate Cards'] { padding: var(--size-160) !important; }
@@ -72,7 +84,7 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
   [data-screen-label='Rate Cards'] { padding: var(--size-120) !important; }
 }
 
-/* The board pages — Dispatch and Compliance.
+/* The board pages - Dispatch and Compliance.
    Their tables are wide and cannot fold, so they keep their own scrollers and
    the page gives padding back instead: the design files' own rules, at their
    own breakpoints. The Setup rails drop to one column where a fixed 340px
@@ -96,7 +108,7 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
   [data-rsp-kpi] { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)) !important; }
 }
 
-/* The Fleet pages pad evenly — they have no sticky footer to clear, so they do
+/* The Fleet pages pad evenly - they have no sticky footer to clear, so they do
    not take the extra bottom the board pages ask for. Vehicles carries the
    attribute on its own root, hence the compound selector. */
 @media (max-width: 1279px) {
@@ -122,7 +134,7 @@ input:focus, input:focus-visible { outline: none !important; box-shadow: none !i
 /* Associates narrows only its sides. Its two views start at different tops and
    both keep the deep bottom that holds the last row clear of the toast, so the
    page opts out of the shared data-rsp-page shorthand entirely and carries its
-   own attribute — the design file's helmet sets left and right and nothing else. */
+   own attribute - the design file's helmet sets left and right and nothing else. */
 @media (max-width: 1279px) {
   [data-rsp-assoc] { padding-left: var(--size-160) !important; padding-right: var(--size-160) !important; }
 }

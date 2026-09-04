@@ -46,7 +46,7 @@ const banner = (tone: 'warning' | 'danger' | 'info'): CSSProperties => ({
   textWrap: 'pretty',
 })
 
-// Sortable column header — the glyph shows direction only on the active column.
+// Sortable column header - the glyph shows direction only on the active column.
 function SortHeader({
   label,
   sortKey,
@@ -291,7 +291,7 @@ export function CalendarTab({ s }: { s: PayrollState }) {
     if (!rows || isLocked) return ''
     const w = weekOf(rows[0].start)
     if (w.n > 1 && !s.lockedYears.includes(Number(year) - 1)) {
-      return `W1–W${w.n - 1} · ${w.y} are not in any payroll calendar. Set up ${Number(year) - 1} to cover them.`
+      return `W1-W${w.n - 1} · ${w.y} are not in any payroll calendar. Set up ${Number(year) - 1} to cover them.`
     }
     return ''
   })()

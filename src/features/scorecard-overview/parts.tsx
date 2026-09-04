@@ -248,7 +248,7 @@ export function Legend({ items }: { items: { label: string; fill: string }[] }) 
   )
 }
 
-/** A tier badge — the same pill wherever a tier is named. */
+/** A tier badge - the same pill wherever a tier is named. */
 export function TierChip({ tier }: { tier: string }) {
   const t = tierTone(tier)
   return (

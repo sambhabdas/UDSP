@@ -100,7 +100,7 @@ export function SendDialog({ s }: { s: SurveysState }) {
             <FieldLabel>{s.summary.title}</FieldLabel>
             <Helper>{s.summary.sub}</Helper>
           </div>
-          {/* Who cannot receive it, and why — stated before the send, not after. */}
+          {/* Who cannot receive it, and why - stated before the send, not after. */}
           {s.summary.excluded > 0 && (
             <div
               style={{
@@ -154,7 +154,7 @@ export function SendDialog({ s }: { s: SurveysState }) {
   )
 }
 
-// A driver with no app account stays visible and unselectable — the gap is the
+// A driver with no app account stays visible and unselectable - the gap is the
 // point, so hiding them would hide the reason the count is short.
 function PickerRow({ p, on, onToggle }: { p: RosterEntry; on: boolean; onToggle: () => void }) {
   return (

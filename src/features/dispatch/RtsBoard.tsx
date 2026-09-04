@@ -97,7 +97,7 @@ export function RtsBoard({ s }: { s: DispatchState }) {
                 // Counting every route is the precondition, and the button says
                 // so rather than closing on an incomplete count.
                 if (openRows.length) {
-                  s.toastMsg(`${openRows.length} routes still have no door count — count them before closing the day`)
+                  s.toastMsg(`${openRows.length} routes still have no door count - count them before closing the day`)
                   return
                 }
                 s.act(`Day closed by ${ME} · ${fmt(NOW)}`, { rtsClosed: `${ME} · ${fmt(NOW)}` })
@@ -217,7 +217,7 @@ function RtsRowView({ r, s }: { r: RtsRow; s: DispatchState }) {
     >
       <span>
         {r.inNote && (
-          <span title={`${r.inNote.txt} — ${r.inNote.who} · ${r.inNote.when}`} style={{ color: 'var(--danger-fg)', cursor: 'help' }}>
+          <span title={`${r.inNote.txt} - ${r.inNote.who} · ${r.inNote.when}`} style={{ color: 'var(--danger-fg)', cursor: 'help' }}>
             ●
           </span>
         )}

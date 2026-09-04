@@ -9,7 +9,7 @@ import { FIELD_LABEL, PAIR } from './style'
 import { EXCLUSION_REASONS, MODULES, QUALS, VEH_TYPES } from './data'
 import type { GaState } from './useGeneralAssociates'
 
-/** The shell all three dialogs sit in — backdrop, title bar, body, footer. */
+/** The shell all three dialogs sit in - backdrop, title bar, body, footer. */
 function Dialog({
   title,
   width,
@@ -105,7 +105,7 @@ function Dialog({
   )
 }
 
-/** A toggleable chip — "+ DOT" off, "DOT  ×" on. */
+/** A toggleable chip - "+ DOT" off, "DOT  ×" on. */
 function ChipToggle({ label, on, onClick }: { label: string; on: boolean; onClick: () => void }) {
   return (
     <div
@@ -229,7 +229,7 @@ export function DaDialog({ s }: { s: GaState }) {
   )
 }
 
-/** Assign Coaching — one module, a due window, and whether it gates the shift. */
+/** Assign Coaching - one module, a due window, and whether it gates the shift. */
 export function CoachDialog({ s }: { s: GaState }) {
   const c = s.coachForm
   if (s.dlg !== 'coach' || !c) return null
@@ -364,7 +364,7 @@ function ModuleRow({ name, cat, on, onClick }: { name: string; cat: string; on: 
 /**
  * Exclude From Auto-Schedule.
  *
- * "Other" is the only reason that cannot stand on its own — it needs the note
+ * "Other" is the only reason that cannot stand on its own - it needs the note
  * to say what it actually was, or the exclusion is unauditable later.
  */
 export function ExclDialog({ s }: { s: GaState }) {

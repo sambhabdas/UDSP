@@ -80,7 +80,7 @@ export function DispatchPage() {
               textWrap: 'pretty',
             }}
           >
-            ⚠ Editing a past day moves Work Summary’s launched count and Return to Station’s opening check — a
+            ⚠ Editing a past day moves Work Summary’s launched count and Return to Station’s opening check - a
             locked Work Summary day absorbs it only on reopen
           </div>
         )}

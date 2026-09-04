@@ -120,7 +120,7 @@ export function useEvents() {
   const nonVoided = useMemo(() => ledger.filter((r) => !r.voided), [ledger])
 
   const allSorted = useMemo(() => {
-    // "Voided Only" swaps the list rather than adding to it — a voided event
+    // "Voided Only" swaps the list rather than adding to it - a voided event
     // is not part of any total, so it never mixes with live rows.
     const shown = applied.voided ? ledger.filter((r) => r.voided) : nonVoided
     const dir = sortAll.d === 'asc' ? 1 : -1

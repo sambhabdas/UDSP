@@ -34,7 +34,7 @@ export interface MenuState {
   extra?: string
   x: number
   y: number
-  /** Where the inline search sits — over the control that opened the menu. */
+  /** Where the inline search sits - over the control that opened the menu. */
   tx: number
   ty: number
   tw: number
@@ -163,7 +163,7 @@ export function useWorkSummary() {
    *
    * The fed row is the rescue table's Unpaid count and is never typed. A typed
    * override wins over the file. Otherwise the file's allocation less what was
-   * cancelled and dropped — and a type with no Amazon name has no file row, so
+   * cancelled and dropped - and a type with no Amazon name has no file row, so
    * it has no answer at all.
    */
   const ranOf = useCallback(
@@ -316,7 +316,7 @@ export function useWorkSummary() {
       return
     }
     // Only a type with no Amazon name can take the rescue feed, and only one
-    // row can hold it — assigning it takes it off whoever had it.
+    // row can hold it - assigning it takes it off whoever had it.
     const fed = !f.amz && f.counts === 'fed'
     if (fed && types.some((t) => t.fed && t.id !== f.id)) {
       toastMsg(`The rescue feed moved to ${f.name.trim()} - one fed type at a time`)

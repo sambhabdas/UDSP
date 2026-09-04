@@ -10,7 +10,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
  * that forgets to clear the *previous* timer lets an old message cut a new one
  * short. Both are handled here.
  *
- * `ms` differs per page — the denser screens hold it longer, and Compliance
+ * `ms` differs per page - the denser screens hold it longer, and Compliance
  * holds it longest because its messages carry a reason.
  */
 export function useToast(ms = 2400) {
@@ -29,7 +29,7 @@ export function useToast(ms = 2400) {
 }
 
 /**
- * A toast that carries the thing its Undo would restore — a snapshot, a
+ * A toast that carries the thing its Undo would restore - a snapshot, a
  * callback, or just a flag saying the last action can be taken back.
  *
  * The payload has to expire *with* the line, or the page ends up offering an
@@ -44,7 +44,7 @@ export function useUndoToast<T>(ms: number, undoMs = ms) {
   const toastMsg = useCallback((text: string, payload?: T | null) => {
     const carry = payload ?? null
     setToast(text)
-    // The updater form, because a payload may itself be a function — passing it
+    // The updater form, because a payload may itself be a function - passing it
     // bare would make React call it as a reducer instead of storing it.
     setUndoable(() => carry)
     if (timer.current) clearTimeout(timer.current)
@@ -52,7 +52,7 @@ export function useUndoToast<T>(ms: number, undoMs = ms) {
     timer.current = setTimeout(() => { setToast(''); setUndoable(null) }, carry ? undoMs : ms)
   }, [ms, undoMs])
 
-  /** Take the line down now — what it offered has just been done. */
+  /** Take the line down now - what it offered has just been done. */
   const clear = useCallback(() => {
     if (timer.current) clearTimeout(timer.current)
     setToast('')
@@ -91,7 +91,7 @@ export function anchorAt(
 }
 
 export interface Page<T> {
-  /** The page actually shown — clamped, so a filter that shrinks the list
+  /** The page actually shown - clamped, so a filter that shrinks the list
    *  cannot strand you on a page that no longer exists. */
   p: number
   max: number

@@ -11,7 +11,7 @@ import { WeekPicker } from './Setup'
 import type { AutoState } from './useAutoSchedule'
 
 /**
- * Result — what the run did, and why.
+ * Result - what the run did, and why.
  *
  * Three readings of the same run: how well it covered the week, every
  * assignment it made in the order it made them, and, for everyone it passed

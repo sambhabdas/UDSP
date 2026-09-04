@@ -8,7 +8,7 @@ import { SearchField } from './parts'
 import type { DispatchState } from './useDispatch'
 
 /**
- * The anchored popups the boards open — one component, because they all behave
+ * The anchored popups the boards open - one component, because they all behave
  * the same way: positioned at the control, dismissed by the page's own click.
  */
 export function Menus({ s }: { s: DispatchState }) {
@@ -128,7 +128,7 @@ function buildItems(
         ...list.map((v) => ({
           label: v.id,
           // A van that is out of service or already held says so rather than
-          // being hidden — dispatch may still need to know it exists.
+          // being hidden - dispatch may still need to know it exists.
           hint:
             v.status !== 'In service'
               ? v.status
@@ -209,7 +209,7 @@ function buildItems(
               ...s.dismissed,
               [row.id]: { who: ME, when: fmt(NOW), label: 'issues dismissed' },
             })
-            s.toastMsg('Issues hidden on this row — the marker stays, with who hid them')
+            s.toastMsg('Issues hidden on this row - the marker stays, with who hid them')
           },
         },
         {
@@ -271,7 +271,7 @@ function MenuRow({ item, onPick }: { item: Item; onPick: () => void }) {
 }
 
 /**
- * After a call, the only question worth asking is what happened — the answer is
+ * After a call, the only question worth asking is what happened - the answer is
  * what the wave box shows next time somebody looks at who is missing.
  */
 export function HangUpPrompt({ s }: { s: DispatchState }) {
@@ -309,7 +309,7 @@ export function HangUpPrompt({ s }: { s: DispatchState }) {
         }}
       >
         <span style={{ ...body1, fontWeight: 'var(--weight-semibold)' }}>
-          Called {h.name.split(',')[0]} — what happened?
+          Called {h.name.split(',')[0]} - what happened?
         </span>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--size-40)' }}>
           {outcomes.map((o) => (

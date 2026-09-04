@@ -1,10 +1,10 @@
 import { body1Strong, caption1 } from '../ds/type'
 
 // The nav lists the real pane-2 order even where the page does not exist yet.
-// Naming the gap is the honest option — an empty state states the situation in
+// Naming the gap is the honest option - an empty state states the situation in
 // the user's terms rather than pretending the entry does something.
 // `builtCount` comes from the route table, which is the only thing that
-// actually decides whether a page exists — a number written down here would go
+// actually decides whether a page exists - a number written down here would go
 // stale the moment one lands.
 export function NotBuilt({
   title,

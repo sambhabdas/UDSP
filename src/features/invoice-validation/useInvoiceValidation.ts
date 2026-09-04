@@ -18,7 +18,7 @@ export type DialogKind =
   | 'na' | 'expect' | 'delete' | 'disputeIt' | 'revert' | 'accept' | 'resolve'
   | 'ref' | 'reviewed' | 'adjusted' | 'history' | 'approve' | 'dispute' | 'manual'
 
-/** The rate editor — one service type, from one day, optionally carried on. */
+/** The rate editor - one service type, from one day, optionally carried on. */
 export interface RateEditor {
   name: string
   rate: number
@@ -133,7 +133,7 @@ export function useInvoiceValidation() {
     })
   }, [sortDir])
 
-  /** The dashboard list — filtered, searched, then sorted. */
+  /** The dashboard list - filtered, searched, then sorted. */
   const rows = useMemo(() => {
     let list = elapsed.slice()
     if (filter !== 'All') {

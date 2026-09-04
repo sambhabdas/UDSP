@@ -1,4 +1,4 @@
-// Responses — what came back from the surveys the drivers were sent.
+// Responses - what came back from the surveys the drivers were sent.
 //
 // Two surveys, and the difference between them shapes the whole page: the
 // route-end survey is named, so every answer carries a driver and a route and
@@ -31,14 +31,14 @@ export interface Question {
   answers: number
   /** rating */
   avg?: string
-  /** rating — counts for 5, 4, 3, 2, 1, in that order. */
+  /** rating - counts for 5, 4, 3, 2, 1, in that order. */
   counts?: number[]
   /** yesno */
   yes?: number
   no?: number
   /** Which of the two answers is the one worth chasing. */
   problem?: 'Yes' | 'No'
-  /** text — shown before the full table is opened. */
+  /** text - shown before the full table is opened. */
   samples?: Answer[]
   photos?: Photo[]
   details: Answer[]

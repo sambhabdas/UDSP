@@ -449,7 +449,7 @@ export function EmptyBoard({ label, children }: { label: string; children?: Reac
   )
 }
 
-/** Caption-scale toast — this page's design file sets it one step down. */
+/** Caption-scale toast - this page's design file sets it one step down. */
 export function Toast({ children, onUndo }: { children: ReactNode; onUndo?: () => void }) {
   return <BaseToast size="caption" onUndo={onUndo}>{children}</BaseToast>
 }

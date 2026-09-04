@@ -29,7 +29,7 @@ export function FilterPanel({ s }: { s: LibraryState }) {
   return (
     <div onClick={close} style={{ position: 'fixed', inset: 0, background: 'rgba(17,24,39,.75)', display: 'flex', justifyContent: 'flex-end', zIndex: 60 }}>
       <div
-        data-dialog-card=""
+        data-dialog-drawer=""
         onClick={(e) => e.stopPropagation()}
         style={{ boxSizing: 'border-box', width: 360, height: '100%', background: 'var(--surface-raised)', boxShadow: 'var(--elevation-dialog)', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}
       >

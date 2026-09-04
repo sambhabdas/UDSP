@@ -11,10 +11,10 @@ import { useSchedule } from './useSchedule'
 import type { SchedState } from './useSchedule'
 
 /**
- * Schedule — the week as it stands, and every way to change it.
+ * Schedule - the week as it stands, and every way to change it.
  *
  * One card holds the whole thing: toolbar, the issue chips, the grid, and the
- * legend that decodes it. Nothing is committed silently — a soft warning takes
+ * legend that decodes it. Nothing is committed silently - a soft warning takes
  * a typed reason, and every act is one Undo away.
  */
 export function SchedulePage() {
@@ -81,7 +81,7 @@ export function SchedulePage() {
  * The issues band.
  *
  * One chip per rule that is currently broken, hard ones first. Clicking a chip
- * narrows the grid to the people it names — the fastest route from "what is
+ * narrows the grid to the people it names - the fastest route from "what is
  * wrong" to "who do I fix".
  */
 function IssueChips({ s }: { s: SchedState }) {
@@ -165,7 +165,7 @@ function Legend({ s }: { s: SchedState }) {
   )
 }
 
-/** The shared filter drawer — two sections, a draft, and Apply. */
+/** The shared filter drawer - two sections, a draft, and Apply. */
 function FilterDrawer({ s }: { s: SchedState }) {
   if (!s.fpOpen || !s.fpDraft) return null
   const d = s.fpDraft

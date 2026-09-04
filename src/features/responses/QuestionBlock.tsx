@@ -17,7 +17,7 @@ import type { RespState } from './useResponses'
  */
 export function QuestionBlock({ s, q, index }: { s: RespState; q: Question; index: number }) {
   const open = !!s.openDetails[q.id]
-  // Free text has nothing to chart, so its table is always on the page — the
+  // Free text has nothing to chart, so its table is always on the page - the
   // button only decides whether it is the first three rows or all of them.
   const showTable = open || q.type === 'text'
 
@@ -429,10 +429,10 @@ function DetailRow({
       <div style={{ width: 100, flexShrink: 0, color: 'var(--text-secondary)', whiteSpace: 'nowrap' }}>{row.when}</div>
       {named && (
         <div style={{ width: 150, flexShrink: 0, fontWeight: 'var(--weight-semibold)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-          {row.driver ?? '—'}
+          {row.driver ?? '-'}
         </div>
       )}
-      {showRoute && <div style={{ width: 64, flexShrink: 0, color: 'var(--text-secondary)' }}>{row.route ?? '—'}</div>}
+      {showRoute && <div style={{ width: 64, flexShrink: 0, color: 'var(--text-secondary)' }}>{row.route ?? '-'}</div>}
       <div style={{ flex: 1, minWidth: 160, display: 'flex', alignItems: 'baseline', gap: 'var(--size-60)' }}>
         <span style={{ flex: 1, minWidth: 0 }}>{row.answer}</span>
         {handled && (

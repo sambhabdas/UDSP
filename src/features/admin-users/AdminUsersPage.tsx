@@ -18,7 +18,7 @@ const TABS: { id: UsersState['tab']; label: string }[] = [
 
 // Two populations that are never the same list. A PORTAL USER holds one of the
 // five posts and consumes a seat; a DA is a roster driver whose only surface is
-// the phone app — no post, no seat, no email, and never removed from the roster
+// the phone app - no post, no seat, no email, and never removed from the roster
 // by anything on this page.
 export function AdminUsersPage() {
   const s = useAdminUsers()

@@ -258,7 +258,7 @@ export function ContactForm({ s }: { s: ContactsState }) {
   const canSave = !!(f.who.trim() && f.phone.trim() && chosen.length > 0)
 
   const existing = f.editId ? s.contacts.find((c) => c.id === f.editId) : null
-  // Reasons this save would light up for the first time — worth saying out loud,
+  // Reasons this save would light up for the first time - worth saying out loud,
   // because until now no driver was offered them at all.
   const newlyLit = chosen.filter(
     (rid) => s.visibleCountFor(rid) === 0 && (!existing || !existing.reasons.includes(rid)),
@@ -437,7 +437,7 @@ export function ContactForm({ s }: { s: ContactsState }) {
             />
           </div>
 
-          {/* Add a reason without leaving the form — it arrives already picked. */}
+          {/* Add a reason without leaving the form - it arrives already picked. */}
           <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--size-80)', flexWrap: 'wrap' }}>
             <span data-field="" style={{ ...fieldWrap, width: 160, borderStyle: 'dashed', borderColor: 'var(--primary)' }}>
               <input

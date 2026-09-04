@@ -77,7 +77,7 @@ function Reminders({ s }: { s: VehiclesState }) {
               <Button
                 onClick={() => {
                   s.setReminders(s.reminders.map((x) => (x.id === r.id ? { ...x, done: true } : x)))
-                  // A repeating reminder does not end when it is done — the next
+                  // A repeating reminder does not end when it is done - the next
                   // one is already owed.
                   s.toastMsg(r.repeat !== 'none' ? `Done · next ${r.name} created` : 'Done')
                 }}

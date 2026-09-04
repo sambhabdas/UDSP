@@ -1,7 +1,7 @@
 import { caption1, caption2 } from '../../ds/type'
 import { Dropdown, EmptyRow, OptionRow } from './parts'
 
-/** Whichever form owns this picker — reserve, or add-line. */
+/** Whichever form owns this picker - reserve, or add-line. */
 export interface PickerState {
   number: string | null
   query: string
@@ -24,7 +24,7 @@ export function NumberPicker({
   areaOptions,
 }: {
   pool: string[]
-  /** Whichever form owns this picker — reserve or add-line. */
+  /** Whichever form owns this picker - reserve or add-line. */
   state: PickerState
   patch: (p: Partial<PickerState>) => void
   openKey: string

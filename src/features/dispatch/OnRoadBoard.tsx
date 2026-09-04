@@ -13,8 +13,8 @@ import type { DispatchState } from './useDispatch'
 /**
  * On Road: what is happening out there, and who needs help.
  *
- * The board is ordered by urgency rather than by route number — late first,
- * done last — because the point of the screen is triage, not enumeration.
+ * The board is ordered by urgency rather than by route number - late first,
+ * done last - because the point of the screen is triage, not enumeration.
  */
 export function OnRoadBoard({ s }: { s: DispatchState }) {
   const d = s.day
@@ -132,7 +132,7 @@ export function OnRoadBoard({ s }: { s: DispatchState }) {
             onClick={() => {
               const targets = vis.filter((b) => !b.done && !b.msgsOff)
               if (!targets.length) {
-                s.toastMsg('Nobody to message — every route here is done or waved off')
+                s.toastMsg('Nobody to message - every route here is done or waved off')
                 return
               }
               s.openDlg('p5', { ids: targets.filter((b) => b.kind === 'route').map((b) => b.id), status: true })

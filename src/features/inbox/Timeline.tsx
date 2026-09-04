@@ -14,7 +14,7 @@ const bubble: CSSProperties = {
 const stamp: CSSProperties = { ...caption2, color: 'var(--text-helper)' }
 
 function DateDivider({ text }: { text: string }) {
-  return <div style={{ textAlign: 'center', ...stamp }}>— {text} —</div>
+  return <div style={{ textAlign: 'center', ...stamp }}>- {text} -</div>
 }
 
 function SystemEvent({ text }: { text: string }) {
@@ -80,7 +80,7 @@ function OutboundText({ text, time }: { text: string; time?: string }) {
       >
         {text}
       </div>
-      {/* Delivery receipts only — no UDSP surface records a driver read anything. */}
+      {/* Delivery receipts only - no UDSP surface records a driver read anything. */}
       <span style={stamp}>{time} ✓✓</span>
     </div>
   )
@@ -182,7 +182,7 @@ function InternalNote({ text }: { text: string }) {
   )
 }
 
-// Chronological, newest at the bottom. Every channel merges into one timeline —
+// Chronological, newest at the bottom. Every channel merges into one timeline -
 // person-centric, not thread-centric.
 export function Timeline({ feed }: { feed: Activity[] }) {
   return (
@@ -221,7 +221,7 @@ export function Timeline({ feed }: { feed: Activity[] }) {
             textAlign: 'center',
           }}
         >
-          No activity yet — start the conversation
+          No activity yet - start the conversation
         </div>
       )}
     </div>

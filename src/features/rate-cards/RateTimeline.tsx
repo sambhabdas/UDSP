@@ -89,7 +89,7 @@ export function RateTimeline({ s }: { s: RateCardsState }) {
             (dsp ? 'Locked at $0.00' : off ? 'Not paid' : opts.fmt(w.rate)) +
             ' · ' +
             fmtD(a) +
-            ' – ' +
+            ' - ' +
             (w.to ? fmtD(b) : 'no end') +
             ' · set by ' +
             w.by +
@@ -104,7 +104,7 @@ export function RateTimeline({ s }: { s: RateCardsState }) {
     const dsp = t.paidBy === 'DSP'
     const created = fromIso(t.created)
     const bands: Band[] = []
-    // Before a type existed it ran nothing — said outright rather than left as
+    // Before a type existed it ran nothing - said outright rather than left as
     // empty track that could read as "no rate set".
     if (days(axisA, created) > 0) {
       bands.push({

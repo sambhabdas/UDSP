@@ -90,7 +90,7 @@ function IconAction({
   )
 }
 
-// What the day's money is computed FROM — routes, packages, payroll, rates.
+// What the day's money is computed FROM - routes, packages, payroll, rates.
 export function ProjectionInputs({ s }: { s: ProjectionState }) {
   const day = DAYS[s.dayIdx]
   const cells = [
@@ -184,7 +184,7 @@ const NEUTRAL_CHIP = {
   chipTitle: '',
 }
 
-// A per-route figure is only good or bad against something — with no baseline,
+// A per-route figure is only good or bad against something - with no baseline,
 // or on a custom range, the chip stays neutral rather than implying a verdict.
 function chipVs(
   cur: number,
@@ -351,7 +351,7 @@ export function WhatMovesIt({ s }: { s: ProjectionState }) {
   )
 }
 
-// Where the cost actually went — a segmented bar plus the numbers, because a
+// Where the cost actually went - a segmented bar plus the numbers, because a
 // bar alone is not a figure anyone can quote.
 export function CostBreakdown({ s }: { s: ProjectionState }) {
   const di = s.dayIdx

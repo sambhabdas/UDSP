@@ -1,8 +1,8 @@
-// Auto Schedule — the same roster and the same week math as Schedule, seen
+// Auto Schedule - the same roster and the same week math as Schedule, seen
 // from the other end: instead of placing shifts by hand, you set the needs and
 // the rules and let the run place them, then read why it did what it did.
 //
-// The calendar comes from Schedule's own module rather than a second copy —
+// The calendar comes from Schedule's own module rather than a second copy -
 // both pages anchor week 31 to Sunday Jul 26, 2026 and must never disagree.
 
 export interface Palette {
@@ -83,7 +83,7 @@ export const SEED_EXCLUDED: Exclusion[] = [
 
 export type Needs = Record<string, number[]>
 
-/** What week 31 was actually run against — the run in the log. */
+/** What week 31 was actually run against - the run in the log. */
 export const W31_NEEDS: Needs = {
   DOT: [3, 3, 3, 3, 3, 3, 2],
   STD: [2, 2, 2, 2, 2, 2, 2],
@@ -91,7 +91,7 @@ export const W31_NEEDS: Needs = {
   SBY: [0, 0, 0, 0, 0, 0, 1],
 }
 
-/** The matrix the Setup tab opens on — Friday DOT is deliberately over-asked. */
+/** The matrix the Setup tab opens on - Friday DOT is deliberately over-asked. */
 export const SEED_NEEDS: Needs = {
   DOT: [3, 3, 3, 3, 3, 5, 2],
   STD: [2, 2, 2, 2, 2, 2, 2],
@@ -107,7 +107,7 @@ export const CAP_OPTIONS = [40, 50, 60, 70]
 export const SCORE_WINDOWS = [10, 20, 30]
 export const RANK_SOURCES = ['Scorecard net score', 'Seniority - roster start date', 'Fewest hours this week']
 
-/** Avatar tints, picked by a hash of the name — the DS rule. */
+/** Avatar tints, picked by a hash of the name - the DS rule. */
 export function tint(name: string): [string, string] {
   const tints: [string, string][] = [
     ['var(--blue-100)', 'var(--blue-700)'],

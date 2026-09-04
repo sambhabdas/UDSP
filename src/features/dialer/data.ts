@@ -1,5 +1,5 @@
-// The Dialer's seed, lifted from Dialer.dc.html. Everything the widget shows —
-// lines, people, call history, message threads — is fixed data; nothing here is
+// The Dialer's seed, lifted from Dialer.dc.html. Everything the widget shows -
+// lines, people, call history, message threads - is fixed data; nothing here is
 // generated, so the server and the client render the same thing.
 
 import { env } from '../../config/env'

@@ -68,7 +68,7 @@ export type RateCardsState = ReturnType<typeof useRateCards>
 
 // The design file computes a grain picker, a range stepper and an export menu
 // that its own markup never renders, so the range it actually shows is the
-// default: the seeded week, Sun Jul 26 – Sat Aug 1, 2026.
+// default: the seeded week, Sun Jul 26 - Sat Aug 1, 2026.
 const RANGE_START = WEEK0
 const RANGE_END = addDays(WEEK0, 6)
 
@@ -104,7 +104,7 @@ export function useRateCards() {
   const [notes, setNotes] = useState<Note[]>(SEED_NOTES)
   const [noteText, setNoteText] = useState('')
 
-  // A change that can be undone holds the toast twice as long — the offer is
+  // A change that can be undone holds the toast twice as long - the offer is
   // useless if it goes before it is read.
   const { toast: toastText, undoable: undoSnap, toastMsg: toast, clear: clearToast } =
     useUndoToast<Snapshot>(3000, 6000)

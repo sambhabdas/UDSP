@@ -45,7 +45,7 @@ const QUEUE_COLS = '110px 120px 110px 1fr 200px'
  *
  * The period picker at the top scopes utilization and the idle list. Spend has
  * a picker of its own, because you often want the fleet's this-week shape next
- * to last month's money — choosing a page period resets it back in step.
+ * to last month's money - choosing a page period resets it back in step.
  */
 export function FleetDashboardPage() {
   const s = useFleetDashboard()

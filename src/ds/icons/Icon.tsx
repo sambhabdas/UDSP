@@ -28,7 +28,7 @@ export function Icon({ name, size = 20, color = 'currentColor', style, ...rest }
     <span
       style={base}
       {...rest}
-      // Glyph bodies are emitter-controlled <path>/<g> markup — geometry only.
+      // Glyph bodies are emitter-controlled <path>/<g> markup - geometry only.
       dangerouslySetInnerHTML={{
         __html:
           `<svg width="${size}" height="${size}" shape-rendering="geometricPrecision" ` +

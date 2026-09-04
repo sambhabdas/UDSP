@@ -19,7 +19,7 @@ const TABS: [Tab, string][] = [
 ]
 
 /**
- * The profile header — who they are, what you can do to them, and the strip of
+ * The profile header - who they are, what you can do to them, and the strip of
  * standing facts that gates everything else.
  *
  * The strip is the summary of record: clear-to-work or blocked, the tier and

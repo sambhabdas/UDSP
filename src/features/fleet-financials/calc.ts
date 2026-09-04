@@ -36,7 +36,7 @@ export function vanNet(cells: Cells, v: Vehicle, month: number): number {
 
 /**
  * Whether a row is missing a cost it ought to have. A missing charge does not
- * read as zero — it reads as a NET that is too good, so it is called out.
+ * read as zero - it reads as a NET that is too good, so it is called out.
  */
 export function incomplete(cells: Cells, v: Vehicle, month: number): string | null {
   if (v.status === 'Off fleet') return null
@@ -61,13 +61,24 @@ export function statusTone(s: Status | string): Tone {
 }
 
 /**
- * A twelve-point sparkline of NET. Only the last point is real — the eleven
+ * A stable number from an id, for seeding the decorative wobble below.
+ *
+ * Every character, rather than a couple of positions: vehicle ids are four
+ * characters ("v103"), so reading index 4 returned NaN, which poisoned the
+ * seed, then every point, then the scale - and the sparkline drew nothing at
+ * all. Summing cannot run off the end of a string.
+ */
+const seedOf = (id: string): number =>
+  id.split('').reduce((a, c) => a + c.charCodeAt(0), 0)
+
+/**
+ * A twelve-point sparkline of NET. Only the last point is real - the eleven
  * before it are a deterministic wobble around it, seeded off the vehicle id so
  * the same van always draws the same line.
  */
 export function sparkFor(cells: Cells, v: Vehicle, month: number) {
   const base = vanNet(cells, v, month)
-  const seed = v.id.charCodeAt(3) + v.id.charCodeAt(4)
+  const seed = seedOf(v.id)
   const pts: number[] = []
   for (let i = 0; i < 12; i++) {
     const wobble = Math.sin(seed + i * 1.3) * 340 + Math.cos(seed * 0.7 + i) * 180
@@ -85,7 +96,7 @@ export function sparkFor(cells: Cells, v: Vehicle, month: number) {
 }
 
 /**
- * Whether a cell can be written. An off-fleet van's later periods are closed —
+ * Whether a cell can be written. An off-fleet van's later periods are closed -
  * but a cell that already holds a figure stays editable, so history can be
  * corrected.
  */

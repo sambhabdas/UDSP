@@ -15,7 +15,7 @@ import type { DialerState, DialerTab } from './useDialer'
 /**
  * The Dialer: a floating call widget that rides above whatever page you are on.
  *
- * It is one card with two lives. Out of a call it is a phone — line picker,
+ * It is one card with two lives. Out of a call it is a phone - line picker,
  * keypad, history, contacts, messages, status. In a call it becomes the call
  * itself, and the tab strip locks so you cannot wander off mid-conversation.
  *
@@ -753,7 +753,7 @@ function TabStrip({ s }: { s: DialerState }) {
       }}
     >
       {tabs.map((t) => {
-        // A call takes the strip out of service — no tab reads as active, and
+        // A call takes the strip out of service - no tab reads as active, and
         // nothing responds, until it ends.
         const active = s.tab === t.id && !inCall
         return (

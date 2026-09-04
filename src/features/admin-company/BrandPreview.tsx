@@ -4,7 +4,7 @@ import { PREVIEW_SELECTED, PREVIEW_TILES } from './data'
 import type { CompanyState } from './useCompanyStation'
 
 // A miniature of the shell, painted live from the brand colour. The rail is the
-// only surface the brand touches — pages keep the product palette — and every
+// only surface the brand touches - pages keep the product palette - and every
 // mark drawn on it takes its contrast from the colour's luminance, so a pale
 // brand cannot ship an unreadable rail.
 export function BrandPreview({ s }: { s: CompanyState }) {
@@ -36,7 +36,7 @@ export function BrandPreview({ s }: { s: CompanyState }) {
           padding: 'var(--size-80) 0 var(--size-60) 0',
         }}
       >
-        {/* The monogram keeps the product blue — it is the app's mark, not the
+        {/* The monogram keeps the product blue - it is the app's mark, not the
             DSP's. */}
         <div style={{ margin: '0 var(--size-40)', padding: 'var(--size-40)', display: 'flex', justifyContent: 'center' }}>
           <span

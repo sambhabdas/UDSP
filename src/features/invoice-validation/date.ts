@@ -66,7 +66,7 @@ export const daysBetween = (a: Day, b: Day): number => toSerial(b) - toSerial(a)
 export const fmt = (day: Day): string => `${MONTHS[day.m]} ${day.d}`
 /** "Jul 29, 2026" */
 export const fmtY = (day: Day): string => `${MONTHS[day.m]} ${day.d}, ${day.y}`
-/** "August 2026" — the date picker's heading. */
+/** "August 2026" - the date picker's heading. */
 export const fmtMonth = (day: Day): string => `${MONTHS_LONG[day.m]} ${day.y}`
 
 /**

@@ -77,7 +77,7 @@ function itemsFor(s: StandardsState): Item[] {
         label: 'Delete',
         pick: () => {
           s.closeMenu()
-          // A category has to be emptied first — its standards would be orphaned.
+          // A category has to be emptied first - its standards would be orphaned.
           if (c.rows.length) { s.toastMsg(`Move or delete its ${c.rows.length} standards first`); return }
           s.setCats(s.cats.filter((_, i) => i !== idx))
           s.toastMsg(`${c.name} deleted`)
@@ -222,7 +222,7 @@ function rowItems(s: StandardsState): Item[] {
   return items
 }
 
-/** Deleting a tier hands its band to a neighbour — say which, and who moves. */
+/** Deleting a tier hands its band to a neighbour - say which, and who moves. */
 function deleteTierLines(s: StandardsState, i: number) {
   const tiers = s.ladder
   const t = tiers[i]

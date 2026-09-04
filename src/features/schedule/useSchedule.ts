@@ -15,7 +15,7 @@ export type DialogKind =
   | 'add' | 'shift' | 'swap' | 'swapConfirm' | 'reason' | 'viol'
   | 'need' | 'depts' | 'copy' | 'clear' | 'stats' | 'export'
 
-/** Everything a dialog needs, in one loose bag — each one reads its own keys. */
+/** Everything a dialog needs, in one loose bag - each one reads its own keys. */
 export type Form = Record<string, unknown>
 
 /** What is being dragged: a bare need from the pool, or an existing shift. */
@@ -46,7 +46,7 @@ export function useSchedule() {
   const [calMonth, setCalMonth] = useState<number | null>(null)
   const [calMenu, setCalMenu] = useState<'month' | 'year' | null>(null)
 
-  // Filters — the drawer edits a draft and only writes it back on Apply.
+  // Filters - the drawer edits a draft and only writes it back on Apply.
   const [fIssue, setFIssue] = useState<string | null>(null)
   const [fViol, setFViol] = useState(false)
   const [fNoShift, setFNoShift] = useState(false)

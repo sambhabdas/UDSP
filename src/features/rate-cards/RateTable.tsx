@@ -407,7 +407,7 @@ function FilterButton({ s }: { s: RateCardsState }) {
 // ---- Others -----------------------------------------------------------------
 
 /** Packages and training: paid per unit rather than per route, and switchable
- *  off — but the switch is a dated change like any other. */
+ *  off - but the switch is a dated change like any other. */
 export function OthersTable({ s }: { s: RateCardsState }) {
   const rows = [
     {
@@ -506,7 +506,7 @@ function OtherRow({
         </RateCell>
       </div>
       <div style={{ width: 108, flexShrink: 0, ...caption1, color: 'var(--text-secondary)' }}>
-        {row.win ? fmtD(fromIso(row.win.from)) : '—'}
+        {row.win ? fmtD(fromIso(row.win.from)) : '-'}
       </div>
       <div
         style={{
@@ -516,7 +516,7 @@ function OtherRow({
           color: on && !row.win?.to ? 'var(--success-fg)' : 'var(--text-secondary)',
         }}
       >
-        {row.win ? (row.win.to ? fmtD(fromIso(row.win.to)) : 'No end') : '—'}
+        {row.win ? (row.win.to ? fmtD(fromIso(row.win.to)) : 'No end') : '-'}
       </div>
       <div style={{ width: 80, flexShrink: 0, textAlign: 'right', fontVariantNumeric: 'tabular-nums' }}>
         {int(row.count)}

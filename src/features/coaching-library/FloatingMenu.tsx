@@ -141,7 +141,7 @@ function moduleItems(s: LibraryState): Item[] {
       label: 'Duplicate',
       pick: () => {
         const next = s.modules.slice()
-        // A copy starts unpaired and inactive — the original keeps the pairing.
+        // A copy starts unpaired and inactive - the original keeps the pairing.
         next.splice(i + 1, 0, { ...m, name: `${m.name} (Copy)`, pairs: [], d30: 0, compl: null, active: false })
         s.setModules(next)
         s.closeMenu()

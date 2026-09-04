@@ -121,7 +121,7 @@ export function PunchTab({ s }: { s: ConnectionsState }) {
             </div>
           </Card>
 
-          {/* Same store, two questions — the boards never disagree because they
+          {/* Same store, two questions - the boards never disagree because they
               are not separate copies. */}
           <Card gap="var(--size-120)">
             <span style={caption1Strong}>One store, two reads</span>

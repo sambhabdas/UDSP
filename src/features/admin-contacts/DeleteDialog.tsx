@@ -4,7 +4,7 @@ import { Button } from '../../ds/components/Button'
 import { body1 } from '../../ds/type'
 
 // Deleting a contact is only safe if somebody else still answers what they
-// answered — so the confirm names the reasons that go dark, or says none do.
+// answered - so the confirm names the reasons that go dark, or says none do.
 export function DeleteDialog({ s }: { s: ContactsState }) {
   const c = s.contacts.find((x) => x.id === s.delFor)
   if (!c) return null
@@ -18,8 +18,8 @@ export function DeleteDialog({ s }: { s: ContactsState }) {
     .map(s.nameOf)
 
   const body = goesDark.length
-    ? `${goesDark.join(' · ')} ${goesDark.length === 1 ? 'goes' : 'go'} dark on the Help screen — no other visible contact covers ${goesDark.length === 1 ? 'it.' : 'them.'}`
-    : 'No reason goes dark — every topic keeps another visible contact.'
+    ? `${goesDark.join(' · ')} ${goesDark.length === 1 ? 'goes' : 'go'} dark on the Help screen - no other visible contact covers ${goesDark.length === 1 ? 'it.' : 'them.'}`
+    : 'No reason goes dark - every topic keeps another visible contact.'
 
   return (
     <Dialog title={`Delete ${c.who}?`} onClose={() => s.setDelFor(null)}>

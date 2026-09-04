@@ -275,7 +275,7 @@ export function SmallButton({
   )
 }
 
-// A transient success line that clears itself — it reports a check, not a state.
+// A transient success line that clears itself - it reports a check, not a state.
 export function TestResult({ children }: { children?: ReactNode }) {
   return (
     <span style={{ display: 'flex', alignItems: 'center', gap: 'var(--size-60)', ...caption1, color: 'var(--success-fg)' }}>

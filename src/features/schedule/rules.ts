@@ -60,7 +60,7 @@ export function availOf(ctx: Ctx, da: string, day: number): Availability {
 /**
  * Can this DA take this department on this day?
  *
- * `ignore` is the shift being moved or edited — it has to be taken out of the
+ * `ignore` is the shift being moved or edited - it has to be taken out of the
  * arithmetic or a shift would always collide with itself.
  */
 export function check(ctx: Ctx, daId: string, day: number, deptId: string, ignore?: Shift | null): CheckResult {
@@ -178,7 +178,7 @@ export function violations(ctx: Ctx, overriddenKeys: Override_[], fmtT: (m: numb
   return { hard, soft: softRows.filter((r) => !isOverridden(r)), overridden: softRows.filter(isOverridden) }
 }
 
-/** Rank by net score, highest first — the order every picker offers. */
+/** Rank by net score, highest first - the order every picker offers. */
 export function rankMap(das: Da[]): Record<string, number> {
   const out: Record<string, number> = {}
   das.slice().sort((a, b) => b.score - a.score).forEach((d, i) => { out[d.id] = i + 1 })

@@ -323,7 +323,7 @@ function Row({ r, s }: { r: TypeRow; s: WorkSummaryState }) {
   )
 }
 
-/** The service-type name — a picker, not a text field. */
+/** The service-type name - a picker, not a text field. */
 function NameCell({
   label,
   color,

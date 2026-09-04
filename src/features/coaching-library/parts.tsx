@@ -23,7 +23,7 @@ export function Chip({ label, bg, fg, border, title, small }: { label: string; b
   )
 }
 
-/** A status pill with a leading dot — Ready / Unavailable. */
+/** A status pill with a leading dot - Ready / Unavailable. */
 export function DotChip({ label, bg, fg, dot }: { label: string; bg: string; fg: string; dot: string }) {
   return (
     <span style={{ display: 'inline-flex', alignItems: 'center', gap: 'var(--size-60)', height: 20, padding: '0 var(--size-80)', borderRadius: 'var(--radius-medium)', background: bg, color: fg, ...caption1Strong }}>

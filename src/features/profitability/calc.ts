@@ -9,7 +9,7 @@ const r2 = (v: number) => Math.round(v * 100) / 100
 export { money, money0 } from '../../ds/format'
 export const pct = (v: number, d = 1) => `${v.toFixed(d)}%`
 export const num = int
-export const DASH = '—'
+export const DASH = '-'
 
 const addDays = (d: Date, n: number) => {
   const x = new Date(d)
@@ -29,7 +29,7 @@ export function fmtRange(start: Date): string {
     : `${fmtD(start)} - ${fmtD(end)}`
 }
 
-// "07/12 - 07/25" — the compact form the pickers and the table use.
+// "07/12 - 07/25" - the compact form the pickers and the table use.
 export function fmtRangeNum(start: Date): string {
   const end = addDays(start, 13)
   return `${pad2(start.getMonth() + 1)}/${pad2(start.getDate())} - ${pad2(end.getMonth() + 1)}/${pad2(end.getDate())}`
@@ -56,7 +56,7 @@ export function der(p: Period): Derived {
     ppr: gp / p.routes,
     rpr: p.rev / p.routes,
     cpr: p.cost / p.routes,
-    // Driver share of revenue — gross pay plus the employer tax on it.
+    // Driver share of revenue - gross pay plus the employer tax on it.
     drv: ((p.sp.dg + p.sp.dt) / p.rev) * 100,
     taxes: r2(p.sp.dt + p.sp.dst + p.sp.tt),
     gross: r2(p.sp.dg + p.sp.dsg + p.sp.tg),
@@ -64,7 +64,7 @@ export function der(p: Period): Derived {
 }
 
 // What the selected period is measured against. A provisional period is left
-// out of the trailing average — it would drag the baseline with a number that
+// out of the trailing average - it would drag the baseline with a number that
 // is still moving.
 /** What the selected period is measured against. */
 export interface Basis {
@@ -118,7 +118,7 @@ export function basis(sel: Period, mode: CompareMode): Basis | null {
   }
 }
 
-// A delta is a percentage move, unless the measure is already a percentage —
+// A delta is a percentage move, unless the measure is already a percentage -
 // then it is points, because a percentage of a percentage misleads.
 export function delta(
   cur: number,
@@ -198,7 +198,7 @@ export const rangeOf = (arr: number[]): [number, number] => [Math.min(...arr), M
 // Tooltip anchor, clamped so it never runs off either edge of the plot.
 export const colLeft = (i: number, n: number) => `${Math.min(88, Math.max(12, ((i + 0.5) / n) * 100))}%`
 
-// The band of driver-cost shares the closed periods have actually run at —
+// The band of driver-cost shares the closed periods have actually run at -
 // the table flags anything outside it rather than against a fixed target.
 export const driverBand = (() => {
   const vals = PERIODS.map((p) => der(p).drv)

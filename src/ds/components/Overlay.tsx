@@ -234,7 +234,7 @@ export function Toast({ children }: { children?: ReactNode }) {
   )
 }
 
-// Inline field wrapper — the focus border lands here, not as a ring on the input.
+// Inline field wrapper - the focus border lands here, not as a ring on the input.
 export function Field({
   children,
   height = 'var(--control-height)',

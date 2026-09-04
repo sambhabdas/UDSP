@@ -16,10 +16,10 @@ export function useSurveys() {
   const [sendFor, setSendFor] = useState<string | null>(null)
   const [audience, setAudience] = useState<AudienceId>('pick')
   const [when, setWhen] = useState('Now')
-  // null means "not touched yet" — the default is everyone who can receive it.
+  // null means "not touched yet" - the default is everyone who can receive it.
   const [picked, setPicked] = useState<Set<number> | null>(null)
 
-  // `toast` is the function and `toastText` the line — this page's own
+  // `toast` is the function and `toastText` the line - this page's own
   // naming, kept so no component of it has to change.
   const { toast: toastText, toastMsg: toast } = useToast(2600)
 

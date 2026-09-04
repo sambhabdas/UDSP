@@ -1,4 +1,4 @@
-// Scorecard Overview — the fleet's performance at a glance.
+// Scorecard Overview - the fleet's performance at a glance.
 //
 // Everything here is a fixed figure or a pure function of one. The page has no
 // clock and no randomness: the "generated" series are hashes of their own
@@ -45,7 +45,7 @@ export function tierTone(t: Tier | string): Tone {
   return { bg: 'var(--surface-subtle)', fg: 'var(--text-secondary)', dot: 'var(--neutral-400)' }
 }
 
-/** "+12", "-31", "0" — the sign is part of the reading, so it is never dropped. */
+/** "+12", "-31", "0" - the sign is part of the reading, so it is never dropped. */
 export const signed = (n: number): string => `${n > 0 ? '+' : n < 0 ? '-' : ''}${Math.abs(n)}`
 
 export const netColor = (n: number): string =>
@@ -108,7 +108,7 @@ export const FN_WINDOWS = ['8 weeks', '12 weeks', '24 weeks']
 /** "Top 5" → 5; "All" → every row. */
 export const topOf = (v: string): number => (v === 'All' ? Infinity : parseInt(v.replace('Top ', ''), 10))
 
-/** [label, hint] — the trend chart can plot the fleet net or any one measure. */
+/** [label, hint] - the trend chart can plot the fleet net or any one measure. */
 export const SCORE_OPTIONS: [string, string][] = [
   ['Fleet Net', ''],
   ['Safety', 'Category'], ['DSB', 'Category'], ['CDF', 'Category'], ['DVIC', 'Category'],

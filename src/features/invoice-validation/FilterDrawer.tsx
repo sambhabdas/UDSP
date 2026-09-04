@@ -12,7 +12,7 @@ import type { IvState } from './useInvoiceValidation'
  * The one shared filter drawer, with the page's single axis in it.
  *
  * Status is one-of rather than any-of, so picking a row replaces the choice
- * instead of adding to it — and nothing filters until Apply.
+ * instead of adding to it - and nothing filters until Apply.
  */
 export function FilterDrawer({ s }: { s: IvState }) {
   if (!s.fpOpen) return null
@@ -29,7 +29,7 @@ export function FilterDrawer({ s }: { s: IvState }) {
       style={{ position: 'fixed', inset: 0, background: 'rgba(17,24,39,.75)', display: 'flex', justifyContent: 'flex-end', zIndex: 60 }}
     >
       <div
-        data-dialog-card=""
+        data-dialog-drawer=""
         onClick={(e) => e.stopPropagation()}
         style={{
           boxSizing: 'border-box',

@@ -4,12 +4,12 @@
 // flight, the standby bench, who called out, and what each route has done on
 // road. Every board on the page reads this same day.
 
-/** Clock minutes since midnight — the unit every time on this page uses. */
+/** Clock minutes since midnight - the unit every time on this page uses. */
 export type Minutes = number
 
 /** The pinned clock the design file works from: 11:52. */
 export const NOW: Minutes = 712
-/** On Road works from a later clock, 14:41 — the boards are hours apart. */
+/** On Road works from a later clock, 14:41 - the boards are hours apart. */
 export const ON_NOW: Minutes = 881
 export const ME = 'R. GUTIERREZ'
 
@@ -34,7 +34,7 @@ export interface LastCall {
 /** A row on the Load Out roster: one route, one van, one driver. */
 export interface Row {
   id: string
-  /** Service type — the band the roster groups by. */
+  /** Service type - the band the roster groups by. */
   band: string
   emp: string
   /** Transporter ID. Empty means the roster could not match the driver. */

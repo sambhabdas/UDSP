@@ -36,7 +36,7 @@ export function Button({
   )
 }
 
-/** A 28px control-bar button — the toolbar's own height. */
+/** A 28px control-bar button - the toolbar's own height. */
 export function SmallButton({ children, onClick, title, icon }: { children: ReactNode; onClick: (e: React.MouseEvent) => void; title?: string; icon?: string }) {
   const [hover, hoverProps] = useHover()
   return (
@@ -301,7 +301,7 @@ export function FieldLabel({ children }: { children: ReactNode }) {
   return <span style={FIELD_LABEL}>{children}</span>
 }
 
-/** Caption-scale toast — this page's design file sets it one step down. */
+/** Caption-scale toast - this page's design file sets it one step down. */
 export function Toast({ children }: { children: ReactNode }) {
   return <BaseToast size="caption">{children}</BaseToast>
 }

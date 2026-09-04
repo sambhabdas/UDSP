@@ -8,7 +8,7 @@ import { FEED_ROWS } from '../data'
 import type { GaState } from '../useGeneralAssociates'
 
 /**
- * Overview — the six numbers that decide whether anything needs doing today,
+ * Overview - the six numbers that decide whether anything needs doing today,
  * plus the week ahead and what has happened lately.
  */
 export function OverviewTab({ s }: { s: GaState }) {

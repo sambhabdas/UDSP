@@ -1,12 +1,12 @@
 // Seed for Surveys, from Surveys.dc.html and SurveyMaker.dc.html.
 //
 // A survey is a question a driver answers on the phone app. The station never
-// sees who gave an anonymous answer — that promise is made at build time and
+// sees who gave an anonymous answer - that promise is made at build time and
 // restated every time the survey is sent.
 
 export type SurveyStatus = 'Active' | 'Draft' | 'Archived'
 
-/** A question as the seed spells it — the kind string still carries its
+/** A question as the seed spells it - the kind string still carries its
  *  follow-up and optional markers; the maker normalises those away. */
 export interface SeedQuestion {
   text: string
@@ -169,7 +169,7 @@ export const STATUS_TONE: Record<SurveyStatus, { dot: string; fg: string }> = {
   Archived: { dot: 'var(--neutral-400)', fg: 'var(--text-secondary)' },
 }
 
-// Audiences resolve at send time, not at pick time — "everyone who ran today"
+// Audiences resolve at send time, not at pick time - "everyone who ran today"
 // is a question asked when the send fires.
 export type AudienceId = 'roster' | 'pick' | 'today'
 

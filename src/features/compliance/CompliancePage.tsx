@@ -14,7 +14,7 @@ import type { ComplianceState } from './useCompliance'
 /**
  * Compliance: the punch and lunch board for the day.
  *
- * Two tabs share one page — the board itself, and the message setup that
+ * Two tabs share one page - the board itself, and the message setup that
  * decides when the reminders it sends go out. The thresholds set on the second
  * tab move the first tab's warnings, so they are one screen, not two.
  */
@@ -282,7 +282,7 @@ function menuItems(s: ComplianceState, kind: NonNullable<ComplianceState['menu']
         }),
       )
     items.push({ divider: true, label: '', color: '', on: () => {} })
-    // These two act on the selection only — never on the whole board.
+    // These two act on the selection only - never on the whole board.
     items.push({ label: 'End work now', color: 'var(--text-primary)', on: () => s.endWork(s.menuTargets(false)) })
     items.push({ label: 'Clear Work', color: 'var(--danger-fg)', on: () => s.clearWork(s.menuTargets(false)) })
     return items

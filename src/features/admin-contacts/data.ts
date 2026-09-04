@@ -2,7 +2,7 @@
 //
 // The station's phone directory as a DRIVER needs it: not a list of names but a
 // list of reasons, each pointing at whoever answers. A directory and nothing
-// else — it grants nothing, gates nothing and stores no account, so a contact
+// else - it grants nothing, gates nothing and stores no account, so a contact
 // needs no invite and no seat. `Job title` is free text and is never one of the
 // five UDSP posts.
 
@@ -83,7 +83,7 @@ export const CHOSEN_LIMIT = 3 // chosen chips shown in the form before "+n …"
 
 export const REASONS_HELP =
   'A reason with no contact is never shown to a driver. Dashed = nobody visible covers it. ' +
-  'Urgent reasons pin to the top of the Help screen. Retiring keeps it on its contacts, greyed — there is no delete.'
+  'Urgent reasons pin to the top of the Help screen. Retiring keeps it on its contacts, greyed - there is no delete.'
 
 export const TITLE_HELP =
-  'Free text — what they do at the company, not one of the five UDSP posts.'
+  'Free text - what they do at the company, not one of the five UDSP posts.'

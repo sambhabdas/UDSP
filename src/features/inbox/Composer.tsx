@@ -76,7 +76,7 @@ function CallButton({ onClick }: { onClick: () => void }) {
   )
 }
 
-// Fixed at the bottom of the activity window. Typed channels only — Call is a
+// Fixed at the bottom of the activity window. Typed channels only - Call is a
 // button that opens the floating dialer, never a tab.
 // The page owns all of this state, so it hands the whole bundle down through
 // ActivityPanel rather than threading ten props through it.
@@ -112,7 +112,7 @@ export function Composer({
       ? `Text ${firstName}…`
       : tab === 'Email'
         ? 'Write the email…'
-        : 'Internal note — never visible to the DA'
+        : 'Internal note - never visible to the DA'
 
   // Text: Enter sends, Shift+Enter is a newline. Email and Note commit from the
   // button, so Enter stays a newline there.
@@ -288,7 +288,7 @@ export function Composer({
 
         <div style={{ display: 'flex' }}>
           <div style={{ flex: 1 }} />
-          {/* One station line per station — the number every UDSP text comes from. */}
+          {/* One station line per station - the number every UDSP text comes from. */}
           <span style={{ ...caption2, color: 'var(--text-helper)', whiteSpace: 'nowrap' }}>
             {STATION_LINE}
           </span>

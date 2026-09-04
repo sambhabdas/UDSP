@@ -4,7 +4,7 @@
 // sorting and "days until" never re-parse a display string. They are built from
 // explicit y/m/d parts, which makes them the same on the server and the client.
 
-/** The clock the whole page is read against — Jul 29, 2026. */
+/** The clock the whole page is read against - Jul 29, 2026. */
 export const TODAY = new Date(2026, 6, 29)
 
 export type Status = 'In service' | 'In shop' | 'Grounded' | 'Off fleet'

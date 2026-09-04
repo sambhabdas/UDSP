@@ -1,4 +1,4 @@
-// Availability — who can work which day, and where that answer came from.
+// Availability - who can work which day, and where that answer came from.
 //
 // Every cell is one of three states, and each has a provenance: a standing
 // weekly pattern, a manual override, or an import. The grid never hides which.
@@ -49,7 +49,7 @@ export interface Cell {
   src: CellSource
 }
 
-/** overrides[week][daId][day] — anything not here falls back to the pattern. */
+/** overrides[week][daId][day] - anything not here falls back to the pattern. */
 export type Overrides = Record<number, Record<string, Record<number, Cell>>>
 
 export const SEED_OVERRIDES: Overrides = {
@@ -60,7 +60,7 @@ export const SEED_OVERRIDES: Overrides = {
   },
 }
 
-/** How many people each day of week 31 needs — drives the header ratio colour. */
+/** How many people each day of week 31 needs - drives the header ratio colour. */
 export const NEEDS: Record<number, number[]> = { 31: [6, 6, 6, 6, 6, 8, 6] }
 
 export interface AuditRow {
@@ -79,7 +79,7 @@ export const SEED_AUDIT: AuditRow[] = [
 
 export interface Batch {
   date: string
-  /** A sortable stamp — month × 100 + day. */
+  /** A sortable stamp - month × 100 + day. */
   d: number
   source: string
   file: string
@@ -112,7 +112,7 @@ export interface Issue {
   id: string
   value: string
   cause: string
-  /** `filter` is by design — reported, never resolved. */
+  /** `filter` is by design - reported, never resolved. */
   kind: 'da' | 'map' | 'filter'
   rows: number
 }
@@ -178,7 +178,7 @@ export function batchTone(status: string): { bg: string; fg: string; dot: string
   return { bg: 'var(--surface-subtle)', fg: 'var(--text-secondary)', dot: 'var(--neutral-400)' }
 }
 
-/** Avatar tints, picked by a hash of the name — the DS rule. */
+/** Avatar tints, picked by a hash of the name - the DS rule. */
 export function tint(name: string): [string, string] {
   const tints: [string, string][] = [
     ['var(--blue-100)', 'var(--blue-700)'],

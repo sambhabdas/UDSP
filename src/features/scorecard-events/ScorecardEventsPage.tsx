@@ -16,7 +16,7 @@ import { useEvents, type Tab } from './useEvents'
  * Events.
  *
  * The coaching cycle end to end: the ledger of what scored, the chase list of
- * what is still owed, and the record of what was closed — each with its own
+ * what is still owed, and the record of what was closed - each with its own
  * headline figures, its own columns, and its own filters.
  */
 export function ScorecardEventsPage() {
@@ -175,7 +175,7 @@ function FiltersButton({ s }: { s: ReturnType<typeof useEvents> }) {
   )
 }
 
-/** Only the Open tab has bulk actions — the other two have nothing to act on. */
+/** Only the Open tab has bulk actions - the other two have nothing to act on. */
 function BulkBar({ s }: { s: ReturnType<typeof useEvents> }) {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--size-80)', padding: 'var(--size-80) var(--size-160)', background: 'var(--blue-50)', borderTop: '1px solid var(--blue-200)' }}>

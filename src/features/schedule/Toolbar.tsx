@@ -13,7 +13,7 @@ import type { SchedState } from './useSchedule'
  * The card's one toolbar row.
  *
  * The week stepper is centred with `order` so it stays in the middle of the row
- * whatever wraps around it — the design file's own trick.
+ * whatever wraps around it - the design file's own trick.
  */
 export function Toolbar({ s }: { s: SchedState }) {
   return (
@@ -208,7 +208,7 @@ function StepButton({ title, rotate, onClick, side }: { title: string; rotate: n
  * The two-month picker.
  *
  * Only the weeks the page holds are reachable, so days outside them are greyed
- * rather than hidden — the shape of the month stays readable.
+ * rather than hidden - the shape of the month stays readable.
  */
 function Calendar({ s }: { s: SchedState }) {
   const minSerial = toSerial(dateOf(MIN_WEEK, 0))

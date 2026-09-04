@@ -5,7 +5,7 @@ import { Field, PrimaryButton } from './parts'
 import { BARE_INPUT, CARD } from './ui'
 import type { RateCardsState } from './useRateCards'
 
-/** A thread against the rates themselves — why a number moved, in words, next
+/** A thread against the rates themselves - why a number moved, in words, next
  *  to the number. */
 export function Notes({ s }: { s: RateCardsState }) {
   const ready = s.noteText.trim().length > 0

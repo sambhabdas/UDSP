@@ -124,7 +124,7 @@ export function rangeDays(a: Date, b: Date): Date[] {
   return out
 }
 
-/** Revenue over a range, plus how many distinct rates it took to price it —
+/** Revenue over a range, plus how many distinct rates it took to price it -
  *  which is what the "2 rates" chip on a row is counting. */
 export function revenueFor(t: ServiceType, a: Date, b: Date): { sum: number; rateCount: number } {
   let sum = 0
@@ -165,7 +165,7 @@ export function dayCost(types: ServiceType[], d: Date): number {
  *
  * Anything already running when the new window starts is closed the day before
  * it; anything wholly inside the new window is dropped. A bounded change also
- * puts the previous rate back the day after it ends — which is what makes
+ * puts the previous rate back the day after it ends - which is what makes
  * "$180 for one day, then back to $150" a single gesture.
  */
 export function applyWindow(

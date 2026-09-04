@@ -121,7 +121,7 @@ export function BarButton({
   )
 }
 
-/** A blue count pill — "Total: 31". */
+/** A blue count pill - "Total: 31". */
 export function CountPill({ children, title }: { children: ReactNode; title?: string }) {
   return (
     <span
@@ -144,7 +144,7 @@ export function CountPill({ children, title }: { children: ReactNode; title?: st
   )
 }
 
-/** An amber count chip that also filters — "Issues: 4". */
+/** An amber count chip that also filters - "Issues: 4". */
 export function IssueChip({
   children,
   on,
@@ -235,7 +235,7 @@ export function BarSearch({
   )
 }
 
-/** A control-height square holding one glyph — the group and columns pickers. */
+/** A control-height square holding one glyph - the group and columns pickers. */
 export function IconButton({
   name,
   onClick,
@@ -306,7 +306,7 @@ export function SectionChevron({ open, onClick }: { open: boolean; onClick: () =
 
 /**
  * A board section: a card whose header carries the chevron, the title, its own
- * buttons, its counts, a filter and a primary action — the shape every block on
+ * buttons, its counts, a filter and a primary action - the shape every block on
  * Load Out repeats.
  */
 export function SectionCard({
@@ -425,7 +425,7 @@ export function Th({
   )
 }
 
-/** A status pill with a dot — never colour alone. */
+/** A status pill with a dot - never colour alone. */
 export function StatusPill({
   children,
   tone,

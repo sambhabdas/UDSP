@@ -35,7 +35,7 @@ export function useInbox() {
     [selectedId],
   )
 
-  // A deliberate open clears unread + missed for the whole team — one station,
+  // A deliberate open clears unread + missed for the whole team - one station,
   // one queue (§1). Auto-selection never routes through here.
   const selectPerson = useCallback((id: string) => {
     setSelectedId(id)

@@ -151,7 +151,7 @@ export function useCoachingLibrary() {
   const pageVideos = useMemo(() => paginate(videosShown, vPg, PAGE_SIZE), [videosShown, vPg])
   const pageQuizzes = useMemo(() => paginate(quizRows, qPg, PAGE_SIZE), [quizRows, qPg])
 
-  /** Videos grouped by category — the gallery view's layout. */
+  /** Videos grouped by category - the gallery view's layout. */
   const videoGroups = useMemo(
     () => CATS
       .map((c) => ({ label: c, dot: c === 'Safety' ? 'var(--danger-fg)' : undefined, cards: videosShown.filter((x) => x.cat === c) }))

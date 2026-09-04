@@ -25,7 +25,7 @@ const HEAD: HeadDef[] = [
 ]
 
 /**
- * The vehicle directory — one row per van, whatever its status. An off-fleet
+ * The vehicle directory - one row per van, whatever its status. An off-fleet
  * van stays on the list, stepped back, because its history still matters.
  */
 export function Directory({ s }: { s: VehiclesState }) {

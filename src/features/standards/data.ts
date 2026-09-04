@@ -1,4 +1,4 @@
-// Standards — the scoring rulebook.
+// Standards - the scoring rulebook.
 //
 // Two halves: the catalogue of what scores and by how much, and the tier
 // ladder that turns a net score into a label. Everything else on the page is
@@ -132,7 +132,7 @@ export const PER_UNITS = ['Valid violation', 'Event', 'Dollar', 'Minute']
 
 export const signed = (n: number): string => `${n > 0 ? '+' : n < 0 ? '-' : ''}${Math.abs(n)}`
 
-/** Highest band first — the order the ladder and the distribution both read in. */
+/** Highest band first - the order the ladder and the distribution both read in. */
 export const sortTiers = (list: Tier[]): Tier[] =>
   list.slice().sort((a, b) => (b.from === null ? -Infinity : b.from) - (a.from === null ? -Infinity : a.from))
 

@@ -41,7 +41,7 @@ interface WeekChartProps {
 const H = 232
 const H_SMALL = 196
 
-// A projected day is drawn as a dashed outline rather than a solid fill — the
+// A projected day is drawn as a dashed outline rather than a solid fill - the
 // second channel that keeps "not actual yet" from being colour-only.
 const projectedBar = (
   value: number,
@@ -171,7 +171,7 @@ export function CostPerRoute({ tip, setTip, onPickDay }: Omit<WeekChartProps, 'l
                     boxSizing: 'border-box',
                   }}
                 />
-                {/* Only the best and worst days are labelled — never a number
+                {/* Only the best and worst days are labelled - never a number
                     on every point. */}
                 {(best || worst) && (
                   <span
@@ -284,7 +284,7 @@ export function PerRouteEconomics({ locked, tip, setTip, onPickDay }: WeekChartP
   )
 }
 
-// Hours and cost sit side by side per day, each against its own axis — see the
+// Hours and cost sit side by side per day, each against its own axis - see the
 // note in the README about this pairing.
 function PairedChart({
   title,

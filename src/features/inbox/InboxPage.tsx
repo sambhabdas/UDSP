@@ -9,9 +9,9 @@ import { dial } from '../dialer/dial'
 
 // Breakpoints. The first three are the design file's:
 //   ≥1180  three columns
-//   920–1179  compact three columns
+//   920-1179  compact three columns
 //   <920   two columns, decision rail becomes a Details drawer
-// The fourth is an addition — below 640 the two-column grid needs more width
+// The fourth is an addition - below 640 the two-column grid needs more width
 // than the viewport has, and because the page is `overflow: hidden` the
 // composer would be pushed off-screen and become unreachable rather than
 // merely scrolled. So Recents folds into a drawer too and the conversation

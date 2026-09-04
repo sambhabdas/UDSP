@@ -3,7 +3,7 @@
 // The unit is the Amazon invoice week: Sunday to Saturday, carrying Amazon's
 // real week number and always year-qualified. A payroll is two consecutive
 // weeks, so a year is 26 of them. Labels are never renumbered and never
-// re-based to the calendar's own year — `W<number> · <year>` is the week's
+// re-based to the calendar's own year - `W<number> · <year>` is the week's
 // real identity, and it is how Invoice Validation and Profitability name the
 // week they scope to.
 
@@ -27,7 +27,7 @@ export function fmtD(d: Date, withYear?: boolean): string {
   )
 }
 
-// Local-date ISO — `toISOString` would shift the day for anyone west of UTC.
+// Local-date ISO - `toISOString` would shift the day for anyone west of UTC.
 export function iso(d: Date): string {
   const p = (n: number) => String(n).padStart(2, '0')
   return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}`
@@ -40,14 +40,15 @@ export function fromIso(s: string): Date {
 
 export { money } from '../../ds/format'
 
-// An en dash for ranges; the end year is printed only when it leaves the
+// A hyphen for ranges, the way the design files write them ("Jul 12 - 18",
+// "Aug 21-22"); the end year is printed only when it leaves the
 // calendar's own year, which a 26-period calendar seeded after W1 always does.
 export function fmtRange(a: Date, b: Date, ctxYear: number | string | null): string {
   const sameMonth = a.getMonth() === b.getMonth() && a.getFullYear() === b.getFullYear()
   const end = sameMonth ? String(b.getDate()) : fmtD(b)
   return (
     fmtD(a) +
-    (sameMonth ? '–' : ' – ') +
+    (sameMonth ? '-' : ' - ') +
     end +
     (b.getFullYear() !== Number(ctxYear) ? ', ' + b.getFullYear() : '')
   )

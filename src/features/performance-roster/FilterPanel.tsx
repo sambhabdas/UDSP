@@ -26,7 +26,7 @@ export function FilterPanel({ s }: { s: RosterState }) {
   return (
     <div onClick={close} style={{ position: 'fixed', inset: 0, background: 'rgba(17,24,39,.75)', display: 'flex', justifyContent: 'flex-end', zIndex: 60 }}>
       <div
-        data-dialog-card=""
+        data-dialog-drawer=""
         onClick={(e) => e.stopPropagation()}
         style={{
           boxSizing: 'border-box', width: 360, height: '100%', background: 'var(--surface-raised)',
@@ -89,7 +89,7 @@ export function FilterPanel({ s }: { s: RosterState }) {
   )
 }
 
-/** The "At Risk Only" switch turns red, not blue — it narrows to a problem. */
+/** The "At Risk Only" switch turns red, not blue - it narrows to a problem. */
 function RiskToggle({ on, onClick }: { on: boolean; onClick: () => void }) {
   return (
     <div

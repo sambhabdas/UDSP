@@ -24,7 +24,7 @@ export function Avatar({ name, size }: { name: string; size: number }) {
   )
 }
 
-/** A dotted pill — tier, eligibility, anything with a status colour. */
+/** A dotted pill - tier, eligibility, anything with a status colour. */
 export function Pill({
   label, bg, fg, dot, border,
 }: {
@@ -161,7 +161,7 @@ export function Button({
   )
 }
 
-/** A square icon button — the kebabs and the close buttons. */
+/** A square icon button - the kebabs and the close buttons. */
 export function IconButton({
   icon, onClick, size = 28, color = 'var(--text-secondary)', bordered,
 }: {
@@ -231,7 +231,7 @@ export function Field({ label, children }: { label: string; children: ReactNode 
   )
 }
 
-/** A form input in a dialog — subtle fill, no visible focus jump. */
+/** A form input in a dialog - subtle fill, no visible focus jump. */
 export function Input({
   value, onChange, type, placeholder, suffix, numeric,
 }: {

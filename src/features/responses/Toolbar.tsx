@@ -8,7 +8,7 @@ import type { RespState } from './useResponses'
 /**
  * The sticky toolbar: which survey, over what window, for whom.
  *
- * The driver picker only exists on a named survey — an anonymous one has no
+ * The driver picker only exists on a named survey - an anonymous one has no
  * driver on any answer, so there is nothing to filter by.
  */
 export function Toolbar({ s }: { s: RespState }) {

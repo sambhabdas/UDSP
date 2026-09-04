@@ -1,4 +1,4 @@
-// Associates — the roster the whole console hangs off.
+// Associates - the roster the whole console hangs off.
 //
 // Everything here is the seed the design file carries verbatim. The rows below
 // the roster (this week, the activity feed, shifts, events, route history, the
@@ -18,7 +18,7 @@ export interface Exclusion {
 export interface Da {
   id: string
   name: string
-  /** Amazon's transporter ID — the identity every import joins on. */
+  /** Amazon's transporter ID - the identity every import joins on. */
   tr: string
   /** Paycom's employee code. Blank means payroll has no record yet. */
   ee: string
@@ -46,7 +46,7 @@ export interface Da {
   onRoute: string | null
 }
 
-/** Who is signed in — the name the manual Events carry. */
+/** Who is signed in - the name the manual Events carry. */
 export const ME = 'R. GUTIERREZ'
 
 export const DAS: Da[] = [
@@ -62,7 +62,7 @@ export const DAS: Da[] = [
   { id: 'd10', name: 'STROSKA, ANGELO', tr: 'A3TP0007AS', ee: '40112', phone: '(213) 555-0112', email: 'a.stroska@mail.com', quals: ['Non-DOT'], veh: ['Delivery Van'], status: 'inactive', inactiveSince: 'Jul 2, 2026', net: 20, next: '-', hoursPP: 0, abs: 0, pto: 0, tenure: 16, started: 'Apr 21, 2025', uda: 'invited', onRoute: null },
 ]
 
-/** The active coaching library — [module, category]. */
+/** The active coaching library - [module, category]. */
 export const MODULES: [string, string][] = [
   ['Safe Backing', 'Safety'],
   ['Speeding Awareness', 'Safety'],
@@ -98,7 +98,7 @@ export const QUALS = ['DOT', 'Non-DOT', 'Step Van', 'EV']
 export const VEH_TYPES = ['Delivery Van', 'Large Van', 'CDV', 'Step Van']
 export const EXCLUSION_REASONS = ['New Hire', 'Suspended', 'Leave', 'Other']
 
-/** The filter drawer's four sections — [key, label, options, kind]. */
+/** The filter drawer's four sections - [key, label, options, kind]. */
 export type FilterKey = 'status' | 'quals' | 'veh' | 'flags'
 
 export const FILTER_SECTIONS: [FilterKey, string, string[], 'radio' | 'multi'][] = [

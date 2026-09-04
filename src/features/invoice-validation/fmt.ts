@@ -26,7 +26,7 @@ export function money(v: number): string {
 /** A rate under a dollar keeps its cents but drops the grouping. */
 export const rate = (v: number): string => (v < 1 ? `$${v.toFixed(2)}` : money(v))
 
-/** "+2" / "−3" / "-" — the unit-difference column. */
+/** "+2" / "−3" / "-" - the unit-difference column. */
 export const signed = (v: number): string => (v === 0 ? '-' : `${v > 0 ? '+' : '−'}${num(Math.abs(v))}`)
 
 /** The sign is read from the station's side: billed under what ran is red. */

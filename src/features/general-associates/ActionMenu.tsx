@@ -17,7 +17,7 @@ const DIVIDER = null
 type Entry = Item | typeof DIVIDER
 
 /**
- * The floating action menu — the roster's row ⋯, the profile header's ⋯, and
+ * The floating action menu - the roster's row ⋯, the profile header's ⋯, and
  * the Export split.
  *
  * It is anchored in viewport coordinates the way the design file anchors it, so
@@ -155,7 +155,7 @@ function buildEntries(s: GaState): Entry[] {
         },
       },
       {
-        // From a row, both readings open the dialog — the design has no
+        // From a row, both readings open the dialog - the design has no
         // one-click reinstate here, only on the profile header.
         label: d.excluded ? 'Reinstate' : 'Exclude From Auto-Schedule',
         run: () => {

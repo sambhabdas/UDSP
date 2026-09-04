@@ -5,7 +5,7 @@ import { useToast } from '../../ds/hooks'
 import { SURVEYS } from './data'
 import type { Question, Survey } from './data'
 
-/** Which floating thing is open — only ever one at a time. */
+/** Which floating thing is open - only ever one at a time. */
 export type Drop = 'survey' | 'range' | 'drivers' | 'export' | `driver-${string}` | null
 
 export interface DetailState {
@@ -57,7 +57,7 @@ export function useResponses() {
 
   const s: Survey = SURVEYS[survey]
 
-  /** Every driver who answered anything — the toolbar's multi-select list. */
+  /** Every driver who answered anything - the toolbar's multi-select list. */
   const allDrivers = useMemo(() => {
     const names: string[] = []
     s.questions.forEach((q) => q.details.forEach((d) => { if (d.driver && !names.includes(d.driver)) names.push(d.driver) }))

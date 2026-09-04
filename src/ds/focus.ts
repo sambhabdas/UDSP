@@ -17,7 +17,7 @@ export interface FocusHandlers {
   onBlur: () => void
 }
 
-// Clicking must not leave a ring behind — preventDefault on mousedown keeps
+// Clicking must not leave a ring behind - preventDefault on mousedown keeps
 // focus off the element, so :focus only ever means keyboard.
 export function useFocusRing(): [boolean, FocusHandlers] {
   const [focus, setFocus] = useState(false)
