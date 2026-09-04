@@ -5,5 +5,11 @@ out
 *.tsbuildinfo
 next-env.d.ts
 
-# Local env — .env.example is the committed template.
-.env*.local
+# Env files are ignored as a family, so a new one (.env.production, .env.local,
+# a scratch .env) cannot be committed by accident. .env.example is the exception:
+# it is the committed template and carries no real values.
+#
+# Nothing secret has to be in .env for the app to run - src/config/env.ts falls
+# back to sensible defaults, and the sign-in credentials live in .env.local.
+.env*
+!.env.example
